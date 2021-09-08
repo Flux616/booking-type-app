@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* shvetsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* shvetsTests.m */; };
+		00E356F31AD99517003FC87E /* firstTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* firstTestTests.m */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		21460FF9689D832A1F82AC10 /* libPods-shvets.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8ADE7C8072253013E3EF1874 /* libPods-shvets.a */; };
-		7D0FFE9FAE986EA764ED8BFD /* libPods-shvets-shvetsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FC02C0072F54D9A94C8B7178 /* libPods-shvets-shvetsTests.a */; };
+		356CB68DCD5395419BED2EC4 /* libPods-firstTest-firstTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB94A50A3CB161D426EFFA3 /* libPods-firstTest-firstTestTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		B3606EF4A8336E68FF7ABAC4 /* libPods-firstTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B80B8426D6A994D867EE88B /* libPods-firstTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,28 +22,28 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = shvets;
+			remoteInfo = firstTest;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* shvetsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shvetsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* firstTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = firstTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* shvetsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = shvetsTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* shvets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shvets.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = shvets/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = shvets/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = shvets/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = shvets/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = shvets/main.m; sourceTree = "<group>"; };
-		52737C98055EF659DF2490ED /* Pods-shvets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shvets.debug.xcconfig"; path = "Target Support Files/Pods-shvets/Pods-shvets.debug.xcconfig"; sourceTree = "<group>"; };
-		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = shvets/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8ADE7C8072253013E3EF1874 /* libPods-shvets.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shvets.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A7931727000C714E278A0556 /* Pods-shvets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shvets.release.xcconfig"; path = "Target Support Files/Pods-shvets/Pods-shvets.release.xcconfig"; sourceTree = "<group>"; };
-		C244D49881371C0253E5AC02 /* Pods-shvets-shvetsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shvets-shvetsTests.debug.xcconfig"; path = "Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* firstTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = firstTestTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* firstTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = firstTest/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = firstTest/AppDelegate.m; sourceTree = "<group>"; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = firstTest/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = firstTest/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = firstTest/main.m; sourceTree = "<group>"; };
+		2495260D6A30B0FC323F2F17 /* Pods-firstTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstTest.release.xcconfig"; path = "Target Support Files/Pods-firstTest/Pods-firstTest.release.xcconfig"; sourceTree = "<group>"; };
+		377A9CF2F533855C86AE48ED /* Pods-firstTest-firstTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstTest-firstTestTests.debug.xcconfig"; path = "Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6830C43EB9C46C12011E5D2C /* Pods-firstTest-firstTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstTest-firstTestTests.release.xcconfig"; path = "Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		777FE6CCA22FD750B81F39B0 /* Pods-firstTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firstTest.debug.xcconfig"; path = "Target Support Files/Pods-firstTest/Pods-firstTest.debug.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = firstTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B80B8426D6A994D867EE88B /* libPods-firstTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-firstTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB94A50A3CB161D426EFFA3 /* libPods-firstTest-firstTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-firstTest-firstTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		FC02C0072F54D9A94C8B7178 /* libPods-shvets-shvetsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-shvets-shvetsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FEF88509DF96949DF46074E7 /* Pods-shvets-shvetsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shvets-shvetsTests.release.xcconfig"; path = "Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D0FFE9FAE986EA764ED8BFD /* libPods-shvets-shvetsTests.a in Frameworks */,
+				356CB68DCD5395419BED2EC4 /* libPods-firstTest-firstTestTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,20 +59,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21460FF9689D832A1F82AC10 /* libPods-shvets.a in Frameworks */,
+				B3606EF4A8336E68FF7ABAC4 /* libPods-firstTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* shvetsTests */ = {
+		00E356EF1AD99517003FC87E /* firstTestTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* shvetsTests.m */,
+				00E356F21AD99517003FC87E /* firstTestTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = shvetsTests;
+			path = firstTestTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -83,7 +83,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* shvets */ = {
+		13B07FAE1A68108700A75B9A /* firstTest */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -93,29 +93,17 @@
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = shvets;
+			name = firstTest;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				8ADE7C8072253013E3EF1874 /* libPods-shvets.a */,
-				FC02C0072F54D9A94C8B7178 /* libPods-shvets-shvetsTests.a */,
+				8B80B8426D6A994D867EE88B /* libPods-firstTest.a */,
+				CFB94A50A3CB161D426EFFA3 /* libPods-firstTest-firstTestTests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		6F628A543B23B6A50CDABF22 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				52737C98055EF659DF2490ED /* Pods-shvets.debug.xcconfig */,
-				A7931727000C714E278A0556 /* Pods-shvets.release.xcconfig */,
-				C244D49881371C0253E5AC02 /* Pods-shvets-shvetsTests.debug.xcconfig */,
-				FEF88509DF96949DF46074E7 /* Pods-shvets-shvetsTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -128,12 +116,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* shvets */,
+				13B07FAE1A68108700A75B9A /* firstTest */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* shvetsTests */,
+				00E356EF1AD99517003FC87E /* firstTestTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				6F628A543B23B6A50CDABF22 /* Pods */,
+				B90FDB8139E7E8CDB86D820C /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -143,56 +131,68 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* shvets.app */,
-				00E356EE1AD99517003FC87E /* shvetsTests.xctest */,
+				13B07F961A680F5B00A75B9A /* firstTest.app */,
+				00E356EE1AD99517003FC87E /* firstTestTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B90FDB8139E7E8CDB86D820C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				777FE6CCA22FD750B81F39B0 /* Pods-firstTest.debug.xcconfig */,
+				2495260D6A30B0FC323F2F17 /* Pods-firstTest.release.xcconfig */,
+				377A9CF2F533855C86AE48ED /* Pods-firstTest-firstTestTests.debug.xcconfig */,
+				6830C43EB9C46C12011E5D2C /* Pods-firstTest-firstTestTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* shvetsTests */ = {
+		00E356ED1AD99517003FC87E /* firstTestTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "shvetsTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "firstTestTests" */;
 			buildPhases = (
-				80355126CB810070E3762A1F /* [CP] Check Pods Manifest.lock */,
+				C9E53DCFEA2569BCCC47B367 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				733C126347FDCF8195FB9654 /* [CP] Embed Pods Frameworks */,
-				2265DA6F06D31DDD2C9B5C44 /* [CP] Copy Pods Resources */,
+				8BD46D3B092E3C90205162A9 /* [CP] Embed Pods Frameworks */,
+				9E7F072F516ADDCF3BCADA68 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = shvetsTests;
-			productName = shvetsTests;
-			productReference = 00E356EE1AD99517003FC87E /* shvetsTests.xctest */;
+			name = firstTestTests;
+			productName = firstTestTests;
+			productReference = 00E356EE1AD99517003FC87E /* firstTestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* shvets */ = {
+		13B07F861A680F5B00A75B9A /* firstTest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "shvets" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "firstTest" */;
 			buildPhases = (
-				B09EA27D61A3E9518D1206B9 /* [CP] Check Pods Manifest.lock */,
+				C9F53A710FFDBB45F7DC353D /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				DE2A3782BBB1E3B8F9BA7899 /* [CP] Embed Pods Frameworks */,
-				695325042C0CF97F46173D7E /* [CP] Copy Pods Resources */,
+				FE0CA3D8EDB4A7EE91F5E41A /* [CP] Embed Pods Frameworks */,
+				55FABA0B05C74CFD5A6E722B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = shvets;
-			productName = shvets;
-			productReference = 13B07F961A680F5B00A75B9A /* shvets.app */;
+			name = firstTest;
+			productName = firstTest;
+			productReference = 13B07F961A680F5B00A75B9A /* firstTest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -212,7 +212,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "shvets" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "firstTest" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +225,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* shvets */,
-				00E356ED1AD99517003FC87E /* shvetsTests */,
+				13B07F861A680F5B00A75B9A /* firstTest */,
+				00E356ED1AD99517003FC87E /* firstTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -265,58 +265,58 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		2265DA6F06D31DDD2C9B5C44 /* [CP] Copy Pods Resources */ = {
+		55FABA0B05C74CFD5A6E722B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest/Pods-firstTest-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest/Pods-firstTest-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-firstTest/Pods-firstTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		695325042C0CF97F46173D7E /* [CP] Copy Pods Resources */ = {
+		8BD46D3B092E3C90205162A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets/Pods-shvets-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets/Pods-shvets-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shvets/Pods-shvets-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		733C126347FDCF8195FB9654 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shvets-shvetsTests/Pods-shvets-shvetsTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		80355126CB810070E3762A1F /* [CP] Check Pods Manifest.lock */ = {
+		9E7F072F516ADDCF3BCADA68 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-firstTest-firstTestTests/Pods-firstTest-firstTestTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9E53DCFEA2569BCCC47B367 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -331,14 +331,14 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-shvets-shvetsTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-firstTest-firstTestTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B09EA27D61A3E9518D1206B9 /* [CP] Check Pods Manifest.lock */ = {
+		C9F53A710FFDBB45F7DC353D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -353,28 +353,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-shvets-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-firstTest-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE2A3782BBB1E3B8F9BA7899 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets/Pods-shvets-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-shvets/Pods-shvets-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-shvets/Pods-shvets-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -396,6 +379,23 @@
 			shellScript = "export RCT_METRO_PORT=\"${RCT_METRO_PORT:=8081}\"\necho \"export RCT_METRO_PORT=${RCT_METRO_PORT}\" > \"${SRCROOT}/../node_modules/react-native/scripts/.packager.env\"\nif [ -z \"${RCT_NO_LAUNCH_PACKAGER+xxx}\" ] ; then\n  if nc -w 5 -z localhost ${RCT_METRO_PORT} ; then\n    if ! curl -s \"http://localhost:${RCT_METRO_PORT}/status\" | grep -q \"packager-status:running\" ; then\n      echo \"Port ${RCT_METRO_PORT} already in use, packager is either not running or not running correctly\"\n      exit 2\n    fi\n  else\n    open \"$SRCROOT/../node_modules/react-native/scripts/launchPackager.command\" || echo \"Can't start packager automatically\"\n  fi\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		FE0CA3D8EDB4A7EE91F5E41A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest/Pods-firstTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-firstTest/Pods-firstTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-firstTest/Pods-firstTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -403,7 +403,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* shvetsTests.m in Sources */,
+				00E356F31AD99517003FC87E /* firstTestTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,7 +421,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* shvets */;
+			target = 13B07F861A680F5B00A75B9A /* firstTest */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -429,14 +429,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C244D49881371C0253E5AC02 /* Pods-shvets-shvetsTests.debug.xcconfig */;
+			baseConfigurationReference = 377A9CF2F533855C86AE48ED /* Pods-firstTest-firstTestTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = shvetsTests/Info.plist;
+				INFOPLIST_FILE = firstTestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -450,17 +450,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shvets.app/shvets";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/firstTest.app/firstTest";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEF88509DF96949DF46074E7 /* Pods-shvets-shvetsTests.release.xcconfig */;
+			baseConfigurationReference = 6830C43EB9C46C12011E5D2C /* Pods-firstTest-firstTestTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = shvetsTests/Info.plist;
+				INFOPLIST_FILE = firstTestTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -474,19 +474,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/shvets.app/shvets";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/firstTest.app/firstTest";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 52737C98055EF659DF2490ED /* Pods-shvets.debug.xcconfig */;
+			baseConfigurationReference = 777FE6CCA22FD750B81F39B0 /* Pods-firstTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = shvets/Info.plist;
+				INFOPLIST_FILE = firstTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,7 +497,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = shvets;
+				PRODUCT_NAME = firstTest;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -506,12 +506,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A7931727000C714E278A0556 /* Pods-shvets.release.xcconfig */;
+			baseConfigurationReference = 2495260D6A30B0FC323F2F17 /* Pods-firstTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = shvets/Info.plist;
+				INFOPLIST_FILE = firstTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +522,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = shvets;
+				PRODUCT_NAME = firstTest;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -654,7 +654,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "shvetsTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "firstTestTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -663,7 +663,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "shvets" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "firstTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -672,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "shvets" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "firstTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
