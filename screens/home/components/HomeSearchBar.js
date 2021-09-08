@@ -1,9 +1,8 @@
 import React from "react"
-import { Text, View, TextInput, Button, StyleSheet, TouchableOpacity } from "react-native"
-import Icon from 'react-native-elements'
+import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native"
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
-const SearchBar = () => {
+const HomeSearchBar = () => {
     
     return (
         <View style={styles.container}>
@@ -12,10 +11,8 @@ const SearchBar = () => {
               placeholder={'Search here...'}
               autoCapitalize={true}
             />
-            <TouchableOpacity
-              style={styles.button}
-            >
-                <Text>Find</Text>
+            <TouchableOpacity style={styles.searchIcon}>
+                <Ionicons name={'search'} size={26} color={'ghostwhite'} />
             </TouchableOpacity>
         </View>
     )
@@ -29,18 +26,18 @@ const styles = StyleSheet.create({
         marginHorizontal: 20
     },
     searchInput: {
-        width: "70%",
+        flex: 1,
         backgroundColor: '#e6e6fa',
         borderRadius: 6,
-        paddingHorizontal: 10,
-        height: 44
+        marginRight: 20,
+        height: 50,
+        paddingHorizontal: 15
     },
-    button: {
-        height: 44,
-        width: "23%",
-        backgroundColor: '#278CCF',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
+    searchIcon: {
+        height: 50,
+        width: 50,
+        backgroundColor: 'deepskyblue',
+        padding: 12,
         borderRadius: 4,
         elevation: 2,
         shadowColor: '#000',
@@ -53,4 +50,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default SearchBar
+export default HomeSearchBar

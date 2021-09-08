@@ -10,7 +10,7 @@ const Header = () => {
                 <Text style={styles.lowerText}>Start search your trip!</Text>
             </View>
             <View style={styles.imageContainer}>
-                <Image style={styles.image} source={require('../assets/images/avatar.jpg')} />
+                <Image style={styles.image} source={require('../../../assets/images/avatar.jpg')} />
             </View>
         </View>
     )

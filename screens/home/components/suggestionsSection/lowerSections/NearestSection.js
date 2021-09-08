@@ -6,25 +6,25 @@ const defaultState = [
     {
         title: 'Stockholm',
         location: 'Sweden',
-        image: require('../../../assets/images/cities/stockholm.jpeg'),
+        image: require('../../../../../assets/images/countries/sweden.jpeg'),
         id: 1
     },
     {
         title: 'Amsterdam',
         location: 'Netherlands',
-        image: require('../../../assets/images/cities/amsterdam.jpg'),
+        image: require('../../../../../assets/images/countries/netherlands.jpg'),
         id: 2
     },
     {
         title: 'London',
         location: 'United Kingdom',
-        image: require('../../../assets/images/cities/london.jpg'),
+        image: require('../../../../../assets/images/countries/uk.jpg'),
         id: 3
     },
     {
         title: 'Budapest',
         location: 'Hungary',
-        image: require('../../../assets/images/cities/budapest.jpg'),
+        image: require('../../../../../assets/images/countries/hungary.jpg'),
         id: 4
     }
 ]

@@ -6,22 +6,22 @@ const defaultState = [
     {
         title: 'Copenhagen',
         location: 'Denmark',
-        image: require('../../../assets/images/cities/copenhagen.jpeg')
+        image: require('../../../../../assets/images/countries/denmark.jpeg')
     },
     {
         title: 'Frankfurt',
         location: 'Germany',
-        image: require('../../../assets/images/cities/frankfurt.jpg')
+        image: require('../../../../../assets/images/countries/germany.jpg')
     },
     {
         title: 'Gdansk',
         location: 'Poland',
-        image: require('../../../assets/images/cities/gdansk.jpg')
+        image: require('../../../../../assets/images/countries/poland.jpg')
     },
     {
         title: 'Prague',
         location: 'Czech Republic',
-        image: require('../../../assets/images/cities/prague.jpg')
+        image: require('../../../../../assets/images/countries/czech-republic.jpg')
     }
 ]
 
