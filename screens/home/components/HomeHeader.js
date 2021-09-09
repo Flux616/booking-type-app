@@ -1,20 +1,17 @@
 import React from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
 
-const Header = () => {
-
-    return (
-        <View style={styles.container}>
-            <View>
-                <Text style={styles.upperText}>Welcome Buddy</Text>
-                <Text style={styles.lowerText}>Start search your trip!</Text>
-            </View>
-            <View style={styles.imageContainer}>
-                <Image style={styles.image} source={require('../../../assets/images/avatar.jpg')} />
-            </View>
+const Header = () => (
+    <View style={styles.container}>
+        <View>
+            <Text style={styles.upperText}>Welcome Buddy</Text>
+            <Text style={styles.lowerText}>Start search your trip!</Text>
         </View>
-    )
-}
+        <View style={styles.imageContainer}>
+            <Image style={styles.image} source={require('../../../assets/images/avatar.jpg')} />
+        </View>
+    </View>
+)
 
 const styles = StyleSheet.create({
     container: {

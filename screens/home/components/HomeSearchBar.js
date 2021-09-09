@@ -2,21 +2,18 @@ import React from "react"
 import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native"
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-const HomeSearchBar = () => {
-    
-    return (
-        <View style={styles.container}>
-            <TextInput
-              style={styles.searchInput}
-              placeholder={'Search here...'}
-              autoCapitalize={true}
-            />
-            <TouchableOpacity style={styles.searchIcon}>
-                <Ionicons name={'search'} size={26} color={'ghostwhite'} />
-            </TouchableOpacity>
-        </View>
-    )
-}
+const HomeSearchBar = () => (
+    <View style={styles.container}>
+        <TextInput
+            style={styles.searchInput}
+            placeholder={'Search here...'}
+            autoCapitalize={true}
+        />
+        <TouchableOpacity style={styles.searchIcon}>
+            <Ionicons name={'search'} size={26} color={'ghostwhite'} />
+        </TouchableOpacity>
+    </View>
+)
 
 const styles = StyleSheet.create({
     container: {

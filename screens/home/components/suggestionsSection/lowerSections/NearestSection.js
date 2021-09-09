@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {View, Text, StyleSheet, FlatList, Image} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 import NearestItem from './NearestItem'
 
 const defaultState = [
@@ -30,21 +30,19 @@ const defaultState = [
 ]
 
 const NearestSection = () => {
-
     const [nearestItemsList, setNearestItemsList] = useState(defaultState)
 
     return (
         <View style={styles.section}>
-            <Text style={{fontWeight: 'bold'}}>Nearest</Text>
-            {nearestItemsList.map( item => {
-                return (
+            <Text style={styles.headerText}>Nearest</Text>
+            {nearestItemsList.map( item => (
                 <NearestItem
-                  image={item.image}
-                  title={item.title}
-                  location={item.location}
+                    key={item.id}
+                    image={item.image}
+                    title={item.title}
+                    location={item.location}
                 />
-                )
-            })}
+            ))}
         </View>
     )
 }
@@ -53,7 +51,10 @@ const styles = StyleSheet.create ({
     section: {
         marginTop: 10,
         marginLeft: 20 
-      }
+    },
+    headerText: {
+        fontWeight: 'bold'
+    }
 })
 
 export default NearestSection

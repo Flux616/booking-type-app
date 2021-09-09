@@ -2,18 +2,15 @@ import React from "react"
 import { View, TextInput, StyleSheet } from "react-native"
 
 
-const HomeSearchBar = () => {
-    
-    return (
-        <View style={styles.container}>
-            <TextInput
-              style={styles.searchInput}
-              placeholder={'Search here...'}
-              autoCapitalize={true}
-            />
-        </View>
-    )
-}
+const HomeSearchBar = () => (
+    <View style={styles.container}>
+        <TextInput
+            style={styles.searchInput}
+            placeholder={'Search here...'}
+            autoCapitalize={true}
+        />
+    </View>
+)
 
 const styles = StyleSheet.create({
     container: {

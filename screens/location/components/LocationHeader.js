@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -11,9 +11,7 @@ function MyBackButton() {
             <Ionicons
                 style={styles.backButton}
                 name={'ios-chevron-back-sharp'}
-                onPress={() => {
-                navigation.goBack();
-                }}
+                onPress={() => {navigation.goBack();}}
                 size={36}
                 color={'deepskyblue'}
             />
@@ -21,13 +19,11 @@ function MyBackButton() {
     );
 }
 
-const LocationHeader = () => {
-    return (
-        <View style={styles.container}>
-            <MyBackButton/>
-        </View>
-    )
-}
+const LocationHeader = () => (
+    <View style={styles.container}>
+        <MyBackButton/>
+    </View>
+)
 
 export default LocationHeader
 

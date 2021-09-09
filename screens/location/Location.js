@@ -6,16 +6,13 @@ import LocationSearchBar from './components/LocationSearchBar'
 
 
 
-const Location = () => {
-
-    return (
-        <ScrollView>
-            <LocationHeader/>
-            <LocationSearchBar/>
-            <LocationCities/>
-        </ScrollView>
-    )
-}
+const Location = () => (
+    <ScrollView>
+        <LocationHeader/>
+        <LocationSearchBar/>
+        <LocationCities/>
+    </ScrollView>
+)
 
 export default Location
 

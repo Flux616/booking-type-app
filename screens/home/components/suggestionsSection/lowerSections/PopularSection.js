@@ -6,46 +6,48 @@ const defaultState = [
     {
         title: 'Copenhagen',
         location: 'Denmark',
-        image: require('../../../../../assets/images/countries/denmark.jpeg')
+        image: require('../../../../../assets/images/countries/denmark.jpeg'),
+        id: 1
     },
     {
         title: 'Frankfurt',
         location: 'Germany',
-        image: require('../../../../../assets/images/countries/germany.jpg')
+        image: require('../../../../../assets/images/countries/germany.jpg'),
+        id: 2
     },
     {
         title: 'Gdansk',
         location: 'Poland',
-        image: require('../../../../../assets/images/countries/poland.jpg')
+        image: require('../../../../../assets/images/countries/poland.jpg'),
+        id: 3
     },
     {
         title: 'Prague',
         location: 'Czech Republic',
-        image: require('../../../../../assets/images/countries/czech-republic.jpg')
+        image: require('../../../../../assets/images/countries/czech-republic.jpg'),
+        id: 4
     }
 ]
 
 const PopularSection = () => {
-
     const [popularItemsList, setPopularItemsList] = useState(defaultState)
 
     return (
         <View style={styles.section}>
-            <Text style={{fontWeight: 'bold'}}>Popular</Text>
+            <Text style={styles.headerText}>Popular</Text>
             <ScrollView 
               style={styles.container} 
               horizontal={true}
               showsHorizontalScrollIndicator={false}
             >
-                {popularItemsList.map( item => {
-                    return (
-                        <PopularItem
-                          image={item.image}
-                          title={item.title}
-                          location={item.location}
-                        />
-                    )
-                })}
+                {popularItemsList.map( item => (
+                    <PopularItem
+                        key={item.id}
+                        image={item.image}
+                        title={item.title}
+                        location={item.location}
+                    />
+                ))}
             </ScrollView>
         </View>
     )
@@ -54,11 +56,15 @@ const PopularSection = () => {
 const styles = StyleSheet.create({
     section: {
       marginTop: 25,
-      marginLeft: 20 
+      marginHorizontal: 10 
     },
     container: {
       margin: 10,
       flexDirection: 'row' 
+    },
+    headerText: {
+        marginLeft: 10,
+        fontWeight: 'bold'
     }
   });
 

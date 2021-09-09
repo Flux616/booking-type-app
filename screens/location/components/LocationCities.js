@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { StyleSheet, Text, View, Image, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Image } from 'react-native'
 
 const defaultState = [
     {
@@ -7,23 +7,28 @@ const defaultState = [
         citiesArray: [
             {
                 name: 'Berlin',
-                image: require('../../../assets/images/cities/germany/berlin.jpg')
+                image: require('../../../assets/images/cities/germany/berlin.jpg'),
+                id: 1
             },
             {
                 name: 'Cologne',
-                image: require('../../../assets/images/cities/germany/cologne.webp')
+                image: require('../../../assets/images/cities/germany/cologne.webp'),
+                id: 2
             },
             {
                 name: 'Frankfurt',
-                image: require('../../../assets/images/cities/germany/frankfurt.jpg')
+                image: require('../../../assets/images/cities/germany/frankfurt.jpg'),
+                id: 3
             },
             {
                 name: 'Leipzig',
-                image: require('../../../assets/images/cities/germany/leipzig.jpg')
+                image: require('../../../assets/images/cities/germany/leipzig.jpg'),
+                id: 4
             },
             {
                 name: 'Munich',
-                image: require('../../../assets/images/cities/germany/munich.jpg')
+                image: require('../../../assets/images/cities/germany/munich.jpg'),
+                id: 5
             }
         ]
     },
@@ -32,50 +37,48 @@ const defaultState = [
         citiesArray: [
             {
                 name: 'Stockholm',
-                image: require('../../../assets/images/cities/sweden/stockholm.jpeg')
+                image: require('../../../assets/images/cities/sweden/stockholm.jpeg'),
+                id: 1
             },
             {
                 name: 'Uppsala',
-                image: require('../../../assets/images/cities/sweden/uppsala.jpg')
+                image: require('../../../assets/images/cities/sweden/uppsala.jpg'),
+                id: 2
             },
             {
                 name: 'Gothenburg',
-                image: require('../../../assets/images/cities/sweden/gothenburg.jpg')
+                image: require('../../../assets/images/cities/sweden/gothenburg.jpg'),
+                id: 3
             },
             {
                 name: 'Helsingborg',
-                image: require('../../../assets/images/cities/sweden/helsingborg.jpg')
+                image: require('../../../assets/images/cities/sweden/helsingborg.jpg'),
+                id: 4
             }
         ]
     }
 ]
 
 const LocationCities = () => {
-
     const [locations, setLocations] = useState(defaultState)
 
     return (
         <View>
-            { 
-                locations.map( opt => {
-                    if (opt.country === 'Germany') { 
-                        return opt.citiesArray.map( city => {
-                            return (
-                            <View style={styles.item}>
-                                <Image style={styles.image} source={city.image}/>
-                                <View style={styles.textArea}>
-                                    <Text style={styles.upperText}>{city.name}</Text>
-                                    <Text style={styles.lowerText}>{opt.country}</Text>
-                                </View>
+            {locations.map( selected => {
+                if (selected.country === 'Germany') { 
+                    return selected.citiesArray.map( city => (
+                        <View style={styles.item} key={city.id}>
+                            <Image style={styles.image} source={city.image}/>
+                            <View style={styles.textArea}>
+                                <Text style={styles.upperText}>{city.name}</Text>
+                                <Text style={styles.lowerText}>{selected.country}</Text>
                             </View>
-                            )
-                        })
-                    }
-                })
-            }
+                        </View>
+                    ))
+                }
+            })}
         </View>
     )
-
 }
 
 export default LocationCities
