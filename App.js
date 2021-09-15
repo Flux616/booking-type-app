@@ -1,112 +1,119 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import type {Node} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import Home from './screens/home/Home';
+import Location from './screens/location/Location';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { StyleSheet } from 'react-native';
+import Profile from './screens/profile/Profile';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import EditProfile from './screens/editProfile/EditProfile';
+import { Provider } from 'react-redux';
+import { store } from './redux';
+import Icon from 'react-native-vector-icons/Ionicons'
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const HomeStack = createNativeStackNavigator();
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+const HomeStackScreen = () => (
+  <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+    <HomeStack.Screen name='Related' component={Home} />
+    <HomeStack.Screen name='Location' component={Location} />
+  </HomeStack.Navigator>
+)
 
-const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
+const ProfileStack = createNativeStackNavigator();
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+const ProfileStackScreen = () => (
+  <ProfileStack.Navigator>
+    <ProfileStack.Screen
+      name='User Profile'
+      component={Profile}
+      options={{
+        title: 'Profile',
+        headerStyle: {
+          backgroundColor: '#f8f8ff',
+          shadowColor: 'transparent'
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        }
+      }}
+    />
+    <ProfileStack.Screen
+      name='Edit Profile'
+      component={EditProfile}
+      options={({ navigation }) => ({
+        title: 'Edit Profile',
+        headerStyle: {
+          backgroundColor: '#f8f8ff',
+          shadowColor: 'transparent'
+        },
+        headerTitleStyle: {
+          fontWeight: 'bold'
+        },
+        headerLeft: () => (
+          <Icon
+            name='chevron-back-outline'
+            size={26}
+            color='gray'
+            onPress={() => { navigation.goBack() }}
+          />
+        )
+      })}
+    />
+  </ProfileStack.Navigator>
+)
 
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-};
+const Tab = createBottomTabNavigator();
+
+const App = () => (
+  <NavigationContainer style={styles.container}>
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          switch (route.name) {
+            case 'Home':
+              iconName = focused ? 'home' : 'home-outline';
+              break;
+
+            case 'Location':
+              iconName = focused ? 'compass' : 'compass-outline';
+              break;
+
+            case 'Favorite':
+              iconName = focused ? 'heart' : 'heart-outline';
+              break;
+
+            case 'Profile':
+              iconName = focused ? 'person' : 'person-outline';
+              break;
+
+            default: break;
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'deepskyblue',
+        tabBarInactiveTintColor: 'gray',
+        headerShown: false
+      })}>
+      <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen name="Profile" component={ProfileStackScreen} />
+    </Tab.Navigator>
+  </NavigationContainer>
+);
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+  container: {
+    backgroundColor: "#f8f8ff"
+  }
+})
 
-export default App;
+const ProviderApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
+
+export default ProviderApp;
