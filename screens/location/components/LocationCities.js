@@ -65,7 +65,7 @@ const LocationCities = () => {
     return (
         <View>
             {locations.map( selected => {
-                if (selected.country === 'Germany') { 
+                if (selected.country === 'Germany') {
                     return selected.citiesArray.map( city => (
                         <View style={styles.item} key={city.id}>
                             <Image style={styles.image} source={city.image}/>

@@ -7,7 +7,7 @@ const HomeSearchBar = () => (
         <TextInput
             style={styles.searchInput}
             placeholder={'Search here...'}
-            autoCapitalize={true}
+            autoCapitalize={'words'}
         />
     </View>
 )
