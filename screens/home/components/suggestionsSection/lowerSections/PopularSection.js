@@ -55,6 +55,11 @@ const styles = StyleSheet.create({
     },
     container: {
       margin: 10,
+      flexDirection: 'row',
+      marginTop: 25
+    },
+    container: {
+      margin: 10,
       flexDirection: 'row'
     },
     headerText: {

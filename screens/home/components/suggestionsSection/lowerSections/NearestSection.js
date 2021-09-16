@@ -31,7 +31,6 @@ const defaultState = [
         title: 'Budapest',
         location: 'Hungary',
         image: require('../../../../../assets/images/countries/hungary.jpg'),
-        id: 4,
         rating: '★ 4.2',
         price: '90€/Day'
     }
@@ -45,7 +44,6 @@ const NearestSection = () => {
             <Text style={styles.headerText}>Nearest</Text>
             {nearestItemsList.map( item => (
                 <NearestItem
-                    rating={item.rating}
                     key={item.id}
                     image={item.image}
                     title={item.title}
