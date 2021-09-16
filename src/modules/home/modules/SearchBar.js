@@ -1,35 +1,37 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native"
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useSelector } from "react-redux";
 
-const HomeSearchBar = () => {
+const SearchBar = () => {
     const [countryInput, setCountryInput] = useState('')
     const coutryList = useSelector(state => state.locations)
 
+    const handleChange = value => setCountryInput(value)
+
     const searchCountry = countryInput => {
         const filteredCountry = countryList.filter(item => item.country === countryInput)
-        //TODO: Navigation to details of filtered item
+        //NAVIGATION TO DETAILS SCREEN WITH FILTERED ITEM WITH PROPS?
     }
 
     return (
-    <View style={styles.container}>
-        <TextInput
-            value={countryInput}
-            style={styles.searchInput}
-            placeholder={'Search city here...'}
-            autoCapitalize={'words'}
-            onChangeText={(value) => setCountryInput(value)}
-        />
-        <TouchableOpacity style={styles.searchIcon}>
-            <Ionicons
-                name={'search'}
-                size={26}
-                color={'#f8f8ff'}
-                onPress={searchCountry}
+        <View style={styles.container}>
+            <TextInput
+                value={countryInput}
+                style={styles.searchInput}
+                placeholder={'Search city here...'}
+                autoCapitalize={'words'}
+                onChangeText={handleChange}
             />
-        </TouchableOpacity>
-    </View>)
+            <TouchableOpacity style={styles.searchIcon}>
+                <Ionicons
+                    name={'search'}
+                    size={26}
+                    color={'#f8f8ff'}
+                    onPress={searchCountry}
+                />
+            </TouchableOpacity>
+        </View>)
 }
 
 const styles = StyleSheet.create({
@@ -64,4 +66,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default HomeSearchBar
+export default SearchBar

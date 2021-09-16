@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-const ProfileFooter = () => (
+const Footer = () => (
     <View>
         <Text style={styles.header}>My Account</Text>
         <TouchableOpacity>
@@ -13,7 +13,7 @@ const ProfileFooter = () => (
     </View>
 )
 
-export default ProfileFooter
+export default Footer
 
 const styles = StyleSheet.create({
     header: {

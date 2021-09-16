@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, TextInput, View, Image, Text } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
-import { setDescription, setName, setEmail, setUsername } from '../../redux/profileSlice'
+import { setDescription, setName, setEmail, setUsername } from '../../slice'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 
@@ -24,7 +24,7 @@ const EditProfile = () => {
         <View style={styles.wrapper}>
             <View style={styles.container}>
                 <View style={styles.imageContainer}>
-                    <Image style={styles.image} source={require('../../assets/images/avatar.jpg')} />
+                    <Image style={styles.image} source={require('../../../../../assets/images/avatar.jpg')} />
                     <View style={styles.pencilIcon}>
                         <Icon
                             name='ios-pencil-outline'
@@ -37,18 +37,24 @@ const EditProfile = () => {
                     <CustomTextInput
                         style={styles.nameInput}
                         value={name}
-                        onChangeText={(value) => dispatch(setName(value))}
+                        onChangeText={(value) => {
+                            dispatch(setName(value))
+                        }}
                     />
                     <CustomTextInput
                         value={description}
                         style={styles.descriptionInput}
-                        onChangeText={(value) => dispatch(setDescription(value))}
+                        onChangeText={(value) => {
+                            dispatch(setDescription(value))
+                        }}
                     />
                     <CustomTextInput
                         value={email}
                         label='Email Adress'
                         style={styles.bottomLineInput}
-                        onChangeText={(value) => dispatch(setEmail(value))}
+                        onChangeText={(value) => {
+                            dispatch(setEmail(value))
+                        }}
                     />
                     <Text style={styles.label}>Username</Text>
                     <View style={styles.inputWithIcon}>
@@ -61,7 +67,9 @@ const EditProfile = () => {
                         <CustomTextInput
                             value={username}
                             style={styles.inputWithIconText}
-                            onChangeText={(value) => dispatch(setUsername(value))}
+                            onChangeText={(value) => {
+                                dispatch(setUsername(value))
+                            }}
                         />
                     </View>
                 </View>

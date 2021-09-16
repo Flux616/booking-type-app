@@ -64,7 +64,7 @@ export default ProfileStatus
 
 const styles = StyleSheet.create({
     header: {
-        color: 'gray'
+        color: '#808080'
     },
     buttonsRow: {
         flexGrow: 0,
@@ -89,15 +89,15 @@ const styles = StyleSheet.create({
         padding: 11
     },
     away: {
-        backgroundColor: 'black'
+        backgroundColor: '#000000'
     },
     work: {
-        backgroundColor: 'forestgreen'
+        backgroundColor: '#228B22'
     },
     gaming: {
-        backgroundColor: 'orange'
+        backgroundColor: '#FFA500'
     },
     free: {
-        backgroundColor: 'royalblue'
+        backgroundColor: '#4169e1'
     }
 })

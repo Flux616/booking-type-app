@@ -1,18 +1,18 @@
 import React from 'react'
-import {Image, View, Text, StyleSheet} from 'react-native'
+import { Image, View, Text, StyleSheet } from 'react-native'
 
-const PopularItem = (props) => (
+const PopularCity = (props) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={props.image}/>
-        <Text style={styles.titleText}>{props.title}</Text>
-        <Text style={styles.locationText}>{props.location}</Text>
+        <Image style={styles.image} source={props.image} />
+        <Text style={styles.titleText}>{props.city}</Text>
+        <Text style={styles.locationText}>{props.country}</Text>
         <View style={styles.rating}>
             <Text style={styles.ratingText}>{props.rating}</Text>
         </View>
     </View>
 )
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     item: {
         padding: 10,
         marginRight: 10,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create ({
         marginTop: 8,
         color: '#808080'
     },
-    rating:{
+    rating: {
         borderRadius: 2,
         backgroundColor: '#FFFFFF',
         position: 'absolute',
@@ -49,4 +49,4 @@ const styles = StyleSheet.create ({
     }
 })
 
-export default PopularItem
+export default PopularCity

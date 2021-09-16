@@ -23,46 +23,46 @@ const HomeStackScreen = () => (
 
 const ProfileStack = createNativeStackNavigator();
 
-const ProfileStackScreen = () => (
-  <ProfileStack.Navigator>
-    <ProfileStack.Screen
-      name='User Profile'
-      component={Profile}
-      options={{
-        title: 'Profile',
-        headerStyle: {
-          backgroundColor: '#f8f8ff',
-          shadowColor: 'transparent'
-        },
-        headerTitleStyle: {
-          fontWeight: 'bold',
-        }
-      }}
-    />
-    <ProfileStack.Screen
-      name='Edit Profile'
-      component={EditProfile}
-      options={({ navigation }) => ({
-        title: 'Edit Profile',
-        headerStyle: {
-          backgroundColor: '#f8f8ff',
-          shadowColor: 'transparent'
-        },
-        headerTitleStyle: {
-          fontWeight: 'bold'
-        },
-        headerLeft: () => (
-          <Icon
-            name='chevron-back-outline'
-            size={26}
-            color='gray'
-            onPress={() => { navigation.goBack() }}
-          />
-        )
-      })}
-    />
-  </ProfileStack.Navigator>
-)
+const ProfileStackScreen = () => {
+  const headerStyles = {
+    headerStyle: {
+      backgroundColor: '#f8f8ff',
+      shadowColor: 'transparent'
+    },
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    }
+  }
+
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen
+        name='UserProfile'
+        component={Profile}
+        options={{
+          title: 'Profile',
+          style: { headerStyles }
+        }}
+      />
+      <ProfileStack.Screen
+        name='EditProfile'
+        component={EditProfile}
+        options={({ navigation }) => ({
+          title: 'Edit Profile',
+          style: { headerStyles },
+          headerLeft: () => (
+            <Icon
+              name='chevron-back-outline'
+              size={26}
+              color='#808080'
+              onPress={() => { navigation.goBack() }}
+            />
+          )
+        })}
+      />
+    </ProfileStack.Navigator>
+  )
+}
 
 const Tab = createBottomTabNavigator();
 
@@ -94,8 +94,8 @@ const App = () => (
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-        tabBarActiveTintColor: 'deepskyblue',
-        tabBarInactiveTintColor: 'gray',
+        tabBarActiveTintColor: '#00bfff',
+        tabBarInactiveTintColor: '#808080',
         headerShown: false
       })}>
       <Tab.Screen name="Home" component={HomeStackScreen} />

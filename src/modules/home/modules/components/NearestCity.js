@@ -1,9 +1,9 @@
 import React from 'react'
-import {Image, View, Text, StyleSheet} from 'react-native'
+import { Image, View, Text, StyleSheet } from 'react-native'
 
-const NearestItem = (props) => (
+const NearestCity = (props) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={props.image}/>
+        <Image style={styles.image} source={props.image} />
         <View style={styles.rating}>
             <Text style={styles.ratingText}>{props.rating}</Text>
         </View>
@@ -11,13 +11,13 @@ const NearestItem = (props) => (
             <Text style={styles.priceText}>{props.price}</Text>
         </View>
         <View style={styles.textArea}>
-            <Text style={styles.titleText}>{props.title}</Text>
-            <Text style={styles.locationText}>{props.location}</Text>
+            <Text style={styles.titleText}>{props.city}</Text>
+            <Text style={styles.locationText}>{props.country}</Text>
         </View>
     </View>
 )
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
         padding: 10,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create ({
         marginTop: 8,
         color: '#808080'
     },
-    rating:{
+    rating: {
         borderRadius: 4,
         backgroundColor: '#f8f8ff',
         position: 'absolute',
@@ -71,4 +71,4 @@ const styles = StyleSheet.create ({
     }
 })
 
-export default NearestItem
+export default NearestCity

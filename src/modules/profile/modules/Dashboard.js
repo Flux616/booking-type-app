@@ -15,7 +15,7 @@ const DashboardButton = ({uniqueStyle, buttonName, buttonLabel}) => (
     </TouchableOpacity>
 )
 
-const ProfileDashboard = () => (
+const Dashboard = () => (
     <View>
         <Text style={styles.header}>Dashboard</Text>
         <View>
@@ -26,7 +26,7 @@ const ProfileDashboard = () => (
     </View>
 )
 
-export default ProfileDashboard
+export default Dashboard
 
 const styles = StyleSheet.create({
     header: {

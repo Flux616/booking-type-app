@@ -4,13 +4,14 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
 import { useSelector } from 'react-redux'
 
-const ProfileInfo = () => {
+const Info = () => {
+
     const {name, description} = useSelector((state) => state.profile)
     const navigation = useNavigation()
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require('../../../assets/images/avatar.jpg')} />
+            <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
             <View>
                 <Text style={styles.userName}>{name}</Text>
                 <Text style={styles.userDescription}>{description}</Text>
@@ -19,12 +20,12 @@ const ProfileInfo = () => {
                 name='edit'
                 size={24}
                 color={'#808080'}
-                onPress={() => {navigation.navigate('EditProfile')}}/>
+                onPress={() => {navigation.navigate('Edit Profile')}}/>
         </View>
     )
 }
 
-export default ProfileInfo
+export default Info
 
 const styles = StyleSheet.create({
     container: {

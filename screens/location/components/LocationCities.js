@@ -90,7 +90,7 @@ const styles = StyleSheet.create ({
         marginHorizontal: 15,
         height: 220,
         borderRadius: 4,
-        backgroundColor: 'white'
+        backgroundColor: '#FFFFFF'
     },
     image: {
         width: '100%',
@@ -109,6 +109,6 @@ const styles = StyleSheet.create ({
     },
     lowerText: {
         marginTop: 8,
-        color: 'gray'
+        color: '#808080'
     }
 })
