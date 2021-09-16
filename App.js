@@ -1,16 +1,16 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import Home from './screens/home/Home';
 import Location from './screens/location/Location';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { StyleSheet } from 'react-native';
-import Profile from './screens/profile/Profile';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import EditProfile from './screens/editProfile/EditProfile';
 import { Provider } from 'react-redux';
 import { store } from './redux';
 import Icon from 'react-native-vector-icons/Ionicons'
+import Profile from './screens/profile/Profile'
 
 const HomeStack = createNativeStackNavigator();
 
