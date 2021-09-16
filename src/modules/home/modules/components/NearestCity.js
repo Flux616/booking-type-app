@@ -1,43 +1,30 @@
 import React from 'react'
-import {Image, View, Text, StyleSheet} from 'react-native'
+import { Image, View, Text, StyleSheet } from 'react-native'
 
-<<<<<<< HEAD
-const NearestItem = ({image, rating, price, title, location}) => (
+const NearestCity = (props) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={image}/>
+        <Image style={styles.image} source={props.image} />
         <View style={styles.rating}>
-            <Text style={styles.ratingText}>{rating}</Text>
+            <Text style={styles.ratingText}>{props.rating}</Text>
         </View>
         <View style={styles.price}>
-            <Text style={styles.priceText}>{price}</Text>
+            <Text style={styles.priceText}>{props.price}</Text>
         </View>
         <View style={styles.textArea}>
-            <Text style={styles.titleText}>{title}</Text>
-            <Text style={styles.locationText}>{location}</Text>
-=======
-const NearestItem = (props) => (
-    <View style={styles.item}>
-        <Image style={styles.image} source={props.image}/>
-        <View style={styles.textArea}>
-            <Text style={styles.titleText}>{props.title}</Text>
-            <Text style={styles.locationText}>{props.location}</Text>
->>>>>>> main
+            <Text style={styles.titleText}>{props.city}</Text>
+            <Text style={styles.locationText}>{props.country}</Text>
         </View>
     </View>
 )
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     item: {
         flexDirection: 'row',
         padding: 10,
         margin: 10,
         height: 120,
         borderRadius: 4,
-<<<<<<< HEAD
         backgroundColor: '#FFFFFF'
-=======
-        backgroundColor: 'white'
->>>>>>> main
     },
     image: {
         width: 100,
@@ -56,10 +43,9 @@ const styles = StyleSheet.create ({
     },
     locationText: {
         marginTop: 8,
-<<<<<<< HEAD
         color: '#808080'
     },
-    rating:{
+    rating: {
         borderRadius: 4,
         backgroundColor: '#f8f8ff',
         position: 'absolute',
@@ -82,10 +68,7 @@ const styles = StyleSheet.create ({
         color: '#ffcd00',
         fontWeight: 'bold',
         fontSize: 17
-=======
-        color: 'gray'
->>>>>>> main
     }
 })
 
-export default NearestItem
+export default NearestCity

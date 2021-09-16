@@ -15,6 +15,14 @@ const Header = () => (
 
 const styles = StyleSheet.create({
     container: {
+<<<<<<< HEAD
+      justifyContent: "space-between",
+      flexDirection: "row",
+      marginHorizontal: 10
+    },
+    upperText: {
+        color: "#00bfff",
+=======
       marginTop: 60,
       marginHorizontal: 20,
       justifyContent: "space-between",
@@ -23,15 +31,20 @@ const styles = StyleSheet.create({
     upperText: {
         marginTop: 5,
         color: "deepskyblue",
+>>>>>>> main
         fontSize: 20,
         fontWeight: "bold"
     },
     lowerText: {
         marginTop: 10,
+<<<<<<< HEAD
+        color: "#00bfff"
+=======
         color: "deepskyblue"
     },
     imageContainer: {
 
+>>>>>>> main
     },
     image: {
         width: 50,
