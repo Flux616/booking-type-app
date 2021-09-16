@@ -1,12 +1,18 @@
 import React from 'react'
 import {Image, View, Text, StyleSheet} from 'react-native'
 
-const NearestItem = (props) => (
+const NearestItem = ({image, rating, price, title, location}) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={props.image}/>
+        <Image style={styles.image} source={image}/>
+        <View style={styles.rating}>
+            <Text style={styles.ratingText}>{rating}</Text>
+        </View>
+        <View style={styles.price}>
+            <Text style={styles.priceText}>{price}</Text>
+        </View>
         <View style={styles.textArea}>
-            <Text style={styles.titleText}>{props.title}</Text>
-            <Text style={styles.locationText}>{props.location}</Text>
+            <Text style={styles.titleText}>{title}</Text>
+            <Text style={styles.locationText}>{location}</Text>
         </View>
     </View>
 )
@@ -18,7 +24,7 @@ const styles = StyleSheet.create ({
         margin: 10,
         height: 120,
         borderRadius: 4,
-        backgroundColor: 'white'
+        backgroundColor: '#FFFFFF'
     },
     image: {
         width: 100,
@@ -37,7 +43,31 @@ const styles = StyleSheet.create ({
     },
     locationText: {
         marginTop: 8,
-        color: 'gray'
+        color: '#808080'
+    },
+    rating:{
+        borderRadius: 4,
+        backgroundColor: '#f8f8ff',
+        position: 'absolute',
+        right: 0,
+        padding: 7
+    },
+    ratingText: {
+        color: '#ffcd00',
+        fontWeight: 'bold',
+        fontSize: 15
+    },
+    price: {
+        borderRadius: 4,
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
+        padding: 14
+    },
+    priceText: {
+        color: '#ffcd00',
+        fontWeight: 'bold',
+        fontSize: 17
     }
 })
 

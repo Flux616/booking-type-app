@@ -65,7 +65,7 @@ const LocationCities = () => {
     return (
         <View>
             {locations.map( selected => {
-                if (selected.country === 'Germany') { 
+                if (selected.country === 'Germany') {
                     return selected.citiesArray.map( city => (
                         <View style={styles.item} key={city.id}>
                             <Image style={styles.image} source={city.image}/>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create ({
         marginHorizontal: 15,
         height: 220,
         borderRadius: 4,
-        backgroundColor: 'white'
+        backgroundColor: '#FFFFFF'
     },
     image: {
         width: '100%',
@@ -109,6 +109,6 @@ const styles = StyleSheet.create ({
     },
     lowerText: {
         marginTop: 8,
-        color: 'gray'
+        color: '#808080'
     }
 })
