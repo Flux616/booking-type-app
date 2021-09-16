@@ -17,7 +17,8 @@ const Home = () => (
 
 const styles = StyleSheet.create({
   home: {
-    marginHorizontal: 20
+    marginHorizontal: 20,
+    marginTop: 15
   },
   safeArea: {
     backgroundColor: '#f8f8ff'

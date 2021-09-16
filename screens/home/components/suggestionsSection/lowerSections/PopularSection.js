@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {ScrollView, View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, FlatList} from 'react-native'
 import PopularItem from './PopularItem'
 
 const defaultState = [
@@ -34,26 +34,17 @@ const defaultState = [
 ]
 
 const PopularSection = () => {
-    const [popularItemsList, setPopularItemsList] = useState(defaultState)
 
     return (
         <View style={styles.section}>
             <Text style={styles.headerText}>Popular</Text>
-            <ScrollView
-              style={styles.container}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            >
-                {popularItemsList.map( item => (
-                    <PopularItem
-                        key={item.id}
-                        image={item.image}
-                        title={item.title}
-                        location={item.location}
-                        rating={item.rating}
-                    />
-                ))}
-            </ScrollView>
+            <FlatList
+                horizontal
+                style={styles.container}
+                data={defaultState}
+                renderItem={PopularItem}
+                showsHorizontalScrollIndicator={false}
+            />
         </View>
     )
 }

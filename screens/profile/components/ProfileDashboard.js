@@ -3,13 +3,13 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
 
-const DashboardButton = ({uniqueStyle, buttonName, buttonLabel}) => (
+const DashboardButton = ({uniqueStyle, name, label}) => (
     <TouchableOpacity>
         <View style={styles.section}>
             <View style={[styles.icon, uniqueStyle]}>
-                <MaterialCommunityIcon name={buttonName} size={28} color={'#FFFFFF'}/>
+                <MaterialCommunityIcon name={name} size={28} color={'#FFFFFF'}/>
             </View>
-            <Text style={styles.iconText}>{buttonLabel}</Text>
+            <Text style={styles.iconText}>{label}</Text>
             <MaterialIcon name='keyboard-arrow-right' size={22} color={'#808080'} style={styles.forwardIcon}/>
         </View>
     </TouchableOpacity>
@@ -19,9 +19,9 @@ const ProfileDashboard = () => (
     <View>
         <Text style={styles.header}>Dashboard</Text>
         <View>
-            <DashboardButton uniqueStyle={styles.payment} buttonName='wallet-outline' buttonLabel='Payments'/>
-            <DashboardButton uniqueStyle={styles.achievements} buttonName='medal' buttonLabel='Achievements'/>
-            <DashboardButton uniqueStyle={styles.privacy} buttonName='shield-lock-outline' buttonLabel='Privacy'/>
+            <DashboardButton uniqueStyle={styles.payment} name='wallet-outline' label='Payments'/>
+            <DashboardButton uniqueStyle={styles.achievements} name='medal' label='Achievements'/>
+            <DashboardButton uniqueStyle={styles.privacy} name='shield-lock-outline' label='Privacy'/>
         </View>
     </View>
 )

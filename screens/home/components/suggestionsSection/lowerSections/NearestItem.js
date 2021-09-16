@@ -1,18 +1,18 @@
 import React from 'react'
 import {Image, View, Text, StyleSheet} from 'react-native'
 
-const NearestItem = (props) => (
+const NearestItem = ({image, rating, price, title, location}) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={props.image}/>
+        <Image style={styles.image} source={image}/>
         <View style={styles.rating}>
-            <Text style={styles.ratingText}>{props.rating}</Text>
+            <Text style={styles.ratingText}>{rating}</Text>
         </View>
         <View style={styles.price}>
-            <Text style={styles.priceText}>{props.price}</Text>
+            <Text style={styles.priceText}>{price}</Text>
         </View>
         <View style={styles.textArea}>
-            <Text style={styles.titleText}>{props.title}</Text>
-            <Text style={styles.locationText}>{props.location}</Text>
+            <Text style={styles.titleText}>{title}</Text>
+            <Text style={styles.locationText}>{location}</Text>
         </View>
     </View>
 )
