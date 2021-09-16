@@ -1,6 +1,7 @@
 import React from 'react'
 import {Image, View, Text, StyleSheet} from 'react-native'
 
+<<<<<<< HEAD
 const NearestItem = ({image, rating, price, title, location}) => (
     <View style={styles.item}>
         <Image style={styles.image} source={image}/>
@@ -13,6 +14,14 @@ const NearestItem = ({image, rating, price, title, location}) => (
         <View style={styles.textArea}>
             <Text style={styles.titleText}>{title}</Text>
             <Text style={styles.locationText}>{location}</Text>
+=======
+const NearestItem = (props) => (
+    <View style={styles.item}>
+        <Image style={styles.image} source={props.image}/>
+        <View style={styles.textArea}>
+            <Text style={styles.titleText}>{props.title}</Text>
+            <Text style={styles.locationText}>{props.location}</Text>
+>>>>>>> main
         </View>
     </View>
 )
@@ -24,7 +33,11 @@ const styles = StyleSheet.create ({
         margin: 10,
         height: 120,
         borderRadius: 4,
+<<<<<<< HEAD
         backgroundColor: '#FFFFFF'
+=======
+        backgroundColor: 'white'
+>>>>>>> main
     },
     image: {
         width: 100,
@@ -43,6 +56,7 @@ const styles = StyleSheet.create ({
     },
     locationText: {
         marginTop: 8,
+<<<<<<< HEAD
         color: '#808080'
     },
     rating:{
@@ -68,6 +82,9 @@ const styles = StyleSheet.create ({
         color: '#ffcd00',
         fontWeight: 'bold',
         fontSize: 17
+=======
+        color: 'gray'
+>>>>>>> main
     }
 })
 

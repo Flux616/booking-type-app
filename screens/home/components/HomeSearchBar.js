@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, {useState} from "react"
 import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native"
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -31,13 +32,35 @@ const HomeSearchBar = () => {
         </TouchableOpacity>
     </View>)
 }
+=======
+import React from "react"
+import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native"
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+const HomeSearchBar = () => (
+    <View style={styles.container}>
+        <TextInput
+            style={styles.searchInput}
+            placeholder={'Search here...'}
+            autoCapitalize={true}
+        />
+        <TouchableOpacity style={styles.searchIcon}>
+            <Ionicons name={'search'} size={26} color={'ghostwhite'} />
+        </TouchableOpacity>
+    </View>
+)
+>>>>>>> main
 
 const styles = StyleSheet.create({
     container: {
         justifyContent: "space-between",
         flexDirection: "row",
         marginTop: 30,
+<<<<<<< HEAD
         marginHorizontal: 10
+=======
+        marginHorizontal: 20
+>>>>>>> main
     },
     searchInput: {
         flex: 1,
@@ -50,7 +73,11 @@ const styles = StyleSheet.create({
     searchIcon: {
         height: 50,
         width: 50,
+<<<<<<< HEAD
         backgroundColor: '#00bfff',
+=======
+        backgroundColor: 'deepskyblue',
+>>>>>>> main
         padding: 12,
         borderRadius: 4,
         elevation: 2,
