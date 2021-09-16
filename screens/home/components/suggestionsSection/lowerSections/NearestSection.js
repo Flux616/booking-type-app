@@ -31,6 +31,7 @@ const defaultState = [
         title: 'Budapest',
         location: 'Hungary',
         image: require('../../../../../assets/images/countries/hungary.jpg'),
+        id: 4,
         rating: '★ 4.2',
         price: '90€/Day'
     }

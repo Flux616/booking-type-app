@@ -1,7 +1,6 @@
 import React from 'react'
 import { ScrollView, StyleSheet } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import HomeHeader from './components/HomeHeader'
 import HomeSearchBar from './components/HomeSearchBar'
 import SuggestionsSection from './components/suggestionsSection/SuggestionsSection'
