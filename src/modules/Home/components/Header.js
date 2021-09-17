@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, Image, StyleSheet } from "react-native";
 
 const Header = () => (
     <View style={styles.container}>
@@ -8,34 +8,31 @@ const Header = () => (
             <Text style={styles.lowerText}>Start search your trip!</Text>
         </View>
         <View style={styles.imageContainer}>
-            <Image style={styles.image} source={require('../../../assets/images/avatar.jpg')} />
+            <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
         </View>
     </View>
-);
+)
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginHorizontal: 10
+      justifyContent: "space-between",
+      flexDirection: "row",
+      marginHorizontal: 10
     },
     upperText: {
-        color: 'deepskyblue',
+        color: "#00bfff",
         fontSize: 20,
-        fontWeight: 'bold'
+        fontWeight: "bold"
     },
     lowerText: {
         marginTop: 10,
-        color: 'deepskyblue'
-    },
-    imageContainer: {
-
+        color: "#00bfff"
     },
     image: {
         width: 50,
         height: 50,
         borderRadius: 50
     }
-});
+  });
 
-export default Header;
+export default Header
