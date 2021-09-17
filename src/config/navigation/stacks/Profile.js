@@ -10,13 +10,16 @@ const ProfileStack = createNativeStackNavigator();
 const ProfileStackScreen = () => (
     <ProfileStack.Navigator>
         <ProfileStack.Screen
-            name='User Profile'
+            name='UserProfile'
             component={Profile}
             options={{
                 title: 'Profile',
                 headerStyle: {
                     backgroundColor: '#f8f8ff',
-                    shadowColor: 'transparent'
+                    shadowColor: 'transparent',
+                    borderBottomWidth: 0,
+                    shadowColor: 'transparent',
+                    shadowOffset: {height: 0}
                 },
                 headerTitleStyle: {
                     fontWeight: 'bold',
