@@ -1,13 +1,13 @@
 import React from 'react'
 import {Image, View, Text, StyleSheet} from 'react-native'
 
-const PopularItem = ({ item }) => (
+const PopularCity = ({ image, country, city, rating }) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={item.image}/>
-        <Text style={styles.titleText}>{item.country}</Text>
-        <Text style={styles.locationText}>{item.city}</Text>
+        <Image style={styles.image} source={image}/>
+        <Text style={styles.titleText}>{country}</Text>
+        <Text style={styles.locationText}>{city}</Text>
         <View style={styles.rating}>
-            <Text style={styles.ratingText}>{item.rating}</Text>
+            <Text style={styles.ratingText}>{rating}</Text>
         </View>
     </View>
 )
@@ -49,4 +49,4 @@ const styles = StyleSheet.create ({
     }
 })
 
-export default PopularItem
+export default PopularCity

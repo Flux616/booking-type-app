@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, TextInput, View, Image, Text } from 'react-native'
 import { useSelector, useDispatch } from 'react-redux'
-import { setDescription, setName, setEmail, setUsername } from '../../slice'
+import { setDescription, setName, setEmail, setUsername } from '../../redux'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 

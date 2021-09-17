@@ -2,7 +2,7 @@ import React, {useRef} from 'react'
 import { StyleSheet, View, FlatList } from 'react-native'
 import { Button } from 'react-native-elements'
 import { useDispatch, useSelector } from 'react-redux'
-import { setStatus } from '../slice'
+import { setStatus } from '../redux'
 
 const ProfileStatus = () => {
     const status = useSelector(state => state.profile.status)
