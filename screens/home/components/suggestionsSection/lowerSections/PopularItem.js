@@ -1,13 +1,13 @@
 import React from 'react'
 import {Image, View, Text, StyleSheet} from 'react-native'
 
-const PopularItem = ({ item }) => (
+const PopularItem = ({ image, title, location, rating }) => (
     <View style={styles.item}>
-        <Image style={styles.image} source={item.image}/>
-        <Text style={styles.titleText}>{item.title}</Text>
-        <Text style={styles.locationText}>{item.location}</Text>
+        <Image style={styles.image} source={image}/>
+        <Text style={styles.titleText}>{title}</Text>
+        <Text style={styles.locationText}>{location}</Text>
         <View style={styles.rating}>
-            <Text style={styles.ratingText}>{item.rating}</Text>
+            <Text style={styles.ratingText}>{rating}</Text>
         </View>
     </View>
 )

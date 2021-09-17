@@ -42,7 +42,7 @@ const PopularSection = () => {
                 horizontal
                 style={styles.container}
                 data={defaultState}
-                renderItem={PopularItem}
+                renderItem={({item}) => <PopularItem image={item.image} title={item.title} location={item.location} rating={item.rating}/>}
                 showsHorizontalScrollIndicator={false}
             />
         </View>
