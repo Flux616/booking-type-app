@@ -11,29 +11,24 @@ const Tab = createBottomTabNavigator();
 const AppNavigation = () => (
     <NavigationContainer style={styles.container}>
         <Tab.Navigator
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused, color, size }) => {
-                    let iconName;
-
-                    switch (route.name) {
-                    case 'Home':
-                        iconName = focused ? 'home' : 'home-outline';
-                        break;
-
-                    case 'Profile':
-                        iconName = focused ? 'person' : 'person-outline';
-                        break;
-
-                    default: break;
-                    }
-                    return <Icon name={iconName} size={size} color={color} />;
-                },
+            screenOptions={{
                 tabBarActiveTintColor: '#00bfff',
                 tabBarInactiveTintColor: '#808080',
                 headerShown: false
-            })}>
-            <Tab.Screen name="Home" component={HomeStackScreen} />
-            <Tab.Screen name="Profile" component={ProfileStackScreen} />
+            }}>
+            <Tab.Screen
+                name='Home'
+                component={HomeStackScreen}
+                options={{
+                    tabBarIcon: ({ focused, color, size }) => <Icon name={focused ? 'home' : 'home-outline'} size={size} color={color} />
+                }}
+            />
+            <Tab.Screen
+                name='Profile'
+                component={ProfileStackScreen}
+                options={{
+                    tabBarIcon: ({ focused, color, size }) => <Icon name={focused ? 'person' : 'person-outline'} size={size} color={color} />
+                }} />
         </Tab.Navigator>
     </NavigationContainer>
 )
