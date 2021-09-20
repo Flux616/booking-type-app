@@ -32,21 +32,21 @@ const ProfileStatus = () => {
         }
     ]
 
+    const onPress = (title, index) => {
+        dispatch(setStatus(title))
+        flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index})
+    }
+
     const renderButton = ({ item, index }) => (
         <View style={status === item.title && styles.buttonContainer}>
             <Button
                 buttonStyle={[status === item.title ? styles.checkedButton : styles.button, item.style]}
                 title={item.title}
-                onPress={() => pressHandler(item.title, index)}
+                onPress={() => onPress(item.title, index)}
                 id={item.id}
             />
         </View>
     )
-
-    const pressHandler = (title, index) => {
-        dispatch(setStatus(title))
-        flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index})
-    }
 
     return (
         <FlatList

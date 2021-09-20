@@ -20,14 +20,6 @@ const AppNavigation = () => (
                         iconName = focused ? 'home' : 'home-outline';
                         break;
 
-                    case 'Location':
-                        iconName = focused ? 'compass' : 'compass-outline';
-                        break;
-
-                    case 'Favorite':
-                        iconName = focused ? 'heart' : 'heart-outline';
-                        break;
-
                     case 'Profile':
                         iconName = focused ? 'person' : 'person-outline';
                         break;
