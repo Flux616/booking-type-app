@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import profileSlice from "../src/modules/profile/redux";
-import locationsSlice from "../src/modules/location/redux";
+import profileSlice from '../../modules/profile/redux';
+import locationsSlice from '../../modules/location/redux';
 
 
 const rootReducer = combineReducers({
