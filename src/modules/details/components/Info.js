@@ -1,33 +1,55 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
-import { Rating } from 'react-native-elements';
-
+import StarSVG from '../../../components/StarSVG';
+import StarHalfSVG from '../../../components/StarHalfSVG';
+import EmptyStarSVG from '../../../components/EmptyStarSVG';
 
 const Info = () => {
 
     const descriptionData = [
         {
-            icon: 'ios-ice-cream-outline',
-            text: 'Free Icecream'
+            SVG: <StarSVG/>,
+            text: '2 Bed'
         },
         {
             icon: 'ios-restaurant-outline',
-            text: 'Restaurants'
+            text: 'Dinner'
         },
         {
             icon: 'ios-game-controller-outline',
-            text: 'Entertainment'
+            text: 'AC'
         },
         {
             icon: 'ios-cash-outline',
-            text: 'Expencive'
+            text: '1 Bath'
         },
     ];
 
-    const RenderFeatures = ({icon, text}) => (
+    const rating = 3.5;
+
+    const createTable = (rating) => {
+        const ratingTable = [];
+        let counter = 0;
+
+        for ( ; counter < Math.floor(rating); counter++) {
+            ratingTable.push(<StarSVG/>);
+        }
+
+        if (rating - counter >= 0.5) {
+            ratingTable.push(<StarHalfSVG/>);
+            counter++;
+        }
+
+        for ( ; counter < 5; counter++) {
+            ratingTable.push(<EmptyStarSVG/>);
+        }
+
+        return ratingTable;
+    };
+
+    const RenderFeatures = ({SVG, text}) => (
         <View style={styles.featContainer}>
-            <Icon name={icon} size={20} color='gray'/>
+            {SVG}
             <Text style={styles.featText}>{text}</Text>
         </View>
     );
@@ -37,14 +59,9 @@ const Info = () => {
             <View style={styles.titleContainer}>
                 <Text style={styles.city}>Copenhagen</Text>
                 <Text style={styles.country}>Denmark</Text>
-                <Rating
-                    style={styles.rating}
-                    count={10}
-                    readonly
-                    startingValue={4.5}
-                    imageSize={24}
-                    ratingBackgroundColor='transparent'
-                />
+                <View style={styles.rating}>
+                    {createTable(rating).map(item => item)}
+                </View>
             </View>
             <FlatList
                 showsHorizontalScrollIndicator={false}
@@ -61,7 +78,8 @@ export default Info;
 const styles = StyleSheet.create({
     titleContainer: {
         justifyContent: 'space-between',
-        height: 65
+        height: 65,
+        marginTop: 15
     },
     city: {
         fontWeight: 'bold',
@@ -69,16 +87,16 @@ const styles = StyleSheet.create({
     },
     country: {
         fontSize: 20,
-        color: 'gray'
+        color: '#BFBFBF'
     },
     rating: {
+        flexDirection: 'row',
         position: 'absolute',
         right: 0,
-        bottom: 20,
-        backgroundColor: 'black'
+        bottom: 20
     },
     featText: {
-        color: 'gray',
+        color: '#BFBFBF',
         fontSize: 14
     },
     featContainer: {
@@ -87,7 +105,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#F8F8F8',
         width: 95,
         height: 70,
-        marginTop: 20,
+        marginTop: 15,
         marginBottom: 20,
         marginRight: 10,
         borderRadius: 10

@@ -1,16 +1,21 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import {Image, View, Text, StyleSheet} from 'react-native';
+import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-const PopularCity = ({ image, country, city, rating }) => (
-    <View style={styles.item}>
-        <Image style={styles.image} source={image}/>
-        <Text style={styles.titleText}>{country}</Text>
-        <Text style={styles.locationText}>{city}</Text>
-        <View style={styles.rating}>
-            <Text style={styles.ratingText}>{rating}</Text>
-        </View>
-    </View>
-);
+const PopularCity = ({ image, country, city, rating }) => {
+    const navigation = useNavigation();
+
+    return (
+        <TouchableOpacity style={styles.item} onPress={() => {navigation.navigate('Details');}}>
+            <Image style={styles.image} source={image}/>
+            <Text style={styles.titleText}>{country}</Text>
+            <Text style={styles.locationText}>{city}</Text>
+            <View style={styles.rating}>
+                <Text style={styles.ratingText}>{rating}</Text>
+            </View>
+        </TouchableOpacity>
+    );
+};
 
 const styles = StyleSheet.create ({
     item: {
@@ -19,7 +24,10 @@ const styles = StyleSheet.create ({
         height: 210,
         width: 160,
         backgroundColor: '#FFFFFF',
-        borderRadius: 4
+        borderRadius: 4,
+        shadowColor: '#808080',
+        shadowOpacity: 0.1,
+        shadowRadius: 10
     },
     image: {
         width: 140,

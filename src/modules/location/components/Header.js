@@ -13,7 +13,7 @@ function MyBackButton() {
                 name={'ios-chevron-back-sharp'}
                 onPress={() => {navigation.goBack();}}
                 size={36}
-                color={'#00bfff'}
+                color={'#3F96EA'}
             />
         </View>
     );

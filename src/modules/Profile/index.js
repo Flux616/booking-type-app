@@ -19,7 +19,7 @@ const Profile = () => (
 const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
-        backgroundColor: '#f8f8ff'
+        backgroundColor: '#FFFFFF'
     },
     container: {
         marginHorizontal: 30,

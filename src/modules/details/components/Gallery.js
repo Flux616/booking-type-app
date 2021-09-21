@@ -10,10 +10,10 @@ const Gallery = () => {
     ];
 
     return (
-        <View>
+        <View style={styles.container}>
             <Text style={styles.text}>Gallery</Text>
             <FlatList
-                contentContainerStyle={styles.container}
+                contentContainerStyle={styles.contentContainer}
                 scrollEnabled={false}
                 horizontal
                 data={cityImages}
@@ -26,8 +26,12 @@ export default Gallery;
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 20
+    },
+    contentContainer: {
         width: '100%',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        marginTop: 10
     },
     text: {
         fontWeight: 'bold',
@@ -40,6 +44,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         height: undefined,
-        width: undefined
+        width: undefined,
+        borderRadius: 6
     }
 });

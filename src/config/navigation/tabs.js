@@ -1,61 +1,29 @@
 import React from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Home from '../../../modules/home';
-import Location from '../../../modules/location';
-import Details from '../../../modules/details';
-import Profile from '../../../modules/profile';
-import EditProfile from '../../../modules/profile/components/edit';
+import Home from '../../modules/home';
+import Profile from '../../modules/profile';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-const HomeStack = createNativeStackNavigator();
+const HomeTab = createBottomTabNavigator();
 
-const HomeStackScreen = () => (
-    <HomeStack.Navigator screenOptions={{ headerShown: false, tabBarVisible: false }}>
-        <HomeStack.Screen name='Details' component={Details} options={{ tabBarVisible: false }}/>
-        <HomeStack.Screen name='Related' component={Home} />
-        <HomeStack.Screen name='Location' component={Location} />
-    </HomeStack.Navigator>
+const HomeTabs = () => (
+    <HomeTab.Navigator screenOptions={{tabBarShowLabel: false}}>
+        <HomeTab.Screen
+            name='Home'
+            component={Home}
+            options={{
+                headerShown: false,
+                tabBarIcon: ({ focused, size, color }) => <Icon name={focused ? 'home' : 'home-outline'} size={size} color={focused ? '#4494DA' : color}/>
+            }}
+        />
+        <HomeTab.Screen
+            name='Profile'
+            component={Profile}
+            options={{
+                tabBarIcon: ({ focused, size, color }) => <Icon name={focused ? 'person' : 'person-outline'} size={size} color={focused ? '#4494DA' : color} />
+            }}
+        />
+    </HomeTab.Navigator>
 );
 
-const ProfileStack = createNativeStackNavigator();
-
-const ProfileStackScreen = () => {
-    const headerStyle = {
-        headerStyle: {
-            backgroundColor: '#f8f8ff',
-            shadowColor: 'transparent'
-        },
-        headerTitleStyle: {
-            fontWeight: 'bold'
-        }
-    };
-
-    return (
-        <ProfileStack.Navigator>
-            <ProfileStack.Screen
-                name='UserProfile'
-                component={Profile}
-                style={headerStyle}
-                options={{
-                    title: 'Profile'
-                }}
-            />
-            <ProfileStack.Screen
-                name='EditProfile'
-                component={EditProfile}
-                style={headerStyle}
-                options={({ navigation }) => ({
-                    title: 'Edit Profile',
-                    headerLeft: () => (
-                        <Icon
-                            name='chevron-back-outline'
-                            size={26}
-                            color='#808080'
-                            onPress={navigation.goBack}
-                        />
-                    )
-                })}
-            />
-        </ProfileStack.Navigator>
-    );};
-
-export { HomeStackScreen, ProfileStackScreen };
+export default HomeTabs;

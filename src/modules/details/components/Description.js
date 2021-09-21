@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const Description = () => (
-    <View style={styles.descriptionContainer}>
+    <View>
         <Text style={styles.descriptionTitle}>Description</Text>
         <Text style={styles.descriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet consectetur tincidunt. Pellentesque eget egestas turpis.</Text>
     </View>
@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     descriptionText: {
-        color: 'gray'
+        color: '#BFBFBF'
     },
 });

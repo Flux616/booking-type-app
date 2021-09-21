@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
         justifyContent: 'space-between',
-        backgroundColor: '#f8f8ff'
+        backgroundColor: '#FFFFFF'
     },
     container: {
         marginHorizontal: 30
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 50,
-        backgroundColor: '#00bfff',
+        backgroundColor: '#3F96EA',
         justifyContent: 'center',
         alignItems: 'center',
         bottom: 30,

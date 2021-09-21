@@ -20,13 +20,13 @@ const styles = StyleSheet.create({
         marginHorizontal: 10
     },
     upperText: {
-        color: '#00bfff',
+        color: '#3F96EA',
         fontSize: 20,
         fontWeight: 'bold'
     },
     lowerText: {
         marginTop: 10,
-        color: '#00bfff'
+        color: '#3F96EA'
     },
     image: {
         width: 50,

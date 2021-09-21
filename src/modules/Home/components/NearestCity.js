@@ -24,7 +24,10 @@ const styles = StyleSheet.create ({
         margin: 10,
         height: 120,
         borderRadius: 4,
-        backgroundColor: '#FFFFFF'
+        backgroundColor: '#FFFFFF',
+        shadowColor: '#808080',
+        shadowOpacity: 0.1,
+        shadowRadius: 10
     },
     image: {
         width: 100,
@@ -47,7 +50,7 @@ const styles = StyleSheet.create ({
     },
     rating:{
         borderRadius: 4,
-        backgroundColor: '#f8f8ff',
+        backgroundColor: '#FFFFFF',
         position: 'absolute',
         right: 0,
         padding: 7

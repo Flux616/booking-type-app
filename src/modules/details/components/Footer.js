@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
         height: 50
     },
     title: {
-        color: 'gray'
+        color: '#808080'
     },
     price: {
         fontWeight: 'bold',
@@ -35,13 +35,13 @@ const styles = StyleSheet.create({
     },
     button: {
         flex: 1,
-        backgroundColor: '#008cff',
+        backgroundColor: '#3F96EA',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5
     },
     buttonText: {
-        color: 'white',
+        color: '#FFFFFF',
         fontWeight: '800'
     }
 });

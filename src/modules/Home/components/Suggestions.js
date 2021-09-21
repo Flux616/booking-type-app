@@ -13,15 +13,16 @@ const SuggestionsSection = () => {
                 <Text style={styles.headerText}>Popular</Text>
                 <FlatList
                     horizontal
-                    style={styles.container}
+                    style={[styles.container, styles.shadowOverflow]}
                     data={locations}
-                    renderItem={({ item }) => <PopularCity image={item.image} country={item.country} rating={item.rating} city={item.city} />}
+                    renderItem={({ item }) => <PopularCity image={item.image} country={item.country} rating={item.rating} city={item.city}/>}
                     showsHorizontalScrollIndicator={false}
                 />
             </View>
             <ScrollView style={styles.section}>
                 <Text style={styles.headerText}>Nearest</Text>
                 <FlatList
+                    style={styles.shadowOverflow}
                     scrollEnabled={false}
                     data={locations}
                     renderItem={({ item }) => <NearestCity image={item.image} country={item.country} city={item.city} price={item.price} />}
@@ -39,15 +40,13 @@ const styles = StyleSheet.create({
     },
     container: {
         margin: 10,
-        flexDirection: 'row',
-        marginTop: 25
-    },
-    container: {
-        margin: 10,
         flexDirection: 'row'
     },
     headerText: {
         marginLeft: 10,
         fontWeight: 'bold'
+    },
+    shadowOverflow: {
+        overflow: 'visible'
     }
 });

@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         marginTop: 15
     },
     safeArea: {
-        backgroundColor: '#f8f8ff'
+        backgroundColor: '#FFFFFF'
     }
 });
 

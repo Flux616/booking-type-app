@@ -1,7 +1,8 @@
 module.exports = {
     'env': {
         'browser': true,
-        'es2021': true
+        'es2021': true,
+        'amd': true
     },
     'extends': [
         'eslint:recommended',
@@ -38,5 +39,7 @@ module.exports = {
         'no-unused-vars': 'error',
         'unused-imports/no-unused-imports': 'error',
         'no-else-return': 'error',
+        'react/display-name': 'off',
+        'react/prop-types': 'off'
     }
 };

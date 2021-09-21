@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import Info from './components/Info';
 import Description from './components/Description';
 import Preview from './components/Preview';
@@ -11,10 +11,12 @@ const Details = () => {
     return (
         <View style={styles.wrapper}>
             <SafeAreaView  style={styles.container}>
-                <Preview />
-                <Info />
-                <Description />
-                <Gallery />
+                <ScrollView>
+                    <Preview />
+                    <Info />
+                    <Description />
+                    <Gallery />
+                </ScrollView>
                 <Footer />
             </SafeAreaView>
         </View>
@@ -26,7 +28,7 @@ export default Details;
 const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: '#FFFFFF'
     },
     container: {
         flex: 1,

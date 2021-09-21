@@ -2,13 +2,16 @@ import React from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { BlurView } from '@react-native-community/blur';
+import { useNavigation } from '@react-navigation/core';
 
 const Preview = () => {
+    const navigation = useNavigation();
+
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={require('../../../../assets/images/countries/denmark/copenhagen.jpeg')}/>
             <BlurView style={[styles.iconContainer, styles.backIcon]} blurType='light'>
-                <Icon name='chevron-back' size={28} color={'white'}/>
+                <Icon name='chevron-back' size={28} color={'white'} onPress={navigation.goBack}/>
             </BlurView>
             <BlurView style={[styles.iconContainer, styles.bookmarkIcon]} blurType='light'>
                 <Icon name='bookmark-outline' size={28} color={'white'}/>

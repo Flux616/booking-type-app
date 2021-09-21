@@ -25,7 +25,7 @@ const HomeSearchBar = () => {
                 <Ionicons
                     name={'search'}
                     size={26}
-                    color={'#f8f8ff'}
+                    color={'#FFFFFF'}
                     onPress={searchCountry}
                 />
             </TouchableOpacity>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     searchIcon: {
         height: 50,
         width: 50,
-        backgroundColor: '#00bfff',
+        backgroundColor: '#3F96EA',
         padding: 12,
         borderRadius: 4,
         elevation: 2,
