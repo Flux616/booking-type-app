@@ -1,10 +1,10 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeStackScreen from './stacks/Home'
-import ProfileStackScreen from './stacks/Profile'
+import HomeStackScreen from './stacks/Home';
+import ProfileStackScreen from './stacks/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +44,7 @@ const AppNavigation = () => (
             <Tab.Screen name="Profile" component={ProfileStackScreen} />
         </Tab.Navigator>
     </NavigationContainer>
-)
+);
 
 const styles = StyleSheet.create({
     container: {
@@ -52,4 +52,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default AppNavigation
+export default AppNavigation;

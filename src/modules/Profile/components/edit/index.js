@@ -1,8 +1,8 @@
-import React from 'react'
-import { StyleSheet, TextInput, View, Image, Text } from 'react-native'
-import { useSelector, useDispatch } from 'react-redux'
-import { setDescription, setName, setEmail, setUsername } from '../../redux'
-import Icon from 'react-native-vector-icons/Ionicons'
+import React from 'react';
+import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { setDescription, setName, setEmail, setUsername } from '../../redux';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const CustomTextInput = ({value, label, onChangeText, style}) => (
@@ -14,10 +14,10 @@ const CustomTextInput = ({value, label, onChangeText, style}) => (
             onChangeText={onChangeText}
         />
     </View>
-)
+);
 
 const EditProfile = () => {
-    const {name, description, email, username} = useSelector(state => state.profile)
+    const {name, description, email, username} = useSelector(state => state.profile);
     const dispatch = useDispatch();
 
     return (
@@ -71,10 +71,10 @@ const EditProfile = () => {
                 <Text style={styles.joinedDate}>2 Sep 2021</Text>
             </View>
         </View>
-    )
-}
+    );
+};
 
-export default EditProfile
+export default EditProfile;
 
 const styles = StyleSheet.create({
     wrapper: {
@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
         bottom: 30,
         left: 40
     }
-})
+});

@@ -1,27 +1,36 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import Description from './components/Description'
-import Preview from './components/Preview'
-import Gallery from './components/Gallery'
-import Footer from './components/Footer'
-import { SafeAreaView } from 'react-native-safe-area-context'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Info from './components/Info';
+import Description from './components/Description';
+import Preview from './components/Preview';
+import Gallery from './components/Gallery';
+import Footer from './components/Footer';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Details = () => {
     return (
-        <View style={styles.container}>
-            <SafeAreaView/>
-            <Preview />
-            <Description />
-            <Gallery />
-            <Footer />
+        <View style={styles.wrapper}>
+            <SafeAreaView  style={styles.container}>
+                <Preview />
+                <Info />
+                <Description />
+                <Gallery />
+                <Footer />
+            </SafeAreaView>
         </View>
-    )
-}
+    );
+};
 
-export default Details
+export default Details;
 
 const styles = StyleSheet.create({
+    wrapper: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
     container: {
+        flex: 1,
+        justifyContent: 'space-between',
         marginHorizontal: 20
     }
-})
+});

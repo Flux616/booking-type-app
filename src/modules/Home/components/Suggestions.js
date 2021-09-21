@@ -1,11 +1,11 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { View, StyleSheet, Text, FlatList, ScrollView } from 'react-native'
-import PopularCity from './PopularCity'
-import NearestCity from './NearestCity'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { View, StyleSheet, Text, FlatList, ScrollView } from 'react-native';
+import PopularCity from './PopularCity';
+import NearestCity from './NearestCity';
 
 const SuggestionsSection = () => {
-    const locations = useSelector(state => state.locations)
+    const locations = useSelector(state => state.locations);
 
     return (
         <View>
@@ -28,10 +28,10 @@ const SuggestionsSection = () => {
                 />
             </ScrollView>
         </View>
-    )
-}
+    );
+};
 
-export default SuggestionsSection
+export default SuggestionsSection;
 
 const styles = StyleSheet.create({
     section: {

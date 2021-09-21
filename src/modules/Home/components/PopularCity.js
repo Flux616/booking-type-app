@@ -1,5 +1,5 @@
-import React from 'react'
-import {Image, View, Text, StyleSheet} from 'react-native'
+import React from 'react';
+import {Image, View, Text, StyleSheet} from 'react-native';
 
 const PopularCity = ({ image, country, city, rating }) => (
     <View style={styles.item}>
@@ -10,7 +10,7 @@ const PopularCity = ({ image, country, city, rating }) => (
             <Text style={styles.ratingText}>{rating}</Text>
         </View>
     </View>
-)
+);
 
 const styles = StyleSheet.create ({
     item: {
@@ -47,6 +47,6 @@ const styles = StyleSheet.create ({
         fontWeight: 'bold',
         fontSize: 12
     }
-})
+});
 
-export default PopularCity
+export default PopularCity;

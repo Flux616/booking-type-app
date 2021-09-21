@@ -1,7 +1,7 @@
-import React from 'react'
-import { StyleSheet, Image, View } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons'
-import { BlurView } from '@react-native-community/blur'
+import React from 'react';
+import { StyleSheet, Image, View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { BlurView } from '@react-native-community/blur';
 
 const Preview = () => {
     return (
@@ -14,9 +14,10 @@ const Preview = () => {
                 <Icon name='bookmark-outline' size={28} color={'white'}/>
             </BlurView>
         </View>
-)}
+    );
+};
 
-export default Preview
+export default Preview;
 
 const styles = StyleSheet.create({
     container: {
@@ -25,23 +26,23 @@ const styles = StyleSheet.create({
     },
     image: {
         width: '100%',
-        height: 280,
+        height: 300,
         borderRadius: 10
     },
     iconContainer: {
         width: 40,
         height: 40,
         position: 'absolute',
-        top: 12,
+        top: 15,
         opacity: 0.75,
         borderRadius: 5,
         justifyContent: 'center',
         alignItems: 'center'
     },
     backIcon: {
-        left: 24
+        left: 15
     },
     bookmarkIcon: {
-        right: 24
+        right: 15
     }
-})
+});

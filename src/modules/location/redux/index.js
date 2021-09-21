@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const locationsSlice = createSlice({
     name: 'locations',
@@ -71,6 +71,6 @@ const locationsSlice = createSlice({
     reducers: {
 
     }
-})
+});
 
 export default locationsSlice.reducer;

@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const Footer = () => {
     return (
@@ -12,15 +12,14 @@ const Footer = () => {
                 <Text style={styles.buttonText}>Booking</Text>
             </TouchableOpacity>
         </View>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer;
 
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginTop: 30,
         height: 50
     },
     title: {
@@ -45,4 +44,4 @@ const styles = StyleSheet.create({
         color: 'white',
         fontWeight: '800'
     }
-})
+});

@@ -1,11 +1,11 @@
-import React, {useRef} from 'react'
-import { StyleSheet, View, FlatList } from 'react-native'
-import { Button } from 'react-native-elements'
-import { useDispatch, useSelector } from 'react-redux'
-import { setStatus } from '../redux'
+import React, {useRef} from 'react';
+import { StyleSheet, View, FlatList } from 'react-native';
+import { Button } from 'react-native-elements';
+import { useDispatch, useSelector } from 'react-redux';
+import { setStatus } from '../redux';
 
 const ProfileStatus = () => {
-    const status = useSelector(state => state.profile.status)
+    const status = useSelector(state => state.profile.status);
     const dispatch = useDispatch();
     const flatListRef = useRef();
 
@@ -30,7 +30,7 @@ const ProfileStatus = () => {
             style: styles.free,
             id: 4
         }
-    ]
+    ];
 
     const renderButton = ({ item, index }) => (
         <View style={status === item.title && styles.buttonContainer}>
@@ -41,12 +41,12 @@ const ProfileStatus = () => {
                 id={item.id}
             />
         </View>
-    )
+    );
 
     const pressHandler = (title, index) => {
-        dispatch(setStatus(title))
-        flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index})
-    }
+        dispatch(setStatus(title));
+        flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index});
+    };
 
     return (
         <FlatList
@@ -57,10 +57,10 @@ const ProfileStatus = () => {
             showsHorizontalScrollIndicator={false}
             ref={flatListRef}
         />
-    )
-}
+    );
+};
 
-export default ProfileStatus
+export default ProfileStatus;
 
 const styles = StyleSheet.create({
     header: {
@@ -100,4 +100,4 @@ const styles = StyleSheet.create({
     free: {
         backgroundColor: '#4169e1'
     }
-})
+});

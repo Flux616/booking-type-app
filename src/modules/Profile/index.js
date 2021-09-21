@@ -1,9 +1,9 @@
-import React from 'react'
-import { StyleSheet, View } from 'react-native'
-import Info from './components/Info'
-import Status from './components/Status'
-import Dashboard from './components/Dashboard'
-import Footer from './components/Footer'
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import Info from './components/Info';
+import Status from './components/Status';
+import Dashboard from './components/Dashboard';
+import Footer from './components/Footer';
 
 const Profile = () => (
     <View style={styles.wrapper}>
@@ -14,7 +14,7 @@ const Profile = () => (
             <Footer/>
         </View>
     </View>
-)
+);
 
 const styles = StyleSheet.create({
     wrapper: {
@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         flex: 1
     }
-})
+});
 
-export default Profile
+export default Profile;
