@@ -21,7 +21,8 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         height: 65,
-        paddingTop: 15
+        paddingTop: 10,
+        paddingBottom: 10
     },
     title: {
         color: '#808080'

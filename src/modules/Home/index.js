@@ -9,7 +9,7 @@ import VirtualizedView from '../../components/VirtualizedView';
 const Home = () => (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
         <VirtualizedView>
-            <ScrollView style={styles.home} showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
+            <ScrollView style={styles.home} nestedScrollEnabled={true}>
                 <Header/>
                 <SearchBar/>
                 <Suggestions/>

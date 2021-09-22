@@ -11,7 +11,7 @@ const Details = () => {
     return (
         <View style={styles.wrapper}>
             <SafeAreaView  style={styles.container}>
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <Preview />
                     <Info />
                     <Description />

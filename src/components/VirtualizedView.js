@@ -3,6 +3,7 @@ import { FlatList } from 'react-native';
 
 const VirtualizedView = (props) =>(
     <FlatList
+        showsVerticalScrollIndicator={false}
         data={[]}
         ListEmptyComponent={null}
         keyExtractor={() => 'dummy'}
