@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { View, StyleSheet, Text, FlatList, ScrollView } from 'react-native';
+import { View, StyleSheet, Text, FlatList } from 'react-native';
 import PopularCity from './PopularCity';
 import NearestCity from './NearestCity';
 
@@ -19,15 +19,15 @@ const SuggestionsSection = () => {
                     showsHorizontalScrollIndicator={false}
                 />
             </View>
-            <ScrollView style={styles.section}>
+            <View style={styles.section}>
                 <Text style={styles.headerText}>Nearest</Text>
                 <FlatList
-                    style={styles.shadowOverflow}
                     scrollEnabled={false}
+                    style={styles.shadowOverflow}
                     data={locations}
                     renderItem={({ item }) => <NearestCity image={item.image} country={item.country} city={item.city} price={item.price} />}
                 />
-            </ScrollView>
+            </View>
         </View>
     );
 };

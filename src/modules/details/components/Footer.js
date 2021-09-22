@@ -20,7 +20,8 @@ export default Footer;
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        height: 50
+        height: 65,
+        paddingTop: 15
     },
     title: {
         color: '#808080'

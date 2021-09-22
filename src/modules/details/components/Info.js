@@ -1,31 +1,35 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import StarSVG from '../../../components/StarSVG';
-import StarHalfSVG from '../../../components/StarHalfSVG';
-import EmptyStarSVG from '../../../components/EmptyStarSVG';
+import StarSVG from '../../../components/Star-svg';
+import StarHalfSVG from '../../../components/StarHalf-svg';
+import EmptyStarSVG from '../../../components/EmptyStar-svg';
+import BedSVG from '../../../components/Bed-svg';
+import DinnerSVG from '../../../components/Dinner-svg';
+import ACSVG from '../../../components/AC-svg';
+import BathSVG from '../../../components/Bath-svg';
 
 const Info = () => {
 
     const descriptionData = [
         {
-            SVG: <StarSVG/>,
+            SVG: <BedSVG/>,
             text: '2 Bed'
         },
         {
-            icon: 'ios-restaurant-outline',
+            SVG: <DinnerSVG/>,
             text: 'Dinner'
         },
         {
-            icon: 'ios-game-controller-outline',
+            SVG: <ACSVG/>,
             text: 'AC'
         },
         {
-            icon: 'ios-cash-outline',
+            SVG: <BathSVG/>,
             text: '1 Bath'
         },
     ];
 
-    const rating = 3.5;
+    const rating = 5;
 
     const createTable = (rating) => {
         const ratingTable = [];
@@ -67,7 +71,7 @@ const Info = () => {
                 showsHorizontalScrollIndicator={false}
                 horizontal
                 data={descriptionData}
-                renderItem={ ({item}) => <RenderFeatures icon={item.icon} text={item.text}/>}
+                renderItem={ ({item}) => <RenderFeatures SVG={item.SVG} text={item.text}/>}
             />
         </View>
     );
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
         fontSize: 14
     },
     featContainer: {
-        justifyContent: 'center',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#F8F8F8',
         width: 95,
@@ -108,6 +112,7 @@ const styles = StyleSheet.create({
         marginTop: 15,
         marginBottom: 20,
         marginRight: 10,
+        padding: 5,
         borderRadius: 10
     }
 });

@@ -4,14 +4,17 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import Suggestions from './components/Suggestions';
+import VirtualizedView from '../../components/VirtualizedView';
 
 const Home = () => (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <ScrollView style={styles.home} showsVerticalScrollIndicator={false}>
-            <Header/>
-            <SearchBar/>
-            <Suggestions/>
-        </ScrollView>
+        <VirtualizedView>
+            <ScrollView style={styles.home} showsVerticalScrollIndicator={false} nestedScrollEnabled={true}>
+                <Header/>
+                <SearchBar/>
+                <Suggestions/>
+            </ScrollView>
+        </VirtualizedView>
     </SafeAreaView>
 );
 
