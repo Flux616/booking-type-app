@@ -19,7 +19,7 @@ const HomeSearchBar = () => {
                 style={styles.searchInput}
                 placeholder={'Search city here...'}
                 autoCapitalize={'words'}
-                onChangeText={(value) => setCountryInput(value)}
+                onChangeText={setCountryInput}
             />
             <TouchableOpacity style={styles.searchIcon}>
                 <Ionicons
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         flexDirection: 'row',
         marginTop: 30,
-        marginHorizontal: 10
+        marginHorizontal: 10,
+        marginBottom: 10
     },
     searchInput: {
         flex: 1,

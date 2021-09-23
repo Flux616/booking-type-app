@@ -1,51 +1,53 @@
 import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
-import StarSVG from '../../../components/Star-svg';
-import StarHalfSVG from '../../../components/StarHalf-svg';
-import EmptyStarSVG from '../../../components/EmptyStar-svg';
-import BedSVG from '../../../components/Bed-svg';
-import DinnerSVG from '../../../components/Dinner-svg';
-import ACSVG from '../../../components/AC-svg';
-import BathSVG from '../../../components/Bath-svg';
+import StarIcon from '../../../components/StarIcon';
+import HalfStarIcon from '../../../components/HalfStarIcon';
+import EmptyStarIcon from '../../../components/EmptyStarIcon';
+import BedIcon from '../../../components/BedIcon';
+import DinnerIcon from '../../../components/DinnerIcon';
+import ACIcon from '../../../components/ACIcon';
+import BathIcon from '../../../components/BathIcon';
 
-const Info = () => {
+const Info = ({rating, city, country}) => {
 
     const descriptionData = [
         {
-            SVG: <BedSVG/>,
-            text: '2 Bed'
+            SVG: <BedIcon/>,
+            text: '2 Bed',
+            key: 1
         },
         {
-            SVG: <DinnerSVG/>,
-            text: 'Dinner'
+            SVG: <DinnerIcon/>,
+            text: 'Dinner',
+            key: 2
         },
         {
-            SVG: <ACSVG/>,
-            text: 'AC'
+            SVG: <ACIcon/>,
+            text: 'AC',
+            key: 3
         },
         {
-            SVG: <BathSVG/>,
-            text: '1 Bath'
+            SVG: <BathIcon/>,
+            text: '1 Bath',
+            key: 4
         },
     ];
-
-    const rating = 5;
 
     const createTable = (rating) => {
         const ratingTable = [];
         let counter = 0;
 
         for ( ; counter < Math.floor(rating); counter++) {
-            ratingTable.push(<StarSVG/>);
+            ratingTable.push(<StarIcon style={styles.ratingStar} height={18} width={18} key={counter}/>);
         }
 
         if (rating - counter >= 0.5) {
-            ratingTable.push(<StarHalfSVG/>);
+            ratingTable.push(<HalfStarIcon style={styles.ratingStar} height={18} width={18} key={counter}/>);
             counter++;
         }
 
         for ( ; counter < 5; counter++) {
-            ratingTable.push(<EmptyStarSVG/>);
+            ratingTable.push(<EmptyStarIcon style={styles.ratingStar} height={18} width={18} key={counter}/>);
         }
 
         return ratingTable;
@@ -61,17 +63,17 @@ const Info = () => {
     return (
         <View>
             <View style={styles.titleContainer}>
-                <Text style={styles.city}>Copenhagen</Text>
-                <Text style={styles.country}>Denmark</Text>
+                <Text style={styles.city}>{city}</Text>
+                <Text style={styles.country}>{country}</Text>
                 <View style={styles.rating}>
-                    {createTable(rating).map(item => item)}
+                    {createTable(rating)}
                 </View>
             </View>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal
                 data={descriptionData}
-                renderItem={ ({item}) => <RenderFeatures SVG={item.SVG} text={item.text}/>}
+                renderItem={ ({item}) => <RenderFeatures SVG={item.SVG} text={item.text} key={item.key}/>}
             />
         </View>
     );
@@ -98,6 +100,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         right: 0,
         bottom: 20
+    },
+    ratingStar: {
+        marginLeft: 5
     },
     featText: {
         color: '#BFBFBF',

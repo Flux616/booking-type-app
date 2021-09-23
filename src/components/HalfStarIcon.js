@@ -1,16 +1,15 @@
-import * as React from 'react';
-import { StyleSheet } from 'react-native';
+import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
 
-function StarHalfSVG() {
+function HalfStarIcon({style, height, width}) {
     return (
         <Svg
-            height={18}
+            style={style}
+            height={height}
+            width={width}
             viewBox="0 0 24 24"
-            width={18}
             xmlns="http://www.w3.org/2000/svg"
-            style={styles.star}
         >
             <Path
                 d="M23.79 9.87l-5.36 5.49 1.26 7.77c.111.62-.562 1.074-1.1.78L12 20.26V.03c.28 0 .56.13.68.4l3.31 7.05 7.37 1.12c.616.11.843.835.43 1.27z"
@@ -24,11 +23,4 @@ function StarHalfSVG() {
     );
 }
 
-
-const styles = StyleSheet.create({
-    star: {
-        marginLeft: 5
-    }
-});
-
-export default StarHalfSVG;
+export default HalfStarIcon;

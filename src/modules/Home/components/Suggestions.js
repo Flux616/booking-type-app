@@ -1,38 +1,56 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { View, StyleSheet, Text, FlatList } from 'react-native';
+import { StyleSheet, Text, FlatList, SectionList } from 'react-native';
 import PopularCity from './PopularCity';
 import NearestCity from './NearestCity';
 
-const SuggestionsSection = () => {
+const Suggestions = () => {
     const locations = useSelector(state => state.locations);
 
+    const sections = [
+        {
+            id: 'popular',
+            title: 'Popular',
+            data: [1],
+            renderBlock: () => <FlatList
+                horizontal
+                style={[styles.container, styles.shadowOverflow]}
+                data={locations}
+                renderItem={({ item }) => <PopularCity image={item.image} country={item.country} rating={item.rating} city={item.city}/>}
+            />
+        },
+        {
+            id: 'nearest',
+            title: 'Nearest',
+            data: [1],
+            renderBlock: () => <FlatList
+                showsVerticalScrollIndicator={false}
+                removeClippedSubviews={false}
+                contentContainerStyle={{flex: 1}}
+                scrollEnabled={false}
+                style={[styles.shadowOverflow, styles.verticalList]}
+                data={locations}
+                renderItem={({ item }) => <NearestCity image={item.image} country={item.country} city={item.city} price={item.price} />}
+            />
+        }
+    ];
+
     return (
-        <View>
-            <View style={styles.section}>
-                <Text style={styles.headerText}>Popular</Text>
-                <FlatList
-                    horizontal
-                    style={[styles.container, styles.shadowOverflow]}
-                    data={locations}
-                    renderItem={({ item }) => <PopularCity image={item.image} country={item.country} rating={item.rating} city={item.city}/>}
-                    showsHorizontalScrollIndicator={false}
-                />
-            </View>
-            <View style={styles.section}>
-                <Text style={styles.headerText}>Nearest</Text>
-                <FlatList
-                    scrollEnabled={false}
-                    style={styles.shadowOverflow}
-                    data={locations}
-                    renderItem={({ item }) => <NearestCity image={item.image} country={item.country} city={item.city} price={item.price} />}
-                />
-            </View>
-        </View>
+        <SectionList
+            removeClippedSubviews={false}
+            sections={sections}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({ section: {renderBlock} }) => renderBlock()}
+            renderSectionHeader={({ section: { title } }) => (
+                <Text style={styles.headerText}>{title}</Text>
+            )}
+            stickySectionHeadersEnabled={false}
+            showsVerticalScrollIndicator={false}
+        />
     );
 };
 
-export default SuggestionsSection;
+export default Suggestions;
 
 const styles = StyleSheet.create({
     section: {
@@ -43,10 +61,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row'
     },
     headerText: {
+        paddingTop: 10,
         marginLeft: 10,
         fontWeight: 'bold'
     },
     shadowOverflow: {
         overflow: 'visible'
+    },
+    verticalList: {
+        paddingBottom: 150
     }
 });

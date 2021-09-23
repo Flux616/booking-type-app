@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-function ACSVG() {
+function ACIcon() {
     return (
         <Svg fill='#000000' width={30} height={30} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 503.607 503.607">
             <Path d="M478.426 75.541H25.18C10.911 75.541 0 86.452 0 100.721V268.59c0 14.269 10.911 25.18 25.18 25.18h453.246c14.269 0 25.18-10.911 25.18-25.18V100.721c.001-14.269-10.911-25.18-25.18-25.18zm8.394 193.049c0 5.036-3.357 8.393-8.393 8.393H25.18c-5.036 0-8.393-3.357-8.393-8.393V100.721c0-5.036 4.197-8.393 8.393-8.393h453.246c5.036 0 8.393 3.357 8.393 8.393V268.59z" />
@@ -10,4 +10,4 @@ function ACSVG() {
     );
 }
 
-export default ACSVG;
+export default ACIcon;

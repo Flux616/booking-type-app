@@ -74,6 +74,19 @@ const EditProfile = () => {
     );
 };
 
+export const getEditScreenNavigationOptions = ({ navigation }) => ({
+    title: 'Edit Profile',
+    headerShown: true,
+    headerLeft: () => (
+        <Icon
+            name='chevron-back-outline'
+            size={26}
+            color='#808080'
+            onPress={navigation.goBack}
+        />
+    )
+});
+
 export default EditProfile;
 
 const styles = StyleSheet.create({

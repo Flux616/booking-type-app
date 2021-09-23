@@ -1,16 +1,18 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import StarIcon from '../../../components/StarIcon';
 
 const PopularCity = ({ image, country, city, rating }) => {
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity style={styles.item} onPress={() => {navigation.navigate('Details');}}>
+        <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details', {rating, city, country, image})}>
             <Image style={styles.image} source={image}/>
             <Text style={styles.titleText}>{country}</Text>
             <Text style={styles.locationText}>{city}</Text>
             <View style={styles.rating}>
+                <StarIcon width={10} height={10}/>
                 <Text style={styles.ratingText}>{rating}</Text>
             </View>
         </TouchableOpacity>
@@ -43,6 +45,8 @@ const styles = StyleSheet.create ({
         color: '#808080'
     },
     rating:{
+        flexDirection: 'row',
+        alignItems: 'center',
         borderRadius: 2,
         backgroundColor: '#FFFFFF',
         position: 'absolute',
@@ -53,7 +57,8 @@ const styles = StyleSheet.create ({
     ratingText: {
         color: '#ffcd00',
         fontWeight: 'bold',
-        fontSize: 12
+        fontSize: 12,
+        marginLeft: 2
     }
 });
 

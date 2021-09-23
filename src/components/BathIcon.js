@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-function BathSVG() {
+function BathIcon() {
     return (
         <Svg fill='#000000' width={30} height={30} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <Path d="M480 255.051H32c-17.643 0-32 14.357-32 32s14.357 32 32 32h448c17.643 0 32-14.357 32-32s-14.357-32-32-32zm0 42.666H32c-5.867 0-10.667-4.779-10.667-10.667s4.8-10.667 10.667-10.667h448c5.867 0 10.667 4.779 10.667 10.667s-4.8 10.667-10.667 10.667z" />
@@ -12,4 +12,4 @@ function BathSVG() {
     );
 }
 
-export default BathSVG;
+export default BathIcon;

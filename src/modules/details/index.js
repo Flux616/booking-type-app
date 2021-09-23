@@ -7,14 +7,16 @@ import Gallery from './components/Gallery';
 import Footer from './components/Footer';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-const Details = () => {
+const Details = ({route}) => {
+    const {rating, city, country, image} = route.params;
+
     return (
         <View style={styles.wrapper}>
             <SafeAreaView  style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <Preview />
-                    <Info />
-                    <Description />
+                    <Preview image={image} />
+                    <Info rating={rating} city={city} country={country}/>
+                    <Description/>
                     <Gallery />
                 </ScrollView>
                 <Footer />
