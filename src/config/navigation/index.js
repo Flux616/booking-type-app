@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Location from '../../modules/location';
 import Details from '../../modules/details';
-import EditProfile, { getEditScreenNavigationOptions } from '../../modules/profile/components/edit';
+import EditProfile, { getEditScreenNavigationOptions } from '../../modules/Profile/components/edit';
 import HomeTabs from './tabs.js';
 
 const Stack = createNativeStackNavigator();

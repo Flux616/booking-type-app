@@ -1,5 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import profileSlice from '../../modules/profile/redux';
+import profileSlice from '../../modules/Profile/redux';
 import locationsSlice from '../../modules/location/redux';
 
 

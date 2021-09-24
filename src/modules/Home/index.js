@@ -7,7 +7,7 @@ import Suggestions from './components/Suggestions';
 
 const Home = () => (
     <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <View style={styles.home} nestedScrollEnabled={true}>
+        <View style={styles.home}>
             <Header/>
             <SearchBar/>
             <Suggestions/>

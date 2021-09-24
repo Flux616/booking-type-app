@@ -11,25 +11,25 @@ const Suggestions = () => {
         {
             id: 'popular',
             title: 'Popular',
-            data: [1],
-            renderBlock: () => <FlatList
+            data: [locations],
+            renderBlock: (item) => <FlatList
                 horizontal
                 style={[styles.container, styles.shadowOverflow]}
-                data={locations}
+                data={item}
                 renderItem={({ item }) => <PopularCity image={item.image} country={item.country} rating={item.rating} city={item.city}/>}
             />
         },
         {
             id: 'nearest',
             title: 'Nearest',
-            data: [1],
-            renderBlock: () => <FlatList
+            data: [locations],
+            renderBlock: (item) => <FlatList
                 showsVerticalScrollIndicator={false}
                 removeClippedSubviews={false}
                 contentContainerStyle={{flex: 1}}
                 scrollEnabled={false}
                 style={[styles.shadowOverflow, styles.verticalList]}
-                data={locations}
+                data={item}
                 renderItem={({ item }) => <NearestCity image={item.image} country={item.country} city={item.city} price={item.price} />}
             />
         }
@@ -40,7 +40,7 @@ const Suggestions = () => {
             removeClippedSubviews={false}
             sections={sections}
             keyExtractor={(item, index) => item + index}
-            renderItem={({ section: {renderBlock} }) => renderBlock()}
+            renderItem={({ section: {renderBlock}, item }) => renderBlock(item)}
             renderSectionHeader={({ section: { title } }) => (
                 <Text style={styles.headerText}>{title}</Text>
             )}
