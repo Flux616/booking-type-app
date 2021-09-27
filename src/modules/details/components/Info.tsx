@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ComponentType, FunctionComponent } from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import StarIcon from '../../../components/StarIcon';
 import HalfStarIcon from '../../../components/HalfStarIcon';
@@ -8,7 +8,18 @@ import DinnerIcon from '../../../components/DinnerIcon';
 import ACIcon from '../../../components/ACIcon';
 import BathIcon from '../../../components/BathIcon';
 
-const Info = ({rating, city, country}) => {
+type Props = {
+    rating: number,
+    city: string,
+    country: string
+}
+
+type FeatureProps = {
+    SVG: JSX.Element,
+    text: string
+}
+
+const Info: React.FC<Props> = ({rating, city, country}) => {
 
     const descriptionData = [
         {
@@ -33,7 +44,7 @@ const Info = ({rating, city, country}) => {
         },
     ];
 
-    const createTable = (rating) => {
+    const createTable = (rating: number) => {
         const ratingTable = [];
         let counter = 0;
 
@@ -53,7 +64,7 @@ const Info = ({rating, city, country}) => {
         return ratingTable;
     };
 
-    const RenderFeatures = ({SVG, text}) => (
+    const RenderFeatures: React.FC<FeatureProps> = ({SVG, text}) => (
         <View style={styles.featContainer}>
             {SVG}
             <Text style={styles.featText}>{text}</Text>

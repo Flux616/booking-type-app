@@ -32,7 +32,8 @@ const Gallery = () => {
                 renderItem={({item}) => <View style={styles.imageContainer}><Image style={styles.image} source={item.path} key={item.key}/></View>}
             />
         </View>
-    );};
+    );
+};
 
 export default Gallery;
 

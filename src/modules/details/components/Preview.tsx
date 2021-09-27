@@ -1,10 +1,14 @@
 import React from 'react';
-import { StyleSheet, Image, View } from 'react-native';
+import { StyleSheet, Image, View, ImageSourcePropType } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { BlurView } from '@react-native-community/blur';
 import { useNavigation } from '@react-navigation/core';
 
-const Preview = ({image}) => {
+type Props = {
+    image: ImageSourcePropType
+}
+
+const Preview: React.FC<Props> = ({image}) => {
     const navigation = useNavigation();
 
     return (

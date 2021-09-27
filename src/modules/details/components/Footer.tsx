@@ -1,19 +1,21 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
-const Footer = () => {
-    return (
-        <View style={styles.container}>
-            <View style={styles.textWrapper}>
-                <Text style={styles.title}>Price</Text>
-                <Text style={styles.price}>150$/Day</Text>
-            </View>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>Booking</Text>
-            </TouchableOpacity>
+type Props = {
+    price: string
+}
+
+const Footer: React.FC<Props> = ({price}) => (
+    <View style={styles.container}>
+        <View style={styles.textWrapper}>
+            <Text style={styles.title}>Price</Text>
+            <Text style={styles.price}>{price}</Text>
         </View>
-    );
-};
+        <TouchableOpacity style={styles.button}>
+            <Text style={styles.buttonText}>Booking</Text>
+        </TouchableOpacity>
+    </View>
+);
 
 export default Footer;
 
