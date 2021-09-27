@@ -1,6 +1,6 @@
 import React from 'react';
-import Home from '../../modules/Home';
-import Profile from '../../modules/Profile';
+import Home from '../../modules/home';
+import Profile from '../../modules/profile';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
