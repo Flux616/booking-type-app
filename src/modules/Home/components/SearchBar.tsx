@@ -1,14 +1,14 @@
 import React, {useState} from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../config/redux/hooks';
 
 const HomeSearchBar = () => {
     const [countryInput, setCountryInput] = useState('');
-    const coutryList = useSelector(state => state.locations);
+    const coutryList = useAppSelector(state => state.locations);
 
-    const searchCountry = countryInput => {
-        const filteredCountry = countryList.filter(item => item.country === countryInput);
+    const searchCountry = (countryInput: string) => {
+        const filteredCountry = countryList.filter(({country}: {country: string})  => country === countryInput);
         //TODO: Navigation to details of filtered item
     };
 

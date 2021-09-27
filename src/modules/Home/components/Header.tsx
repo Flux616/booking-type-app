@@ -7,7 +7,7 @@ const Header = () => (
             <Text style={styles.upperText}>Welcome Buddy</Text>
             <Text style={styles.lowerText}>Start search your trip!</Text>
         </View>
-        <View style={styles.imageContainer}>
+        <View>
             <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
         </View>
     </View>

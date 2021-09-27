@@ -1,13 +1,22 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import {Image, View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {Image, View, Text, StyleSheet, TouchableOpacity, ImageSourcePropType} from 'react-native';
 import StarIcon from '../../../components/StarIcon';
+import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
-const PopularCity = ({ image, country, city, rating }) => {
-    const navigation = useNavigation();
+type Props = {
+    image: ImageSourcePropType,
+    country: string,
+    city: string,
+    rating: number,
+    price: string
+}
+
+const PopularCity: React.FC<Props> = ({ image, country, city, rating, price }) => {
+    const navigation = useNavigation<DetailsScreenNavigationProps>();
 
     return (
-        <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details', {rating, city, country, image})}>
+        <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details', {rating, city, country, image, price})}>
             <Image style={styles.image} source={image}/>
             <Text style={styles.titleText}>{country}</Text>
             <Text style={styles.locationText}>{city}</Text>
