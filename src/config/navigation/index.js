@@ -1,42 +1,49 @@
-import React from 'react'
-import { StyleSheet } from 'react-native'
-import Icon from 'react-native-vector-icons/Ionicons';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeStackScreen from './stacks/Home'
-import ProfileStackScreen from './stacks/Profile'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Location from '../../modules/location';
+import Details from '../../modules/details';
+import EditProfile, { getEditScreenNavigationOptions } from '../../modules/Profile/components/edit';
+import HomeTabs from './tabs.js';
 
-const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
-const AppNavigation = () => (
-    <NavigationContainer style={styles.container}>
-        <Tab.Navigator
-            screenOptions={{
-                tabBarActiveTintColor: '#00bfff',
-                tabBarInactiveTintColor: '#808080',
-                headerShown: false
-            }}>
-            <Tab.Screen
-                name='Home'
-                component={HomeStackScreen}
-                options={{
-                    tabBarIcon: ({ focused, color, size }) => <Icon name={focused ? 'home' : 'home-outline'} size={size} color={color} />
-                }}
-            />
-            <Tab.Screen
-                name='Profile'
-                component={ProfileStackScreen}
-                options={{
-                    tabBarIcon: ({ focused, color, size }) => <Icon name={focused ? 'person' : 'person-outline'} size={size} color={color} />
-                }} />
-        </Tab.Navigator>
-    </NavigationContainer>
-)
+const AppNavigation = () => {
+
+    return (
+        <NavigationContainer style={styles.container}>
+            <Stack.Navigator
+                screenOptions={{
+                    tabBarActiveTintColor: '#3F96EA',
+                    tabBarInactiveTintColor: '#808080',
+                    headerShown: false
+                }}>
+                <Stack.Screen
+                    name='HomeTabs'
+                    component={HomeTabs}
+                />
+                <Stack.Screen
+                    name='Details'
+                    component={Details}
+                />
+                <Stack.Screen
+                    name='Location'
+                    component={Location}
+                />
+                <Stack.Screen
+                    name='EditProfile'
+                    component={EditProfile}
+                    options={getEditScreenNavigationOptions}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
+    );};
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#f8f8ff'
+        backgroundColor: '#FFFFFF'
     }
 });
 
-export default AppNavigation
+export default AppNavigation;

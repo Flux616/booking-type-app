@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 const defaultState = [
     {
@@ -57,10 +57,10 @@ const defaultState = [
             }
         ]
     }
-]
+];
 
 const LocationCities = () => {
-    const [locations, setLocations] = useState(defaultState)
+    const [locations, setLocations] = useState(defaultState);
 
     return (
         <View>
@@ -74,14 +74,14 @@ const LocationCities = () => {
                                 <Text style={styles.lowerText}>{selected.country}</Text>
                             </View>
                         </View>
-                    ))
+                    ));
                 }
             })}
         </View>
-    )
-}
+    );
+};
 
-export default LocationCities
+export default LocationCities;
 
 const styles = StyleSheet.create ({
     item: {
@@ -111,4 +111,4 @@ const styles = StyleSheet.create ({
         marginTop: 8,
         color: '#808080'
     }
-})
+});

@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const ProfileFooter = () => (
     <View>
@@ -11,9 +11,9 @@ const ProfileFooter = () => (
             <Text style={styles.logOut}>Log Out</Text>
         </TouchableOpacity>
     </View>
-)
+);
 
-export default ProfileFooter
+export default ProfileFooter;
 
 const styles = StyleSheet.create({
     header: {
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#990000'
     }
-})
+});

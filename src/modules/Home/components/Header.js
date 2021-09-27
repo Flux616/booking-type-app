@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import React from 'react';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 const Header = () => (
     <View style={styles.container}>
@@ -11,28 +11,28 @@ const Header = () => (
             <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
         </View>
     </View>
-)
+);
 
 const styles = StyleSheet.create({
     container: {
-      justifyContent: "space-between",
-      flexDirection: "row",
-      marginHorizontal: 10
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        marginHorizontal: 10
     },
     upperText: {
-        color: "#00bfff",
+        color: '#3F96EA',
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: 'bold'
     },
     lowerText: {
         marginTop: 10,
-        color: "#00bfff"
+        color: '#3F96EA'
     },
     image: {
         width: 50,
         height: 50,
         borderRadius: 50
     }
-  });
+});
 
-export default Header
+export default Header;

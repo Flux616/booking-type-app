@@ -1,8 +1,8 @@
-import React from 'react'
-import { StyleSheet, TextInput, View, Image, Text } from 'react-native'
-import { useSelector, useDispatch } from 'react-redux'
-import { setDescription, setName, setEmail, setUsername } from '../../redux'
-import Icon from 'react-native-vector-icons/Ionicons'
+import React from 'react';
+import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { setDescription, setName, setEmail, setUsername } from '../../redux';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 const CustomTextInput = ({value, label, onChangeText, style}) => (
@@ -14,10 +14,10 @@ const CustomTextInput = ({value, label, onChangeText, style}) => (
             onChangeText={onChangeText}
         />
     </View>
-)
+);
 
 const EditProfile = () => {
-    const {name, description, email, username} = useSelector(state => state.profile)
+    const {name, description, email, username} = useSelector(state => state.profile);
     const dispatch = useDispatch();
 
     return (
@@ -71,16 +71,29 @@ const EditProfile = () => {
                 <Text style={styles.joinedDate}>2 Sep 2021</Text>
             </View>
         </View>
-    )
-}
+    );
+};
 
-export default EditProfile
+export const getEditScreenNavigationOptions = ({ navigation }) => ({
+    title: 'Edit Profile',
+    headerShown: true,
+    headerLeft: () => (
+        <Icon
+            name='chevron-back-outline'
+            size={26}
+            color='#808080'
+            onPress={navigation.goBack}
+        />
+    )
+});
+
+export default EditProfile;
 
 const styles = StyleSheet.create({
     wrapper: {
         flex: 1,
         justifyContent: 'space-between',
-        backgroundColor: '#f8f8ff'
+        backgroundColor: '#FFFFFF'
     },
     container: {
         marginHorizontal: 30
@@ -144,10 +157,10 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         borderRadius: 50,
-        backgroundColor: '#00bfff',
+        backgroundColor: '#3F96EA',
         justifyContent: 'center',
         alignItems: 'center',
         bottom: 30,
         left: 40
     }
-})
+});

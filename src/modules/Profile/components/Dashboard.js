@@ -1,7 +1,7 @@
-import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons'
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons'
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const DashboardButton = ({uniqueStyle, name, label}) => (
     <TouchableOpacity>
@@ -13,7 +13,7 @@ const DashboardButton = ({uniqueStyle, name, label}) => (
             <MaterialIcon name='keyboard-arrow-right' size={22} color={'#808080'} style={styles.forwardIcon}/>
         </View>
     </TouchableOpacity>
-)
+);
 
 const ProfileDashboard = () => (
     <View>
@@ -24,9 +24,9 @@ const ProfileDashboard = () => (
             <DashboardButton uniqueStyle={styles.privacy} name='shield-lock-outline' label='Privacy'/>
         </View>
     </View>
-)
+);
 
-export default ProfileDashboard
+export default ProfileDashboard;
 
 const styles = StyleSheet.create({
     header: {
@@ -61,4 +61,4 @@ const styles = StyleSheet.create({
     privacy: {
         backgroundColor: '#808080'
     }
-})
+});

@@ -1,12 +1,12 @@
-import { useNavigation } from '@react-navigation/core'
-import React from 'react'
-import { StyleSheet, Text, View, Image } from 'react-native'
-import Icon from 'react-native-vector-icons/AntDesign'
-import { useSelector } from 'react-redux'
+import { useNavigation } from '@react-navigation/core';
+import React from 'react';
+import { StyleSheet, Text, View, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
+import { useSelector } from 'react-redux';
 
 const ProfileInfo = () => {
-    const {name, description} = useSelector((state) => state.profile)
-    const navigation = useNavigation()
+    const {name, description} = useSelector((state) => state.profile);
+    const navigation = useNavigation();
 
     return (
         <View style={styles.container}>
@@ -19,12 +19,12 @@ const ProfileInfo = () => {
                 name='edit'
                 size={24}
                 color={'#808080'}
-                onPress={() => {navigation.navigate('EditProfile')}}/>
+                onPress={() => {navigation.navigate('EditProfile');}}/>
         </View>
-    )
-}
+    );
+};
 
-export default ProfileInfo
+export default ProfileInfo;
 
 const styles = StyleSheet.create({
     container: {
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
         color: '#808080',
         marginVertical: 5
     }
-})
+});

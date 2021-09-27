@@ -1,5 +1,5 @@
-import React from "react"
-import { View, TextInput, StyleSheet } from "react-native"
+import React from 'react';
+import { View, TextInput, StyleSheet } from 'react-native';
 
 
 const HomeSearchBar = () => (
@@ -10,12 +10,12 @@ const HomeSearchBar = () => (
             autoCapitalize={'words'}
         />
     </View>
-)
+);
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "space-between",
-        flexDirection: "row",
+        justifyContent: 'space-between',
+        flexDirection: 'row',
         marginVertical: 20,
         marginHorizontal: 15
     },
@@ -26,6 +26,6 @@ const styles = StyleSheet.create({
         height: 50,
         paddingHorizontal: 15
     }
-})
+});
 
-export default HomeSearchBar
+export default HomeSearchBar;
