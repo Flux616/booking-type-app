@@ -40,6 +40,7 @@ module.exports = {
         'unused-imports/no-unused-imports': 'error',
         'no-else-return': 'error',
         'react/display-name': 'off',
-        'react/prop-types': 'off'
+        'react/prop-types': 'off',
+        'parser': '@babel/eslint-parser'
     }
 };
