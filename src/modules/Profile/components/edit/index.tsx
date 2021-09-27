@@ -1,11 +1,22 @@
 import React from 'react';
-import { StyleSheet, TextInput, View, Image, Text } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { StyleSheet, TextInput, View, Image, Text, StyleProp, TextStyle } from 'react-native';
 import { setDescription, setName, setEmail, setUsername } from '../../redux';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useAppDispatch, useAppSelector } from '../../../../config/redux/hooks';
+import { EditScreenNavigationProps } from '../../../../config/navigation/types';
+import { useNavigation } from '@react-navigation/core';
 
+type Props = {
+    value: string;
+    label?: string;
+    onChangeText: (value: string) => {
+        payload: any,
+        type: string
+    };
+    style: StyleProp<TextStyle>
+}
 
-const CustomTextInput = ({value, label, onChangeText, style}) => (
+const CustomTextInput: React.FC<Props> = ({value, label, onChangeText, style}) => (
     <View>
         {label && <Text style={styles.label}>{label}</Text>}
         <TextInput
@@ -17,8 +28,8 @@ const CustomTextInput = ({value, label, onChangeText, style}) => (
 );
 
 const EditProfile = () => {
-    const {name, description, email, username} = useSelector(state => state.profile);
-    const dispatch = useDispatch();
+    const {name, description, email, username} = useAppSelector(state => state.profile);
+    const dispatch = useAppDispatch();
 
     return (
         <View style={styles.wrapper}>
@@ -67,25 +78,29 @@ const EditProfile = () => {
                 </View>
             </View>
             <View style={styles.joinedContainer}>
-                <Text style={styles.joinedText}>Joined</Text>
+                <Text>Joined</Text>
                 <Text style={styles.joinedDate}>2 Sep 2021</Text>
             </View>
         </View>
     );
 };
 
-export const getEditScreenNavigationOptions = ({ navigation }) => ({
-    title: 'Edit Profile',
-    headerShown: true,
-    headerLeft: () => (
-        <Icon
-            name='chevron-back-outline'
-            size={26}
-            color='#808080'
-            onPress={navigation.goBack}
-        />
+export const getEditScreenNavigationOptions = () => {
+    const navigation = useNavigation<EditScreenNavigationProps>();
+
+    return ({
+        title: 'Edit Profile',
+        headerShown: true,
+        headerLeft: () => (
+            <Icon
+                name='chevron-back-outline'
+                size={26}
+                color='#808080'
+                onPress={navigation.goBack}
+            />
+        )}
     )
-});
+};
 
 export default EditProfile;
 

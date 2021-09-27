@@ -1,49 +1,60 @@
 import React, {useRef} from 'react';
-import { StyleSheet, View, FlatList } from 'react-native';
+import { StyleSheet, View, FlatList, StyleProp, ViewStyle } from 'react-native';
 import { Button } from 'react-native-elements';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch, useAppSelector } from '../../../config/redux/hooks';
 import { setStatus } from '../redux';
 
+type ButtonProps = {
+    item: {
+        title: string,
+        key: number,
+        style: StyleProp<ViewStyle>
+    },
+    index: number
+}
+
 const ProfileStatus = () => {
-    const status = useSelector(state => state.profile.status);
-    const dispatch = useDispatch();
-    const flatListRef = useRef();
+    const status = useAppSelector(state => state.profile.status);
+    const dispatch = useAppDispatch();
+    const flatListRef = useRef<FlatList>(null);
 
     const statusList = [
         {
             title: '😴 Away',
             style: styles.away,
-            id: 1
+            key: 1
         },
         {
             title: '💼 At Work',
             style: styles.work,
-            id: 2
+            key: 2
         },
         {
             title: '🎮 Gaming',
             style: styles.gaming,
-            id: 3
+            key: 3
         },
         {
             title: '👋 Free',
             style: styles.free,
-            id: 4
+            key: 4
         }
     ];
 
-    const onPress = (title, index) => {
+    const onPress = (title: string, index: number): void => {
         dispatch(setStatus(title));
-        flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index});
+        if (flatListRef.current) {
+            flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index})
+        };
     };
 
-    const renderButton = ({ item, index }) => (
+    const renderButton: React.FC<ButtonProps> = ({ item, index }) => (
         <View style={status === item.title && styles.buttonContainer}>
             <Button
                 buttonStyle={[status === item.title ? styles.checkedButton : styles.button, item.style]}
                 title={item.title}
                 onPress={() => onPress(item.title, index)}
-                id={item.id}
+                key={item.key}
             />
         </View>
     );
@@ -81,7 +92,7 @@ const styles = StyleSheet.create({
         shadowColor: '#000000',
         shadowOpacity: 0.3,
         shadowRadius: 15,
-        shadowOffset : { height: 3}
+        shadowOffset: {width: 0, height: 3}
     },
     checkedButton: {
         marginRight: 10,

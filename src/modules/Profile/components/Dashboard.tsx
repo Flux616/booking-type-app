@@ -1,9 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const DashboardButton = ({uniqueStyle, name, label}) => (
+type Props = {
+    uniqueStyle: StyleProp<ViewStyle>,
+    name: string,
+    label: string
+}
+
+const DashboardButton: React.FC<Props> = ({uniqueStyle, name, label}) => (
     <TouchableOpacity>
         <View style={styles.section}>
             <View style={[styles.icon, uniqueStyle]}>
