@@ -12,9 +12,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppNavigation = () => (
     <NavigationContainer>
         <Stack.Navigator
-            screenOptions={{
-                headerShown: false
-            }}>
+            screenOptions={{headerShown: false}}>
             <Stack.Screen
                 name='HomeTabs'
                 component={HomeTabs}
