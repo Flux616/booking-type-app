@@ -5,17 +5,17 @@ import NearestCity from './NearestCity';
 import { Location } from '../../../config/navigation/types';
 import LocationsStore from '../../../config/stores/locations';
 
+type SingleSection = {
+    id: string,
+    title: string,
+    data: Array<Location[]>,
+    renderBlock: (item: Location[]) => React.ReactElement
+}
+
+type SectionsType = Array<SingleSection>
+
 const Suggestions = () => {
     const locations = LocationsStore.locations
-
-    type SingleSection = {
-        id: string,
-        title: string,
-        data: Array<Location[]>,
-        renderBlock: (item: Location[]) => React.ReactElement
-    }
-
-    type SectionsType = Array<SingleSection>
 
     const sections: SectionsType = [
         {
