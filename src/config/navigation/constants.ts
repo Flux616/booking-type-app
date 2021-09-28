@@ -17,12 +17,5 @@ export type RootStackParamList = {
         rating: number,
         price: string
     },
-    EditProfile: {
-        title: string,
-        image: ImageSourcePropType,
-        name: string,
-        description: string,
-        email: string,
-        username: string,
-    }
+    EditProfile: undefined
 }
