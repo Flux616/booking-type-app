@@ -1,18 +1,15 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, ImageSourcePropType } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { EditScreenNavigationProps } from '../../../config/navigation/types';
-import { useAppSelector } from '../../../config/redux/hooks';
 
-
-const ProfileInfo = () => {
-    const {name, description} = useAppSelector(state => state.profile);
+const ProfileInfo = ({name, description, image}: {name: string, description: string, image: ImageSourcePropType }) => {
     const navigation = useNavigation<EditScreenNavigationProps>();
 
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
+            <Image style={styles.image} source={image} />
             <View>
                 <Text style={styles.userName}>{name}</Text>
                 <Text style={styles.userDescription}>{description}</Text>

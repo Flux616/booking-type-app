@@ -1,8 +1,6 @@
 import React, {useRef} from 'react';
 import { StyleSheet, View, FlatList, StyleProp, ViewStyle } from 'react-native';
 import { Button } from 'react-native-elements';
-import { useAppDispatch, useAppSelector } from '../../../config/redux/hooks';
-import { setStatus } from '../redux';
 
 type ButtonProps = {
     item: {
@@ -13,9 +11,7 @@ type ButtonProps = {
     index: number
 }
 
-const ProfileStatus = () => {
-    const status = useAppSelector(state => state.profile.status);
-    const dispatch = useAppDispatch();
+const ProfileStatus = ({status, setStatus}: {status: string, setStatus: (status: string) => void}) => {
     const flatListRef = useRef<FlatList>(null);
 
     const statusList = [
@@ -42,7 +38,7 @@ const ProfileStatus = () => {
     ];
 
     const onPress = (title: string, index: number): void => {
-        dispatch(setStatus(title));
+        setStatus(title);
         if (flatListRef.current) {
             flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index})
         };

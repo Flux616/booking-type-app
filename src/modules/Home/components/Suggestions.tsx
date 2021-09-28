@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, FlatList, SectionList } from 'react-native';
 import PopularCity from './PopularCity';
 import NearestCity from './NearestCity';
-import { useAppSelector } from '../../../config/redux/hooks';
 import { Location } from '../../../config/navigation/types';
+import LocationsStore from '../../../config/stores/locations';
 
 type SingleSection = {
     id: string,
@@ -15,7 +15,7 @@ type SingleSection = {
 type SectionsType = Array<SingleSection>
 
 const Suggestions = () => {
-    const locations = useAppSelector(state => state.locations);
+    const locations = LocationsStore.locations
 
     const sections: SectionsType = [
         {
