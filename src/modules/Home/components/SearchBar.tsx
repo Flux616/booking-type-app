@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { useAppSelector } from '../../../config/redux/hooks';
+import LocationsStore from '../../../config/stores/locations'
 
 const HomeSearchBar = () => {
     const [countryInput, setCountryInput] = useState('');
-    const coutryList = useAppSelector(state => state.locations);
+    const coutryList = LocationsStore.locations;
 
     const searchCountry = (countryInput: string) => {
         const filteredCountry = countryList.filter(({country}: {country: string})  => country === countryInput);
