@@ -5,17 +5,17 @@ import NearestCity from './NearestCity';
 import { useAppSelector } from '../../../config/redux/hooks';
 import { Location } from '../../../config/navigation/types';
 
+type SingleSection = {
+    id: string,
+    title: string,
+    data: Array<Location[]>,
+    renderBlock: (item: Location[]) => React.ReactElement
+}
+
+type SectionsType = Array<SingleSection>
+
 const Suggestions = () => {
     const locations = useAppSelector(state => state.locations);
-
-    type SingleSection = {
-        id: string,
-        title: string,
-        data: Array<Location[]>,
-        renderBlock: (item: Location[]) => React.ReactElement
-    }
-
-    type SectionsType = Array<SingleSection>
 
     const sections: SectionsType = [
         {

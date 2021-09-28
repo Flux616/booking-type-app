@@ -3,7 +3,7 @@ import { StyleProp, ViewStyle } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 type Props = {
-    style?: StyleProp<ViewStyle>,
+    style?: {},
     height: number,
     width: number
 }
