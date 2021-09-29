@@ -1,39 +1,19 @@
 import React from 'react';
 import { StyleSheet, FlatList, View, Image, Text } from 'react-native';
+import { cityImages } from '../../../../__mocks__/cityImages';
 
-const Gallery = () => {
-    const cityImages = [
-        {
-            path: require('../../../../assets/images/countries/denmark/copenhagen/2.jpg'),
-            key: 1
-        },
-        {
-            path: require('../../../../assets/images/countries/denmark/copenhagen/1.jpg'),
-            key: 2
-        },
-        {
-            path: require('../../../../assets/images/countries/denmark/copenhagen/3.jpg'),
-            key: 3
-        },
-        {
-            path: require('../../../../assets/images/countries/denmark/copenhagen/4.jpg'),
-            key: 4
-        }
-    ];
-
-    return (
-        <View style={styles.container}>
-            <Text style={styles.text}>Gallery</Text>
-            <FlatList
-                contentContainerStyle={styles.contentContainer}
-                scrollEnabled={false}
-                horizontal
-                data={cityImages}
-                renderItem={({item}) => <View style={styles.imageContainer}><Image style={styles.image} source={item.path} key={item.key}/></View>}
-            />
-        </View>
-    );
-};
+const Gallery = () => (
+    <View style={styles.container}>
+        <Text style={styles.text}>Gallery</Text>
+        <FlatList
+            contentContainerStyle={styles.contentContainer}
+            scrollEnabled={false}
+            horizontal
+            data={cityImages}
+            renderItem={({item}) => <View style={styles.imageContainer}><Image style={styles.image} source={item.path} key={item.key}/></View>}
+        />
+    </View>
+);
 
 export default Gallery;
 

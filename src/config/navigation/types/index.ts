@@ -2,7 +2,25 @@ import { RouteProp } from "@react-navigation/native"
 import { NativeStackNavigationProp } from "@react-navigation/native-stack"
 import { StackNavigationProp } from "@react-navigation/stack"
 import { ImageSourcePropType } from "react-native"
-import { RootStackParamList } from "../constants"
+
+export type RootStackParamList = {
+    HomeTabs: undefined,
+    Details: {
+        image: ImageSourcePropType,
+        country: string,
+        city: string,
+        rating: number,
+        price: string
+    },
+    Location: {
+        image: ImageSourcePropType,
+        country: string,
+        city: string,
+        rating: number,
+        price: string
+    },
+    EditProfile: undefined
+}
 
 export type Profile = {
     image: ImageSourcePropType,

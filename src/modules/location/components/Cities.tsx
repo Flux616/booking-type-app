@@ -1,85 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
+import { citiesArray } from '../../../../__mocks__/locationsCititesArray';
 
-const defaultState = [
-    {
-        country: 'Germany',
-        citiesArray: [
-            {
-                name: 'Berlin',
-                image: require('../../../../assets/images/countries/germany/berlin.jpg'),
-                id: 1
-            },
-            {
-                name: 'Cologne',
-                image: require('../../../../assets/images/countries/germany/cologne.webp'),
-                id: 2
-            },
-            {
-                name: 'Frankfurt',
-                image: require('../../../../assets/images/countries/germany/frankfurt.jpg'),
-                id: 3
-            },
-            {
-                name: 'Leipzig',
-                image: require('../../../../assets/images/countries/germany/leipzig.jpg'),
-                id: 4
-            },
-            {
-                name: 'Munich',
-                image: require('../../../../assets/images/countries/germany/munich.jpg'),
-                id: 5
-            }
-        ]
-    },
-    {
-        country: 'Sweden',
-        citiesArray: [
-            {
-                name: 'Stockholm',
-                image: require('../../../../assets/images/countries/sweden/stockholm.jpeg'),
-                id: 1
-            },
-            {
-                name: 'Uppsala',
-                image: require('../../../../assets/images/countries/sweden/uppsala.jpg'),
-                id: 2
-            },
-            {
-                name: 'Gothenburg',
-                image: require('../../../../assets/images/countries/sweden/gothenburg.jpg'),
-                id: 3
-            },
-            {
-                name: 'Helsingborg',
-                image: require('../../../../assets/images/countries/sweden/helsingborg.jpg'),
-                id: 4
-            }
-        ]
-    }
-];
-
-const LocationCities = () => {
-    const [locations, setLocations] = useState(defaultState);
-
-    return (
-        <View>
-            {locations.map( selected => {
-                if (selected.country === 'Germany') {
-                    return selected.citiesArray.map( city => (
-                        <View style={styles.item} key={city.id}>
-                            <Image style={styles.image} source={city.image}/>
-                            <View style={styles.textArea}>
-                                <Text style={styles.upperText}>{city.name}</Text>
-                                <Text style={styles.lowerText}>{selected.country}</Text>
-                            </View>
+const LocationCities = () => (
+    <View>
+        {citiesArray.map( selected => {
+            if (selected.country === 'Germany') {
+                return selected.citiesArray.map( city => (
+                    <View style={styles.item} key={city.id}>
+                        <Image style={styles.image} source={city.image}/>
+                        <View style={styles.textArea}>
+                            <Text style={styles.upperText}>{city.name}</Text>
+                            <Text style={styles.lowerText}>{selected.country}</Text>
                         </View>
-                    ));
-                }
-            })}
-        </View>
-    );
-};
+                    </View>
+                ));
+            }
+        })}
+    </View>
+);
 
 export default LocationCities;
 

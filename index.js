@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import ProviderApp from './App.tsx';
 import {name as appName} from './app.json';
+import AppNavigation from './src/config/navigation';
 
-AppRegistry.registerComponent(appName, () => ProviderApp);
+AppRegistry.registerComponent(appName, () => AppNavigation);

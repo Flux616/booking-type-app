@@ -1,4 +1,4 @@
-import React, { ComponentType, FunctionComponent } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View, FlatList } from 'react-native';
 import StarIcon from '../../../components/StarIcon';
 import HalfStarIcon from '../../../components/HalfStarIcon';

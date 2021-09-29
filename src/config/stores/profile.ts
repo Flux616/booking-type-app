@@ -1,15 +1,9 @@
 import { makeAutoObservable } from "mobx"
+import { profileStore } from "../../../__mocks__/profileStore"
 import { Profile } from "../navigation/types"
 
 class ProfileStore {
-    user: Profile = {
-        image: require('../../../assets/images/avatar.jpg'),
-        name: 'Jimmy Raynor',
-        description: 'Kitty Cat',
-        email: 'qwerty1234@gmail.com',
-        username: 'HappyCat',
-        status: '💼 At Work'
-    }
+    user: Profile = profileStore
 
     constructor() {
         makeAutoObservable(this)

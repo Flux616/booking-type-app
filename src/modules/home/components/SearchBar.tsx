@@ -1,32 +1,39 @@
+import { useNavigation } from '@react-navigation/core';
 import React, {useState} from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { View, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { DetailsScreenNavigationProps, Location } from '../../../config/navigation/types';
 import LocationsStore from '../../../config/stores/locations'
 
 const HomeSearchBar = () => {
-    const [countryInput, setCountryInput] = useState('');
+    const navigation = useNavigation<DetailsScreenNavigationProps>();
+
+    const [cityInput, setCityInput] = useState('');
     const coutryList = LocationsStore.locations;
 
-    const searchCountry = (countryInput: string) => {
-        const filteredCountry = countryList.filter(({country}: {country: string})  => country === countryInput);
-        //TODO: Navigation to details of filtered item
+    const searchCity = (countryList: Array<Location>, cityInput: string) => {
+        const filteredCity = countryList.filter(({city}: {city: string}) => city === cityInput)[0];
+        if (filteredCity) {
+            return navigation.navigate('Details', filteredCity)
+        } else {
+            return Alert.alert(`There is no ${cityInput} in our base`)
+        }
     };
 
     return (
         <View style={styles.container}>
             <TextInput
-                value={countryInput}
+                value={cityInput}
                 style={styles.searchInput}
                 placeholder={'Search city here...'}
                 autoCapitalize={'words'}
-                onChangeText={setCountryInput}
+                onChangeText={setCityInput}
             />
-            <TouchableOpacity style={styles.searchIcon}>
-                <Ionicons
+            <TouchableOpacity style={styles.searchIcon} onPress={() => searchCity(coutryList, cityInput)}>
+                <Icon
                     name={'search'}
                     size={26}
                     color={'#FFFFFF'}
-                    onPress={searchCountry}
                 />
             </TouchableOpacity>
         </View>);

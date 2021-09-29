@@ -5,7 +5,7 @@ import Location from '../../modules/location';
 import Details from '../../modules/details';
 import EditProfile, { getEditScreenNavigationOptions } from '../../modules/profile/components/edit';
 import HomeTabs from './tabs';
-import { RootStackParamList } from './constants';
+import { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
