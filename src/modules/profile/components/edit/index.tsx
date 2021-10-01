@@ -1,31 +1,16 @@
 import React from 'react';
-import { StyleSheet, TextInput, View, Image, Text, StyleProp, TextStyle } from 'react-native';
+import { StyleSheet, View, Image, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { EditScreenNavigationProps } from '../../../../config/navigation/types';
-import { useNavigation } from '@react-navigation/core';
 import profile from '../../../../config/stores/profile'
 import { observer } from 'mobx-react';
-
-type Props = {
-    value: string;
-    label?: string;
-    onChangeText: (value: string) => void;
-    style: StyleProp<TextStyle>
-}
-
-const CustomTextInput: React.FC<Props> = ({value, label, onChangeText, style}) => (
-    <View>
-        {label && <Text style={styles.label}>{label}</Text>}
-        <TextInput
-            value={value}
-            style={style}
-            onChangeText={onChangeText}
-        />
-    </View>
-);
+import CustomTextInput from './CustomTextInput';
+import { useTranslation } from 'react-i18next';
+import i18n from '../../../../config/i18n';
+import { EditScreenNavigationProps } from '../../../../config/navigation/types';
 
 const EditProfile = () => {
     const {name, description, email, username} = profile.user;
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.edit'})
 
     return (
         <View style={styles.wrapper}>
@@ -53,11 +38,11 @@ const EditProfile = () => {
                     />
                     <CustomTextInput
                         value={email}
-                        label='Email Adress'
+                        label={t('email')}
                         style={styles.bottomLineInput}
                         onChangeText={(value) => profile.setEmail(value)}
                     />
-                    <Text style={styles.label}>Username</Text>
+                    <Text style={styles.label}>{t('username')}</Text>
                     <View style={styles.inputWithIcon}>
                         <Icon
                             name='at-outline'
@@ -74,29 +59,25 @@ const EditProfile = () => {
                 </View>
             </View>
             <View style={styles.joinedContainer}>
-                <Text>Joined</Text>
+                <Text>{t('joined')}</Text>
                 <Text style={styles.joinedDate}>2 Sep 2021</Text>
             </View>
         </View>
     );
 };
 
-export const getEditScreenNavigationOptions = () => {
-    const navigation = useNavigation<EditScreenNavigationProps>();
-
-    return ({
-        title: 'Edit Profile',
-        headerShown: true,
-        headerLeft: () => (
-            <Icon
-                name='chevron-back-outline'
-                size={26}
-                color='#808080'
-                onPress={navigation.goBack}
-            />
-        )}
-    )
-};
+export const getEditScreenNavigationOptions = ({navigation}: {navigation: EditScreenNavigationProps}) => ({
+    title: i18n.t('screens.edit.header'),
+    headerShown: true,
+    headerLeft: () => (
+        <Icon
+            name='chevron-back-outline'
+            size={26}
+            color='#808080'
+            onPress={navigation.goBack}
+        />
+    )}
+)
 
 export default observer(EditProfile);
 

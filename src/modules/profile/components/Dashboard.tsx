@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleProp, StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     uniqueStyle: StyleProp<ViewStyle>,
@@ -21,16 +22,20 @@ const DashboardButton: React.FC<Props> = ({uniqueStyle, name, label}) => (
     </TouchableOpacity>
 );
 
-const ProfileDashboard = () => (
-    <View>
-        <Text style={styles.header}>Dashboard</Text>
+const ProfileDashboard = () => {
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.profile.dashboard'})
+
+    return (
         <View>
-            <DashboardButton uniqueStyle={styles.payment} name='wallet-outline' label='Payments'/>
-            <DashboardButton uniqueStyle={styles.achievements} name='medal' label='Achievements'/>
-            <DashboardButton uniqueStyle={styles.privacy} name='shield-lock-outline' label='Privacy'/>
+            <Text style={styles.header}>{t('title')}</Text>
+            <View>
+                <DashboardButton uniqueStyle={styles.payment} name='wallet-outline' label={t('payments')}/>
+                <DashboardButton uniqueStyle={styles.achievements} name='medal' label={t('achievements')}/>
+                <DashboardButton uniqueStyle={styles.privacy} name='shield-lock-outline' label={t('privacy')}/>
+            </View>
         </View>
-    </View>
-);
+    );
+}
 
 export default ProfileDashboard;
 
