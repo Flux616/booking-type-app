@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React, {useState} from 'react';
+import { useTranslation } from 'react-i18next';
 import { View, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { DetailsScreenNavigationProps, Location } from '../../../config/navigation/types';
@@ -7,7 +8,7 @@ import LocationsStore from '../../../config/stores/locations'
 
 const HomeSearchBar = () => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
-
+    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.searchBar'})
     const [cityInput, setCityInput] = useState('');
     const coutryList = LocationsStore.locations;
 
@@ -16,7 +17,7 @@ const HomeSearchBar = () => {
         if (filteredCity) {
             return navigation.navigate('Details', filteredCity)
         } else {
-            return Alert.alert(`There is no ${cityInput} in our base`)
+            return Alert.alert(t('alert'))
         }
     };
 
@@ -25,7 +26,7 @@ const HomeSearchBar = () => {
             <TextInput
                 value={cityInput}
                 style={styles.searchInput}
-                placeholder={'Search city here...'}
+                placeholder={t('placeholder')}
                 autoCapitalize={'words'}
                 onChangeText={setCityInput}
             />

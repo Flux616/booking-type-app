@@ -1,19 +1,26 @@
 import React from 'react';
-import { StyleSheet, FlatList, View, Image, Text } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { StyleSheet, FlatList, View, Text } from 'react-native';
 import { cityImages } from '../../../../__mocks__/cityImages';
+import { GalleryImageProp } from '../../../config/navigation/types';
+import ImageGrid from './ImageGrid';
 
-const Gallery = () => (
-    <View style={styles.container}>
-        <Text style={styles.text}>Gallery</Text>
-        <FlatList
-            contentContainerStyle={styles.contentContainer}
-            scrollEnabled={false}
-            horizontal
-            data={cityImages}
-            renderItem={({item}) => <View style={styles.imageContainer}><Image style={styles.image} source={item.path} key={item.key}/></View>}
-        />
-    </View>
-);
+const Gallery = () => {
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.gallery'})
+
+    return (
+        <View style={styles.container}>
+            <Text style={styles.text}>{t('gallery')}</Text>
+            <FlatList<GalleryImageProp>
+                contentContainerStyle={styles.contentContainer}
+                scrollEnabled={false}
+                horizontal
+                data={cityImages}
+                renderItem={({item}) => ImageGrid(item)}
+            />
+        </View>
+    );
+}
 
 export default Gallery;
 
@@ -29,15 +36,5 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: 'bold',
         fontSize: 18
-    },
-    imageContainer: {
-        width: 75,
-        height: 75
-    },
-    image: {
-        flex: 1,
-        height: undefined,
-        width: undefined,
-        borderRadius: 6
     }
 });

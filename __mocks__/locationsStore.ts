@@ -1,66 +1,68 @@
+import i18n from "../src/config/i18n"
+
 export const locationsStore = [
     {
-        country: 'Sweden',
-        city: 'Stockholm',
+        country: i18n.t('countries.sweden'),
+        city: i18n.t('cities.stockholm'),
         image: require('../assets/images/countries/sweden/stockholm.jpeg'),
-        id: 1,
+        key: 'stockholm',
         rating: 4.5,
-        price: '150€/Day'
+        price: 150
     },
     {
-        country: 'Netherlands',
-        city: 'Amsterdam',
+        country: i18n.t('countries.netherlands'),
+        city: i18n.t('cities.amsterdam'),
         image: require('../assets/images/countries/netherlands/amsterdam.jpg'),
-        id: 2,
+        key: 'amsterdam',
         rating: 4.6,
-        price: '130€/Day'
+        price: 130
     },
     {
-        country: 'United Kingdom',
-        city: 'London',
+        country: i18n.t('countries.uk'),
+        city: i18n.t('cities.london'),
         image: require('../assets/images/countries/united-kingdom/london.jpg'),
-        id: 3,
+        key: 'london',
         rating: 4.1,
-        price: '115€/Day'
+        price: 115
     },
     {
-        country: 'Hungary',
-        city: 'Budapest',
+        country: i18n.t('countries.hungary'),
+        city: i18n.t('cities.budapest'),
         image: require('../assets/images/countries/hungary/budapest.jpg'),
-        id: 4,
+        key: 'budapest',
         rating: 4.2,
-        price: '90€/Day'
+        price: 90
     },
     {
-        country: 'Denmark',
-        city: 'Copenhagen',
+        country: i18n.t('countries.denmark'),
+        city: i18n.t('cities.stockholm'),
         image: require('../assets/images/countries/denmark/copenhagen.jpeg'),
-        id: 5,
+        key: 'copenhagen',
         rating: 4.7,
-        price: '90€/Day'
+        price: 90
     },
     {
-        country: 'Germany',
-        city: 'Frankfurt',
+        country: i18n.t('countries.germany'),
+        city: i18n.t('cities.frankfurt'),
         image: require('../assets/images/countries/germany/frankfurt.jpg'),
-        id: 6,
+        key: 'frankfurt',
         rating: 4.4,
-        price: '90€/Day'
+        price: 90
     },
     {
-        country: 'Poland',
-        city: 'Gdansk',
+        country: i18n.t('countries.poland'),
+        city: i18n.t('cities.gdansk'),
         image: require('../assets/images/countries/poland/gdansk.jpg'),
-        id: 7,
+        key: 'gdansk',
         rating: 4.3,
-        price: '90€/Day'
+        price: 90
     },
     {
-        country: 'Czech Republic',
-        city: 'Prague',
+        country: i18n.t('countries.czech'),
+        city: i18n.t('cities.prague'),
         image: require('../assets/images/countries/czech-republic/prague.jpg'),
-        id: 8,
+        key: 'prague',
         rating: 4.6,
-        price: '90€/Day'
+        price: 90
     }
 ]

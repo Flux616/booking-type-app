@@ -1,17 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const ProfileFooter = () => (
-    <View>
-        <Text style={styles.header}>My Account</Text>
-        <TouchableOpacity>
-            <Text style={styles.switch}>Switch to Other Account</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-            <Text style={styles.logOut}>Log Out</Text>
-        </TouchableOpacity>
-    </View>
-);
+const ProfileFooter = () => {
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.profile.footer'})
+
+    return (
+        <View>
+            <Text style={styles.header}>{t('title')}</Text>
+            <TouchableOpacity>
+                <Text style={styles.switch}>{t('switch')}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+                <Text style={styles.logOut}>{t('logout')}</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
 
 export default ProfileFooter;
 

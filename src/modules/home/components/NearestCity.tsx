@@ -1,5 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Image, View, Text, StyleSheet, ImageSourcePropType, TouchableOpacity } from 'react-native';
 import StarIcon from '../../../components/StarIcon';
 import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
@@ -7,13 +8,14 @@ import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 type Props = {
     image: ImageSourcePropType;
     rating: number;
-    price: string;
+    price: number;
     country: string;
     city: string;
 }
 
 const NearestItem: React.FC<Props> = ({ image, rating, price, country, city }) => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.home.suggestions'})
 
     return (
         <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details', { rating, city, country, image, price })}>
@@ -23,7 +25,7 @@ const NearestItem: React.FC<Props> = ({ image, rating, price, country, city }) =
                 <Text style={styles.ratingText}>{rating}</Text>
             </View>
             <View style={styles.price}>
-                <Text style={styles.priceText}>{price}</Text>
+                <Text style={styles.priceText}>{price}{t('price')}</Text>
             </View>
             <View style={styles.textArea}>
                 <Text style={styles.titleText}>{country}</Text>
