@@ -9,7 +9,7 @@ type Props = {
     country: string,
     city: string,
     rating: number,
-    price: string
+    price: number
 }
 
 const PopularCity: React.FC<Props> = ({ image, country, city, rating, price }) => {

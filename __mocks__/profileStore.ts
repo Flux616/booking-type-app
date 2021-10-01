@@ -4,5 +4,5 @@ export const profileStore = {
     description: 'Kitty Cat',
     email: 'qwerty1234@gmail.com',
     username: 'HappyCat',
-    status: '💼 At Work'
+    status: 'work'
 }

@@ -1,11 +1,12 @@
 import React, {useRef} from 'react';
 import { StyleSheet, View, FlatList, StyleProp, ViewStyle } from 'react-native';
 import { Button } from 'react-native-elements';
+import { getProfileStatusList } from '../../../../__mocks__/profileStatusList';
 
 type ButtonProps = {
     item: {
         title: string,
-        key: number,
+        key: string,
         style: StyleProp<ViewStyle>
     },
     index: number
@@ -13,43 +14,21 @@ type ButtonProps = {
 
 const ProfileStatus = ({status, setStatus}: {status: string, setStatus: (status: string) => void}) => {
     const flatListRef = useRef<FlatList>(null);
+    const statusList = getProfileStatusList();
 
-    const statusList = [
-        {
-            title: '😴 Away',
-            style: styles.away,
-            key: 1
-        },
-        {
-            title: '💼 At Work',
-            style: styles.work,
-            key: 2
-        },
-        {
-            title: '🎮 Gaming',
-            style: styles.gaming,
-            key: 3
-        },
-        {
-            title: '👋 Free',
-            style: styles.free,
-            key: 4
-        }
-    ];
-
-    const onPress = (title: string, index: number): void => {
-        setStatus(title);
+    const onPress = (key: string, index: number): void => {
+        setStatus(key);
         if (flatListRef.current) {
             flatListRef.current.scrollToIndex({viewPosition: 0.5, animated: true, index})
         };
     };
 
     const renderButton: React.FC<ButtonProps> = ({ item, index }) => (
-        <View style={status === item.title && styles.buttonContainer}>
+        <View style={status === item.key && styles.buttonContainer}>
             <Button
-                buttonStyle={[status === item.title ? styles.checkedButton : styles.button, item.style]}
+                buttonStyle={[status === item.key ? styles.checkedButton : styles.button, item.style]}
                 title={item.title}
-                onPress={() => onPress(item.title, index)}
+                onPress={() => onPress(item.key, index)}
                 key={item.key}
             />
         </View>
@@ -94,17 +73,5 @@ const styles = StyleSheet.create({
         marginRight: 10,
         borderRadius: 30,
         padding: 11
-    },
-    away: {
-        backgroundColor: '#000000'
-    },
-    work: {
-        backgroundColor: '#228B22'
-    },
-    gaming: {
-        backgroundColor: '#FFA500'
-    },
-    free: {
-        backgroundColor: '#4169e1'
     }
 });

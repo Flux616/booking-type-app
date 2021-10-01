@@ -10,14 +10,14 @@ export type RootStackParamList = {
         country: string,
         city: string,
         rating: number,
-        price: string
+        price: number
     },
     Location: {
         image: ImageSourcePropType,
         country: string,
         city: string,
         rating: number,
-        price: string
+        price: number
     },
     EditProfile: undefined
 }
@@ -35,9 +35,14 @@ export type Location = {
     country: string,
     city: string,
     image: ImageSourcePropType,
-    id: number,
+    key: string,
     rating: number,
-    price: string
+    price: number
+}
+
+export type GalleryImageProp = {
+    path: ImageSourcePropType,
+    key: number
 }
 
 export type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>
