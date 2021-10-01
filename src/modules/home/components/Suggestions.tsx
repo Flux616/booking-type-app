@@ -4,6 +4,7 @@ import PopularCity from './PopularCity';
 import NearestCity from './NearestCity';
 import { Location } from '../../../config/navigation/types';
 import LocationsStore from '../../../config/stores/locations';
+import { useTranslation } from 'react-i18next';
 
 type SingleSection = {
     id: string,
@@ -16,11 +17,12 @@ type SectionsType = Array<SingleSection>
 
 const Suggestions = () => {
     const locations = LocationsStore.locations
+    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.suggestions'})
 
     const sections: SectionsType = [
         {
             id: 'popular',
-            title: 'Popular',
+            title: t('popular'),
             data: [locations],
             renderBlock: (item) => <FlatList<Location>
                 showsHorizontalScrollIndicator={false}
@@ -32,7 +34,7 @@ const Suggestions = () => {
         },
         {
             id: 'nearest',
-            title: 'Nearest',
+            title: t('nearest'),
             data: [locations],
             renderBlock: (item) => <FlatList
                 showsVerticalScrollIndicator={false}

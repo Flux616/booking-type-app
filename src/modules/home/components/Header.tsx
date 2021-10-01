@@ -1,17 +1,22 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { View, Text, Image, StyleSheet } from 'react-native';
 
-const Header = () => (
-    <View style={styles.container}>
-        <View>
-            <Text style={styles.upperText}>Welcome Buddy</Text>
-            <Text style={styles.lowerText}>Start search your trip!</Text>
+const Header = () => {
+    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.header'})
+
+    return (
+        <View style={styles.container}>
+            <View>
+                <Text style={styles.upperText}>{t('welcome')}</Text>
+                <Text style={styles.lowerText}>{t('intro')}</Text>
+            </View>
+            <View>
+                <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
+            </View>
         </View>
-        <View>
-            <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
-        </View>
-    </View>
-);
+    )
+}
 
 const styles = StyleSheet.create({
     container: {
