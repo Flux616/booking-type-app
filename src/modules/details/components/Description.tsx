@@ -1,12 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Description = () => (
-    <View>
-        <Text style={styles.descriptionTitle}>Description</Text>
-        <Text style={styles.descriptionText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet consectetur tincidunt. Pellentesque eget egestas turpis.</Text>
-    </View>
-);
+const Description = () => {
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.description'})
+
+    return (
+        <View>
+            <Text style={styles.descriptionTitle}>{t('description')}</Text>
+            <Text style={styles.descriptionText}>{t('contentText')}</Text>
+        </View>
+    );
+}
 
 export default Description;
 

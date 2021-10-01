@@ -7,6 +7,7 @@ import BedIcon from '../../../components/BedIcon';
 import DinnerIcon from '../../../components/DinnerIcon';
 import ACIcon from '../../../components/ACIcon';
 import BathIcon from '../../../components/BathIcon';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
     rating: number,
@@ -20,26 +21,27 @@ type FeatureProps = {
 }
 
 const Info: React.FC<Props> = ({rating, city, country}) => {
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.info'})
 
     const descriptionData = [
         {
             SVG: <BedIcon/>,
-            text: '2 Bed',
+            text: t('beds'),
             key: 1
         },
         {
             SVG: <DinnerIcon/>,
-            text: 'Dinner',
+            text: t('dinner'),
             key: 2
         },
         {
             SVG: <ACIcon/>,
-            text: 'AC',
+            text: t('ac'),
             key: 3
         },
         {
             SVG: <BathIcon/>,
-            text: '1 Bath',
+            text: t('bath'),
             key: 4
         },
     ];
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
     },
     featText: {
         color: '#BFBFBF',
-        fontSize: 14
+        fontSize: 12
     },
     featContainer: {
         justifyContent: 'space-around',

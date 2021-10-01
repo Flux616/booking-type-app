@@ -1,21 +1,26 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 type Props = {
-    price: string
+    price: number
 }
 
-const Footer: React.FC<Props> = ({price}) => (
-    <View style={styles.container}>
-        <View style={styles.textWrapper}>
-            <Text style={styles.title}>Price</Text>
-            <Text style={styles.price}>{price}</Text>
+const Footer: React.FC<Props> = ({price}) => {
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.footer'})
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.textWrapper}>
+                <Text style={styles.title}>{t('title')}</Text>
+                <Text style={styles.price}>{price}{t('price')}</Text>
+            </View>
+            <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>{t('booking')}</Text>
+            </TouchableOpacity>
         </View>
-        <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}>Booking</Text>
-        </TouchableOpacity>
-    </View>
-);
+    );
+}
 
 export default Footer;
 
