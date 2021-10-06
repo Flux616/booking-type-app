@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { View } from 'react-native';
+import styled from 'styled-components/native';
 import { citiesArray } from '../../../../__mocks__/locationsCititesArray';
 
 const LocationCities = () => (
@@ -7,47 +8,49 @@ const LocationCities = () => (
         {citiesArray.map( selected => {
             if (selected.country === 'Germany') {
                 return selected.citiesArray.map( city => (
-                    <View style={styles.item} key={city.id}>
-                        <Image style={styles.image} source={city.image}/>
-                        <View style={styles.textArea}>
-                            <Text style={styles.upperText}>{city.name}</Text>
-                            <Text style={styles.lowerText}>{selected.country}</Text>
-                        </View>
-                    </View>
+                    <StyledView key={city.id}>
+                        <StyledImage source={city.image}/>
+                        <StyledTextArea>
+                            <StyledUpperText>{city.name}</StyledUpperText>
+                            <StyledLowerText>{selected.country}</StyledLowerText>
+                        </StyledTextArea>
+                    </StyledView>
                 ));
             }
         })}
     </View>
 );
 
-export default LocationCities;
+const StyledView = styled.View`
+padding: 10px;
+marginVertical: 10px;
+marginHorizontal: 15px;
+height: 220px;
+borderRadius: 4px;
+backgroundColor: ${props => props.theme.background}
+`
 
-const styles = StyleSheet.create ({
-    item: {
-        padding: 10,
-        marginVertical: 10,
-        marginHorizontal: 15,
-        height: 220,
-        borderRadius: 4,
-        backgroundColor: '#FFFFFF'
-    },
-    image: {
-        width: '100%',
-        height: 130,
-        borderRadius: 4
-    },
-    textArea: {
-        justifyContent: 'space-around',
-        marginLeft: 15,
-        marginBottom: 15,
-        marginTop: 10
-    },
-    upperText: {
-        marginTop: 8,
-        fontWeight: 'bold'
-    },
-    lowerText: {
-        marginTop: 8,
-        color: '#808080'
-    }
-});
+const StyledImage = styled.Image`
+width: 100%;
+height: 130px;
+borderRadius: 4px
+`
+
+const StyledTextArea = styled.View`
+justifyContent: space-around
+marginLeft: 15px;
+marginBottom: 15px;
+marginTop: 10px
+`
+
+const StyledUpperText = styled.Text`
+marginTop: 8px;
+fontWeight: bold
+`
+
+const StyledLowerText = styled.Text`
+marginTop: 8px;
+color: ${props => props.theme.lowerText}
+`
+
+export default LocationCities;
