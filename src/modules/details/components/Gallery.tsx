@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, FlatList, View, Text } from 'react-native';
+import styled from 'styled-components/native';
 import { cityImages } from '../../../../__mocks__/cityImages';
 import { GalleryImageProp } from '../../../config/navigation/types';
 import ImageGrid from './ImageGrid';
@@ -9,32 +9,34 @@ const Gallery = () => {
     const { t } = useTranslation('translation', {keyPrefix: 'screens.details.gallery'})
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>{t('gallery')}</Text>
-            <FlatList<GalleryImageProp>
-                contentContainerStyle={styles.contentContainer}
-                scrollEnabled={false}
+        <StyledView>
+            <StyledTitle>{t('gallery')}</StyledTitle>
+            <StyledFlatList<React.ElementType>
+                renderItem={({item}: {item: GalleryImageProp}) => <ImageGrid path={item.path} id={item.id}/>}
                 horizontal
+                scrollEnabled={false}
                 data={cityImages}
-                renderItem={({item}) => ImageGrid(item)}
             />
-        </View>
+        </StyledView>
     );
 }
 
-export default Gallery;
+const StyledView = styled.View`
+marginTop: 20px
+`
 
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 20
-    },
-    contentContainer: {
+const StyledFlatList = styled.FlatList.attrs(() => ({
+    contentContainerStyle: {
         width: '100%',
         justifyContent: 'space-between',
         marginTop: 10
-    },
-    text: {
-        fontWeight: 'bold',
-        fontSize: 18
     }
-});
+}))``
+
+const StyledTitle = styled.Text`
+fontWeight: bold;
+fontSize: 18px;
+color: ${props => props.theme.text}
+`
+
+export default Gallery;

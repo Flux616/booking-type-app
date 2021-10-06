@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
 
 type Props = {
     price: number
@@ -10,47 +10,51 @@ const Footer: React.FC<Props> = ({price}) => {
     const { t } = useTranslation('translation', {keyPrefix: 'screens.details.footer'})
 
     return (
-        <View style={styles.container}>
-            <View style={styles.textWrapper}>
-                <Text style={styles.title}>{t('title')}</Text>
-                <Text style={styles.price}>{price}{t('price')}</Text>
-            </View>
-            <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonText}>{t('booking')}</Text>
-            </TouchableOpacity>
-        </View>
+        <StyledView>
+            <StyledTextContainer>
+                <StyledTitle>{t('title')}</StyledTitle>
+                <StyledPrice>{price}{t('price')}</StyledPrice>
+            </StyledTextContainer>
+            <StyledButton>
+                <StyledButtonText>{t('booking')}</StyledButtonText>
+            </StyledButton>
+        </StyledView>
     );
 }
 
-export default Footer;
+const StyledView = styled.View`
+flexDirection: row;
+height: 65px;
+paddingTop: 10px;
+paddingBottom: 10px
+`
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        height: 65,
-        paddingTop: 10,
-        paddingBottom: 10
-    },
-    title: {
-        color: '#808080'
-    },
-    price: {
-        fontWeight: 'bold',
-        fontSize: 18
-    },
-    textWrapper: {
-        flex: 1,
-        justifyContent: 'space-between'
-    },
-    button: {
-        flex: 1,
-        backgroundColor: '#3F96EA',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 5
-    },
-    buttonText: {
-        color: '#FFFFFF',
-        fontWeight: '800'
-    }
-});
+const StyledTextContainer = styled.View`
+flex: 1;
+justifyContent: space-between
+`
+
+const StyledTitle = styled.Text`
+color: ${props => props.theme.lowerText}
+`
+
+const StyledPrice = styled.Text`
+fontWeight: bold;
+fontSize: 18px;
+color: ${props => props.theme.text}
+`
+
+const StyledButton = styled.TouchableOpacity`
+flex: 1;
+backgroundColor: ${props => props.theme.schemeColor};
+justifyContent: center;
+alignItems: center;
+borderRadius: 5px
+`
+
+const StyledButtonText = styled.Text`
+color: ${props => props.theme.text};
+fontWeight: 800
+`
+
+export default Footer;
