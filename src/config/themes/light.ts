@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components/native';
 
 const light: DefaultTheme = {
-    isDark: false,
+    key: 'light',
     background: '#fff',
     locationContainer: '#fff',
     text: '#000',
@@ -23,6 +23,6 @@ const light: DefaultTheme = {
         achievements: '#FFD700',
         privacy: '#808080',
     }
-} as const
+} as const;
 
-export default light
+export default light;

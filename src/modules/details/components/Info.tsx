@@ -10,16 +10,9 @@ import BathIcon from '../../../components/BathIcon';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/native';
 
-type Props = {
-    rating: number,
-    city: string,
-    country: string
-}
+type Props = { rating: number, city: string, country: string }
 
-type FeatureProps = {
-    SVG: JSX.Element,
-    text: string
-}
+type FeatureProps = { SVG: JSX.Element, text: string }
 
 const Info: React.FC<Props> = ({rating, city, country}) => {
     const { t } = useTranslation('translation', {keyPrefix: 'screens.details.info'})
@@ -52,37 +45,37 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
         let counter = 0;
 
         for ( ; counter < Math.floor(rating); counter++) {
-            ratingTable.push(<StarIcon style={{marginRight: 5}} height={18} width={18} key={counter}/>);
+            ratingTable.push(<StarSvg height={18} width={18} key={counter}/>);
         }
 
         if (rating - counter >= 0.5) {
-            ratingTable.push(<HalfStarIcon style={{marginRight: 5}} height={18} width={18} key={counter}/>);
+            ratingTable.push(<HalfStarSvg height={18} width={18} key={counter}/>);
             counter++;
         }
 
         for ( ; counter < 5; counter++) {
-            ratingTable.push(<EmptyStarIcon style={{marginRight: 5}} height={18} width={18} key={counter}/>);
+            ratingTable.push(<EmptyStarSvg height={18} width={18} key={counter}/>);
         }
 
         return ratingTable;
     };
 
     const RenderFeatures: React.FC<FeatureProps> = ({SVG, text}) => (
-        <StyledFeatContainer>
+        <FeatContainer>
             {SVG}
-            <StyledFeatText>{text}</StyledFeatText>
-        </StyledFeatContainer>
+            <FeatText>{text}</FeatText>
+        </FeatContainer>
     );
 
     return (
         <View>
-            <StyledTitleContainer>
-                <StyledCityText>{city}</StyledCityText>
-                <StyledCountryText>{country}</StyledCountryText>
-                <StyledRatingView>
+            <TextArea>
+                <CityName>{city}</CityName>
+                <CountryName>{country}</CountryName>
+                <RatingContainer>
                     {createTable(rating)}
-                </StyledRatingView>
-            </StyledTitleContainer>
+                </RatingContainer>
+            </TextArea>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal
@@ -93,31 +86,31 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
     );
 };
 
-const StyledTitleContainer = styled.View`
+const TextArea = styled.View`
 justifyContent: space-between;
 height: 65px;
 marginTop: 15px
 `
 
-const StyledCityText = styled.Text`
+const CityName = styled.Text`
 color: ${props => props.theme.text}
 fontWeight: bold;
 fontSize: 24px
 `
 
-const StyledCountryText = styled.Text`
+const CountryName = styled.Text`
 fontSize: 20px;
 color: ${props => props.theme.descriptionText}
 `
 
-const StyledRatingView = styled.View`
+const RatingContainer = styled.View`
 flexDirection: row;
 position: absolute;
 right: 0px;
-bottom: 20px
+bottom: 20px;
 `
 
-const StyledFeatContainer = styled.View`
+const FeatContainer = styled.View`
 justifyContent: space-around;
 alignItems: center;
 backgroundColor: ${props => props.theme.featContainer};
@@ -130,9 +123,21 @@ padding: 5px;
 borderRadius: 10px
 `
 
-const StyledFeatText = styled.Text`
+const FeatText = styled.Text`
 color: ${props => props.theme.lowerText};
 fontSize: 12px
+`
+
+const StarSvg = styled(StarIcon)`
+marginRight: 5px
+`
+
+const HalfStarSvg = styled(HalfStarIcon)`
+marginRight: 5px
+`
+
+const EmptyStarSvg = styled(EmptyStarIcon)`
+marginRight: 5px
 `
 
 export default Info;

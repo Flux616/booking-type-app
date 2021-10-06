@@ -3,17 +3,17 @@ import styled from 'styled-components/native'
 import { GalleryImageProp } from '../../../config/navigation/types'
 
 const ImageGrid = ({path, id}: GalleryImageProp) => (
-    <StyledImageContainer>
-        <StyledImage source={path} key={id}/>
-    </StyledImageContainer>
+    <ImageContainer>
+        <GalleryImage source={path} key={id}/>
+    </ImageContainer>
 )
 
-const StyledImageContainer = styled.View`
+const ImageContainer = styled.View`
 width: 75px;
 height: 75px
 `
 
-const StyledImage = styled.Image`
+const GalleryImage = styled.Image`
 flex: 1;
 height: undefined;
 width: undefined;

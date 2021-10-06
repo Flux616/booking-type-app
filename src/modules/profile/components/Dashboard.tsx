@@ -5,12 +5,12 @@ import DashboardButton from './DashboardButton';
 import styled, { useTheme } from 'styled-components/native';
 
 const ProfileDashboard = () => {
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.profile.dashboard'})
-    const theme = useTheme()
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.profile.dashboard'});
+    const theme = useTheme();
 
     return (
         <View>
-            <StyledHeader>{t('title')}</StyledHeader>
+            <Header>{t('title')}</Header>
             <View>
                 <DashboardButton color={theme.dashboard.payments} name='wallet-outline' label={t('payments')}/>
                 <DashboardButton color={theme.dashboard.achievements} name='medal' label={t('achievements')}/>
@@ -18,10 +18,10 @@ const ProfileDashboard = () => {
             </View>
         </View>
     );
-}
+};
 
-const StyledHeader = styled.Text`
-color: ${props => props.theme.text}
-`
+const Header = styled.Text`
+  color: ${props => props.theme.text}
+`;
 
 export default ProfileDashboard;

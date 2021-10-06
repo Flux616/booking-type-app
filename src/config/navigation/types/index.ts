@@ -1,7 +1,7 @@
-import { RouteProp } from '@react-navigation/native'
-import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { StackNavigationProp } from '@react-navigation/stack'
-import { ImageSourcePropType } from 'react-native'
+import { RouteProp } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { ImageSourcePropType } from 'react-native';
 
 export type RootStackParamList = {
     HomeTabs: undefined,
@@ -40,10 +40,7 @@ export type Location = {
     price: number
 }
 
-export type GalleryImageProp = {
-    path: ImageSourcePropType,
-    id: string
-}
+export type GalleryImageProp = { path: ImageSourcePropType, id: string }
 
 export type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>
 

@@ -8,16 +8,14 @@ import Footer from './components/Footer';
 import { DetailsScreenRouteProp } from '../../config/navigation/types';
 import styled from 'styled-components/native';
 
-type Props = {
-    route: DetailsScreenRouteProp
-}
+type Props = { route: DetailsScreenRouteProp }
 
 const Details: React.FC<Props> = ({ route }) => {
     const {rating, city, country, image, price} = route.params;
 
     return (
-        <StyledWrapper>
-            <StyledSafeAreaView>
+        <Wrapper>
+            <SafeArea>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <Preview image={image}/>
                     <Info rating={rating} city={city} country={country}/>
@@ -25,20 +23,20 @@ const Details: React.FC<Props> = ({ route }) => {
                     <Gallery/>
                 </ScrollView>
                 <Footer price={price}/>
-            </StyledSafeAreaView>
-        </StyledWrapper>
+            </SafeArea>
+        </Wrapper>
     );
 };
 
-const StyledSafeAreaView = styled.SafeAreaView`
-flex: 1;
-justifyContent: space-between;
-marginHorizontal: 20px
-`
+const SafeArea = styled.SafeAreaView`
+  flex: 1;
+  justifyContent: space-between;
+  marginHorizontal: 20px
+`;
 
-const StyledWrapper = styled.View`
-backgroundColor: ${props => props.theme.background};
-flex: 1
-`
+const Wrapper = styled.View`
+  backgroundColor: ${props => props.theme.background};
+  flex: 1
+`;
 
 export default Details;

@@ -5,66 +5,66 @@ import { Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styled, { useTheme } from 'styled-components/native';
 import { DetailsScreenNavigationProps, Location } from '../../../config/navigation/types';
-import LocationsStore from '../../../config/stores/locations'
+import LocationsStore from '../../../config/stores/locations';
 
 const HomeSearchBar = () => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
-    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.searchBar'})
+    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.searchBar'});
     const [cityInput, setCityInput] = useState('');
-    const theme = useTheme()
+    const theme = useTheme();
     const coutryList = LocationsStore.locations;
 
     const searchCity = (countryList: Array<Location>, cityInput: string) => {
         const filteredCity = countryList.filter(({city}: {city: string}) => city === cityInput)[0];
         if (filteredCity) {
-            return navigation.navigate('Details', filteredCity)
-        } else {
-            return Alert.alert(t('alert'))
+            return navigation.navigate('Details', filteredCity);
         }
+        return Alert.alert(t('alert'));
+
     };
 
     return (
-        <StyledView>
-            <StyledTextInput
+        <Wrapper>
+            <SearchInput
                 value={cityInput}
                 placeholder={t('placeholder')}
                 placeholderTextColor={theme.lowerText}
                 autoCapitalize={'words'}
                 onChangeText={setCityInput}
             />
-            <StyledTouchableOpacity onPress={() => searchCity(coutryList, cityInput)}>
+            <SearchButton onPress={() => searchCity(coutryList, cityInput)}>
                 <Icon
                     name={'search'}
                     size={26}
                     color={theme.background}
                 />
-            </StyledTouchableOpacity>
-        </StyledView>);
+            </SearchButton>
+        </Wrapper>);
 };
 
-const StyledView = styled.View`
-justifyContent: space-between;
+const Wrapper = styled.View`
 flexDirection: row;
-marginTop: 30px;
-marginHorizontal: 10px;
+justifyContent: space-between;
 marginBottom: 10px
-`
+marginHorizontal: 10px;
+marginTop: 30px;
+`;
 
-const StyledTextInput = styled.TextInput`
-flex: 1px;
+const SearchInput = styled.TextInput`
 backgroundColor: ${props => props.theme.searchBar};
 borderRadius: 6px;
+flex: 1px;
+height: 50px;
 marginRight: 20px;
-height: 50px;
 paddingHorizontal: 15px;
-`
+`;
 
-const StyledTouchableOpacity = styled.TouchableOpacity`
-height: 50px;
-width: 50px;
+const SearchButton = styled.TouchableOpacity`
 backgroundColor: ${props => props.theme.schemeColor};
-padding: 12px;
 borderRadius: 4px;
-`
+height: 50px;
+padding: 12px;
+width: 50px;
+`;
 
 export default HomeSearchBar;

@@ -9,44 +9,44 @@ const ProfileInfo = ({name, description, image}: {name: string, description: str
     const navigation = useNavigation<EditScreenNavigationProps>();
 
     return (
-        <StyledView>
-            <StyledImage source={image} />
+        <Wrapper>
+            <Avatar source={image} />
             <View>
-                <StyledName>{name}</StyledName>
-                <StyledDescription>{description}</StyledDescription>
+                <Name>{name}</Name>
+                <Description>{description}</Description>
             </View>
             <Icon
                 name='edit'
                 size={24}
                 color={'#808080'}
                 onPress={() => navigation.navigate('EditProfile')}/>
-        </StyledView>
+        </Wrapper>
     );
 };
 
-const StyledView = styled.View`
-flexDirection: row;
-alignItems: center;
-justifyContent: space-between
-`
+const Wrapper = styled.View`
+  alignItems: center;
+  flexDirection: row;
+  justifyContent: space-between
+`;
 
-const StyledImage = styled.Image`
-width: 120px;
-height: 120px;
-borderRadius: 100px
-`
+const Avatar = styled.Image`
+  borderRadius: 100px
+  height: 120px;
+  width: 120px;
+`;
 
-const StyledName = styled.Text`
-fontWeight: bold;
-fontSize: 18px;
-marginVertical: 5px;
-color: ${props => props.theme.text}
-`
+const Name = styled.Text`
+  color: ${props => props.theme.text};
+  fontSize: 18px;
+  fontWeight: bold;
+  marginVertical: 5px;
+`;
 
-const StyledDescription = styled.Text`
-fontSize: 12px;
-color: #808080;
-marginVertical: 5px
-`
+const Description = styled.Text`
+  color: ${props => props.theme.lowerText};
+  fontSize: 12px;
+  marginVertical: 5px
+`;
 
 export default ProfileInfo;

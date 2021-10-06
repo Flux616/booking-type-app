@@ -9,23 +9,23 @@ const Gallery = () => {
     const { t } = useTranslation('translation', {keyPrefix: 'screens.details.gallery'})
 
     return (
-        <StyledView>
-            <StyledTitle>{t('gallery')}</StyledTitle>
-            <StyledFlatList<React.ElementType>
+        <Wrapper>
+            <Title>{t('gallery')}</Title>
+            <ImageList<React.ElementType>
                 renderItem={({item}: {item: GalleryImageProp}) => <ImageGrid path={item.path} id={item.id}/>}
                 horizontal
                 scrollEnabled={false}
                 data={cityImages}
             />
-        </StyledView>
+        </Wrapper>
     );
 }
 
-const StyledView = styled.View`
+const Wrapper = styled.View`
 marginTop: 20px
 `
 
-const StyledFlatList = styled.FlatList.attrs(() => ({
+const ImageList = styled.FlatList.attrs(() => ({
     contentContainerStyle: {
         width: '100%',
         justifyContent: 'space-between',
@@ -33,7 +33,7 @@ const StyledFlatList = styled.FlatList.attrs(() => ({
     }
 }))``
 
-const StyledTitle = styled.Text`
+const Title = styled.Text`
 fontWeight: bold;
 fontSize: 18px;
 color: ${props => props.theme.text}

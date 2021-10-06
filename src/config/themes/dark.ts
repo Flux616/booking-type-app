@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components/native';
 
 const dark: DefaultTheme = {
-    isDark: true,
+    key: 'dark',
     background: '#3D4043',
     locationContainer: '#202124',
     text: '#DCDEE1',
@@ -23,6 +23,6 @@ const dark: DefaultTheme = {
         achievements: '#FFD700',
         privacy: '#808080',
     }
-} as const
+} as const;
 
-export default dark
+export default dark;

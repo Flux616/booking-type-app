@@ -5,23 +5,23 @@ import SearchBar from './components/SearchBar';
 import Suggestions from './components/Suggestions';
 
 const Home = () => (
-    <StyledSafeAreaView>
-        <StyledView>
+    <SafeArea>
+        <Wrapper>
             <Header/>
             <SearchBar/>
             <Suggestions/>
-        </StyledView>
-    </StyledSafeAreaView>
+        </Wrapper>
+    </SafeArea>
 );
 
-const StyledSafeAreaView = styled.SafeAreaView`
+const SafeArea = styled.SafeAreaView`
+backgroundColor: ${props => props.theme.background};
 flex: 1;
-backgroundColor: ${props => props.theme.background}
-`
+`;
 
-const StyledView = styled.View`
+const Wrapper = styled.View`
 marginHorizontal: 20px;
 marginTop: 15px;
-`
+`;
 
 export default Home;

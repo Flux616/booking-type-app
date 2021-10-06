@@ -8,20 +8,20 @@ const Description = () => {
 
     return (
         <View>
-            <StyledTitleText>{t('description')}</StyledTitleText>
-            <StyledDescriptionText>{t('contentText')}</StyledDescriptionText>
+            <Title>{t('description')}</Title>
+            <Content>{t('contentText')}</Content>
         </View>
     );
 }
 
-const StyledTitleText = styled.Text`
+const Title = styled.Text`
 fontWeight: bold,
 fontSize: 18px;
 marginBottom: 10px;
 color: ${props => props.theme.text}
 `
 
-const StyledDescriptionText = styled.Text`
+const Content = styled.Text`
 color: ${props => props.theme.descriptionText}
 `
 

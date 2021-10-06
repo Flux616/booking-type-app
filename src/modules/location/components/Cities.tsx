@@ -8,49 +8,49 @@ const LocationCities = () => (
         {citiesArray.map( selected => {
             if (selected.country === 'Germany') {
                 return selected.citiesArray.map( city => (
-                    <StyledView key={city.id}>
-                        <StyledImage source={city.image}/>
-                        <StyledTextArea>
-                            <StyledUpperText>{city.name}</StyledUpperText>
-                            <StyledLowerText>{selected.country}</StyledLowerText>
-                        </StyledTextArea>
-                    </StyledView>
+                    <Wrapper key={city.id}>
+                        <CityImage source={city.image}/>
+                        <TextArea>
+                            <CityName>{city.name}</CityName>
+                            <CountryName>{selected.country}</CountryName>
+                        </TextArea>
+                    </Wrapper>
                 ));
             }
         })}
     </View>
 );
 
-const StyledView = styled.View`
-padding: 10px;
-marginVertical: 10px;
-marginHorizontal: 15px;
-height: 220px;
-borderRadius: 4px;
-backgroundColor: ${props => props.theme.background}
-`
+const Wrapper = styled.View`
+  backgroundColor: ${props => props.theme.background};
+  borderRadius: 4px;
+  height: 220px;
+  marginHorizontal: 15px;
+  marginVertical: 10px;
+  padding: 10px;
+`;
 
-const StyledImage = styled.Image`
-width: 100%;
-height: 130px;
-borderRadius: 4px
-`
+const CityImage = styled.Image`
+  borderRadius: 4px
+  height: 130px;
+  width: 100%;
+`;
 
-const StyledTextArea = styled.View`
-justifyContent: space-around
-marginLeft: 15px;
-marginBottom: 15px;
-marginTop: 10px
-`
+const TextArea = styled.View`
+  justifyContent: space-around
+  marginLeft: 15px;
+  marginBottom: 15px;
+  marginTop: 10px
+`;
 
-const StyledUpperText = styled.Text`
-marginTop: 8px;
-fontWeight: bold
-`
+const CityName = styled.Text`
+  fontWeight: bold
+  marginTop: 8px;
+`;
 
-const StyledLowerText = styled.Text`
-marginTop: 8px;
-color: ${props => props.theme.lowerText}
-`
+const CountryName = styled.Text`
+  color: ${props => props.theme.lowerText};
+  marginTop: 8px;
+`;
 
 export default LocationCities;

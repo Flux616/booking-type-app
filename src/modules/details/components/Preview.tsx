@@ -5,38 +5,36 @@ import { BlurView } from '@react-native-community/blur';
 import { useNavigation } from '@react-navigation/core';
 import styled from 'styled-components/native';
 
-type Props = {
-    image: ImageSourcePropType
-}
+type Props = { image: ImageSourcePropType }
 
 const Preview: React.FC<Props> = ({image}) => {
     const navigation = useNavigation();
 
     return (
-        <StyledView>
-            <StyledImage source={image}/>
-            <StyledBackIconContainer blurType='light'>
+        <Wrapper>
+            <CityImage source={image}/>
+            <BackIcon blurType='light'>
                 <Icon name='chevron-back' size={28} color={'white'} onPress={navigation.goBack}/>
-            </StyledBackIconContainer>
-            <StyledBookmarkIcon blurType='light'>
+            </BackIcon>
+            <BookmarkIcon blurType='light'>
                 <Icon name='bookmark-outline' size={28} color={'white'}/>
-            </StyledBookmarkIcon>
-        </StyledView>
+            </BookmarkIcon>
+        </Wrapper>
     );
 };
 
-const StyledView = styled.View`
+const Wrapper = styled.View`
 justifyContent: center;
 alignItems: center
 `
 
-const StyledImage = styled.Image`
+const CityImage = styled.Image`
 width: 100%;
 height: 300px;
 borderRadius: 10px
 `
 
-const StyledBackIconContainer = styled(BlurView)`
+const BackIcon = styled(BlurView)`
 left: 15px;
 width: 40px;
 height: 40px;
@@ -48,7 +46,7 @@ justifyContent: center;
 alignItems: center
 `
 
-const StyledBookmarkIcon = styled(BlurView)`
+const BookmarkIcon = styled(BlurView)`
 right: 15px;
 width: 40px;
 height: 40px;

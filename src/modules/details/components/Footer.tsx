@@ -2,49 +2,47 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/native';
 
-type Props = {
-    price: number
-}
+type Props = { price: number }
 
 const Footer: React.FC<Props> = ({price}) => {
     const { t } = useTranslation('translation', {keyPrefix: 'screens.details.footer'})
 
     return (
-        <StyledView>
-            <StyledTextContainer>
-                <StyledTitle>{t('title')}</StyledTitle>
-                <StyledPrice>{price}{t('price')}</StyledPrice>
-            </StyledTextContainer>
-            <StyledButton>
-                <StyledButtonText>{t('booking')}</StyledButtonText>
-            </StyledButton>
-        </StyledView>
+        <Wrapper>
+            <TextArea>
+                <Title>{t('title')}</Title>
+                <Price>{price}{t('price')}</Price>
+            </TextArea>
+            <BookButton>
+                <BookText>{t('booking')}</BookText>
+            </BookButton>
+        </Wrapper>
     );
 }
 
-const StyledView = styled.View`
+const Wrapper = styled.View`
 flexDirection: row;
 height: 65px;
 paddingTop: 10px;
 paddingBottom: 10px
 `
 
-const StyledTextContainer = styled.View`
+const TextArea = styled.View`
 flex: 1;
 justifyContent: space-between
 `
 
-const StyledTitle = styled.Text`
+const Title = styled.Text`
 color: ${props => props.theme.lowerText}
 `
 
-const StyledPrice = styled.Text`
+const Price = styled.Text`
 fontWeight: bold;
 fontSize: 18px;
 color: ${props => props.theme.text}
 `
 
-const StyledButton = styled.TouchableOpacity`
+const BookButton = styled.TouchableOpacity`
 flex: 1;
 backgroundColor: ${props => props.theme.schemeColor};
 justifyContent: center;
@@ -52,7 +50,7 @@ alignItems: center;
 borderRadius: 5px
 `
 
-const StyledButtonText = styled.Text`
+const BookText = styled.Text`
 color: ${props => props.theme.text};
 fontWeight: 800
 `

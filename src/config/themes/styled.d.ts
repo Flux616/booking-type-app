@@ -1,8 +1,8 @@
-import 'styled-components'
+import 'styled-components';
 
 declare module 'styled-components' {
     export interface DefaultTheme {
-        isDark: boolean
+        key: string
         background: string
         locationContainer: string
         text: string

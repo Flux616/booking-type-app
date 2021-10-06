@@ -8,12 +8,12 @@ import HomeTabs from './tabs';
 import { RootStackParamList } from './types';
 import { ThemeProvider } from 'styled-components/native';
 import { observer } from 'mobx-react';
-import CurrentTheme from '../stores/theme';
+import ThemeStore from '../stores/theme';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const AppNavigation = () => (
-    <ThemeProvider theme={CurrentTheme.currentTheme}>
+    <ThemeProvider theme={ThemeStore.currentTheme}>
         <NavigationContainer>
             <Stack.Navigator
                 screenOptions={{headerShown: false}}>
@@ -37,6 +37,6 @@ const AppNavigation = () => (
             </Stack.Navigator>
         </NavigationContainer>
     </ThemeProvider>
-)
+);
 
 export default observer(AppNavigation);

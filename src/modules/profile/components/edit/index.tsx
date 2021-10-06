@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import profile from '../../../../config/stores/profile'
+import profile from '../../../../config/stores/profile';
 import { observer } from 'mobx-react';
 import CustomTextInput from './CustomTextInput';
 import { useTranslation } from 'react-i18next';
@@ -11,21 +11,21 @@ import styled, { useTheme } from 'styled-components/native';
 
 const EditProfile = () => {
     const {name, description, email, username} = profile.user;
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.edit'})
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.edit'});
 
     return (
         <Wrapper>
-            <StyledView>
-                <StyledImageContainer>
-                    <StyledImage source={require('../../../../../assets/images/avatar.jpg')} />
-                    <StyledPencilIcon>
+            <EditContainer>
+                <ImageContainer>
+                    <Avatar source={require('../../../../../assets/images/avatar.jpg')} />
+                    <PencilIcon>
                         <Icon
                             name='ios-pencil-outline'
                             size={20}
                             color={'#FFFFFF'}
                         />
-                    </StyledPencilIcon>
-                </StyledImageContainer>
+                    </PencilIcon>
+                </ImageContainer>
                 <View>
                     <NameInput
                         value={name}
@@ -53,7 +53,7 @@ const EditProfile = () => {
                         />
                     </InputWithIcon>
                 </View>
-            </StyledView>
+            </EditContainer>
             <JoinedContainer>
                 <JoinedText>{t('joined')}</JoinedText>
                 <JoinedDate>2 Sep 2021</JoinedDate>
@@ -63,113 +63,113 @@ const EditProfile = () => {
 };
 
 export const getEditScreenNavigationOptions = ({navigation}: {navigation: EditScreenNavigationProps}) => {
-    const theme = useTheme()
+    const theme = useTheme();
 
     return {
-    title: i18n.t('screens.edit.header'),
-    headerTitleStyle: {color: theme.text},
-    headerShown: true,
-    headerStyle: {backgroundColor: theme.background},
-    headerLeft: () => (
-        <Icon
-            name='chevron-back-outline'
-            size={26}
-            color={theme.lowerText}
-            onPress={navigation.goBack}
-        />
-    )}
-}
+        title: i18n.t('screens.edit.header'),
+        headerTitleStyle: {color: theme.text},
+        headerShown: true,
+        headerStyle: {backgroundColor: theme.background},
+        headerLeft: () => (
+            <Icon
+                name='chevron-back-outline'
+                size={26}
+                color={theme.lowerText}
+                onPress={navigation.goBack}
+            />
+        )};
+};
 
 const Wrapper = styled.View`
-flex: 1;
-justifyContent: space-between;
-backgroundColor: ${props => props.theme.background}
-`
+  backgroundColor: ${props => props.theme.background};
+  flex: 1;
+  justifyContent: space-between;
+`;
 
-const StyledView = styled.View`
-marginHorizontal: 30px
-`
+const EditContainer = styled.View`
+  marginHorizontal: 30px
+`;
 
-const StyledImageContainer = styled.View`
-alignItems: center;
-marginTop: 30px
-`
+const ImageContainer = styled.View`
+  alignItems: center;
+  marginTop: 30px
+`;
 
-const StyledImage = styled.Image`
-width: 120px;
-height: 120px;
-borderRadius: 100px
-`
+const Avatar = styled.Image`
+  borderRadius: 100px
+  height: 120px;
+  width: 120px;
+`;
 
-const StyledPencilIcon = styled.View`
-position: relative;
-width: 30px;
-height: 30px;
-borderRadius: 50px;
-backgroundColor: ${props => props.theme.schemeColor};
-justifyContent: center;
-alignItems: center;
-bottom: 30px;
-left: 40px
-`
+const PencilIcon = styled.View`
+  alignItems: center;
+  backgroundColor: ${props => props.theme.schemeColor};
+  borderRadius: 50px;
+  bottom: 30px;
+  height: 30px;
+  justifyContent: center;
+  left: 40px
+  position: relative;
+  width: 30px;
+`;
 
 const NameInput = styled(CustomTextInput)`
-fontWeight: bold;
-fontSize: 20px;
-alignSelf: center;
-marginBottom: 15px
-`
+  alignSelf: center;
+  fontSize: 20px;
+  fontWeight: bold;
+  marginBottom: 15px
+`;
 
 const DescriptionInput = styled(CustomTextInput)`
-fontWeight: bold;
-fontSize: 20px;
-color: ${props => props.theme.lowerText};
-alignSelf: center;
-marginBottom: 40px
-`
+  alignSelf: center;
+  color: ${props => props.theme.lowerText};
+  fontSize: 20px;
+  fontWeight: bold;
+  marginBottom: 40px
+`;
 
 const BottomLineInput = styled(CustomTextInput)`
-marginBottom: 30px;
-borderBottomWidth: 1px;
-borderBottomColor: ${props => props.theme.lowerText};
-fontWeight: bold;
-fontSize: 16px
-`
+  borderBottomColor: ${props => props.theme.lowerText};
+  borderBottomWidth: 1px;
+  fontSize: 16px;
+  fontWeight: bold;
+  marginBottom: 30px;
+`;
 
 const Label = styled.Text`
-marginBottom: 15px;
-fontWeight: bold;
-color: ${props => props.theme.lowerText}
-`
+  color: ${props => props.theme.lowerText};
+  fontWeight: bold;
+  marginBottom: 15px;
+`;
 
 const InputWithIcon = styled.View`
-flexDirection: row;
-borderBottomColor: ${props => props.theme.lowerText};
-borderBottomWidth: 1px
-`
+  borderBottomColor: ${props => props.theme.lowerText};
+  borderBottomWidth: 1px
+  flexDirection: row;
+`;
 
 const InputIcon = styled(Icon)`
-alignSelf: flex-end
-`
+  alignSelf: flex-end
+`;
 
 const InputText = styled(CustomTextInput)`
-fontWeight: bold;
-fontSize: 16px
-`
+  fontSize: 16px
+  fontWeight: bold;
+`;
 
 const JoinedContainer = styled.View`
-flexDirection: row;
-margin: 30px
-`
+  flexDirection: row;
+  margin: 30px
+`;
 
 const JoinedText = styled.Text`
-color: ${props => props.theme.text}
-`
+  color: ${props => props.theme.text}
+`;
 
 const JoinedDate = styled.Text`
-marginLeft: 5px;
-fontWeight: bold;
-color: ${props => props.theme.text}
-`
+  color: ${props => props.theme.text};
+  fontWeight: bold;
+  marginLeft: 5px;
+`;
 
 export default observer(EditProfile);

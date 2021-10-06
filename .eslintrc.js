@@ -8,6 +8,7 @@ module.exports = {
         'eslint:recommended',
         'plugin:react/recommended'
     ],
+    'parser': '@babel/eslint-parser',
     'parserOptions': {
         'ecmaFeatures': {
             'jsx': true
@@ -17,7 +18,7 @@ module.exports = {
     },
     'plugins': [
         'react',
-        'unused-imports'
+        'better-styled-components'
     ],
     'rules': {
         'indent': [
@@ -36,11 +37,17 @@ module.exports = {
             'error',
             'always'
         ],
-        'no-unused-vars': 'error',
-        'unused-imports/no-unused-imports': 'error',
         'no-else-return': 'error',
         'react/display-name': 'off',
         'react/prop-types': 'off',
-        'parser': '@babel/eslint-parser'
-    }
+        'better-styled-components/sort-declarations-alphabetically': 2
+    },
+    'overrides': [
+        {
+            'files': ['*.tsx', '*.ts'],
+            'rules': {
+                'no-undef': 'off'
+            }
+        }
+    ]
 };

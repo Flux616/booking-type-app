@@ -86,6 +86,6 @@ const en = {
             'prague': 'Prague'
         }
     }
-}
+};
 
 export default en;

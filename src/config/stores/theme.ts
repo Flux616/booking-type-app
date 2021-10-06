@@ -1,27 +1,24 @@
-import { makeAutoObservable } from "mobx"
-import { DefaultTheme } from "styled-components/native"
-import dark from "../themes/dark"
-import light from "../themes/light"
+import { makeAutoObservable } from 'mobx';
+import { DefaultTheme } from 'styled-components/native';
+import dark from '../themes/dark';
+import light from '../themes/light';
 
 class Theme {
-    isThemeDark: boolean = false
     currentTheme: DefaultTheme = light
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this);
     }
 
     toggleTheme() {
-        if (this.isThemeDark) {
+        if (this.currentTheme.key === 'dark') {
             this.currentTheme = light;
-            this.isThemeDark = false
         } else {
-            this.currentTheme = dark
-            this.isThemeDark = true
+            this.currentTheme = dark;
         }
     }
 }
 
-const CurrentTheme = new Theme()
+const ThemeStore = new Theme();
 
-export default CurrentTheme
+export default ThemeStore;

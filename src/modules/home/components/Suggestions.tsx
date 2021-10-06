@@ -17,15 +17,15 @@ type SingleSection = {
 type SectionsType = Array<SingleSection>
 
 const Suggestions = () => {
-    const locations = LocationsStore.locations
-    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.suggestions'})
+    const locations = LocationsStore.locations;
+    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.suggestions'});
 
     const sections: SectionsType = [
         {
             id: 'popular',
             title: t('popular'),
             data: [locations],
-            renderBlock: (item) => <StyledHorizontalList<React.ElementType>
+            renderBlock: (item) => <HorizontalList<React.ElementType>
                 showsHorizontalScrollIndicator={false}
                 horizontal
                 data={item}
@@ -36,7 +36,7 @@ const Suggestions = () => {
             id: 'nearest',
             title: t('nearest'),
             data: [locations],
-            renderBlock: (item) => <StyledVerticalList<React.ElementType>
+            renderBlock: (item) => <VerticalList<React.ElementType>
                 showsVerticalScrollIndicator={false}
                 removeClippedSubviews={false}
                 contentContainerStyle={{flex: 1}}
@@ -53,7 +53,7 @@ const Suggestions = () => {
             sections={sections}
             renderItem={({ section: {renderBlock}, item }) => renderBlock(item)}
             renderSectionHeader={({ section: { title } }) => (
-                <StyledHeaderText>{title}</StyledHeaderText>
+                <Header>{title}</Header>
             )}
             stickySectionHeadersEnabled={false}
             showsVerticalScrollIndicator={false}
@@ -61,22 +61,22 @@ const Suggestions = () => {
     );
 };
 
-const StyledHorizontalList = styled.FlatList`
-margin: 10px;
+const HorizontalList = styled.FlatList`
 flexDirection: row;
+margin: 10px;
 overflow: visible
-`
+`;
 
-const StyledVerticalList = styled.FlatList`
+const VerticalList = styled.FlatList`
+overflow: visible
 paddingBottom: 150px;
-overflow: visible
-`
+`;
 
-const StyledHeaderText = styled.Text`
-paddingTop: 10px;
-marginLeft: 10px;
+const Header = styled.Text`
+color: ${props => props.theme.text};
 fontWeight: bold;
-color: ${props => props.theme.text}
-`
+marginLeft: 10px;
+paddingTop: 10px;
+`;
 
 export default Suggestions;

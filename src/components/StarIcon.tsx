@@ -1,11 +1,7 @@
 import React from 'react';
 import Svg, { Path } from 'react-native-svg';
 
-type Props = {
-    style?: {},
-    height: number,
-    width: number
-}
+type Props = { style?: object, height: number, width: number }
 
 const StarIcon: React.FC<Props> = ({style, height, width}) => {
     return (
@@ -21,6 +17,6 @@ const StarIcon: React.FC<Props> = ({style, height, width}) => {
             />
         </Svg>
     );
-}
+};
 
 export default StarIcon;
