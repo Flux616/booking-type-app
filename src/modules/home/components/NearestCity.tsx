@@ -1,7 +1,8 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, View, Text, StyleSheet, ImageSourcePropType, TouchableOpacity } from 'react-native';
+import { ImageSourcePropType } from 'react-native';
+import styled from 'styled-components/native';
 import StarIcon from '../../../components/StarIcon';
 import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
@@ -18,83 +19,86 @@ const NearestItem: React.FC<Props> = ({ image, rating, price, country, city }) =
     const { t } = useTranslation('translation', {keyPrefix: 'screens.home.suggestions'})
 
     return (
-        <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details', { rating, city, country, image, price })}>
-            <Image style={styles.image} source={image} />
-            <View style={styles.rating}>
-                <StarIcon style={styles.ratingStar} height={10} width={10} />
-                <Text style={styles.ratingText}>{rating}</Text>
-            </View>
-            <View style={styles.price}>
-                <Text style={styles.priceText}>{price}{t('price')}</Text>
-            </View>
-            <View style={styles.textArea}>
-                <Text style={styles.titleText}>{country}</Text>
-                <Text style={styles.locationText}>{city}</Text>
-            </View>
-        </TouchableOpacity>
+        <StyledTouchableOpacity onPress={() => navigation.navigate('Details', { rating, city, country, image, price })}>
+            <StyledImage source={image} />
+            <StyledRatingView>
+                <StarIcon style={{margin: 4}} height={10} width={10} />
+                <StyledRatingText>{rating}</StyledRatingText>
+            </StyledRatingView>
+            <StyledPriceView>
+                <StyledPriceText>{price}{t('price')}</StyledPriceText>
+            </StyledPriceView>
+            <StyledTextArea>
+                <StyledTitleText>{country}</StyledTitleText>
+                <StyledLocationText>{city}</StyledLocationText>
+            </StyledTextArea>
+        </StyledTouchableOpacity>
     )
 };
 
-const styles = StyleSheet.create({
-    item: {
-        flexDirection: 'row',
-        padding: 10,
-        margin: 10,
-        height: 120,
-        borderRadius: 4,
-        backgroundColor: '#FFFFFF',
-        shadowColor: '#808080',
-        shadowOpacity: 0.1,
-        shadowRadius: 10
-    },
-    image: {
-        width: 100,
-        height: 100,
-        borderRadius: 4
-    },
-    textArea: {
-        justifyContent: 'space-around',
-        marginLeft: 15,
-        marginBottom: 15,
-        marginTop: 10
-    },
-    titleText: {
-        marginTop: 8,
-        fontWeight: 'bold'
-    },
-    locationText: {
-        marginTop: 8,
-        color: '#808080'
-    },
-    rating: {
-        flexDirection: 'row',
-        borderRadius: 4,
-        backgroundColor: '#FFFFFF',
-        position: 'absolute',
-        right: 0,
-        padding: 7
-    },
-    ratingText: {
-        color: '#ffcd00',
-        fontWeight: 'bold',
-        fontSize: 15
-    },
-    ratingStar: {
-        marginTop: 3.5,
-        marginRight: 3
-    },
-    price: {
-        borderRadius: 4,
-        position: 'absolute',
-        right: 0,
-        bottom: 0,
-        padding: 14
-    },
-    priceText: {
-        color: '#ffcd00',
-        fontWeight: 'bold',
-        fontSize: 17
-    }
-});
+const StyledTouchableOpacity = styled.TouchableOpacity`
+flexDirection: row;
+padding: 10px;
+margin: 10px;
+height: 120px;
+borderRadius: 4px;
+backgroundColor: ${props => props.theme.locationContainer};
+shadowColor: ${props => props.theme.shadowColor};
+shadowOpacity: 0.1
+shadowRadius: 10px
+`
+
+const StyledImage = styled.Image`
+width: 100px;
+height: 100px;
+borderRadius: 4px;
+`
+
+const StyledRatingView = styled.View`
+flexDirection: row;
+borderRadius: 4px;
+backgroundColor: ${props => props.theme.locationContainer};
+position: absolute;
+right: 0px;
+padding: 7px;
+`
+
+const StyledRatingText = styled.Text`
+color: ${props => props.theme.ratingText};
+fontWeight: bold;
+fontSize: 16px
+`
+
+const StyledPriceView = styled.View`
+borderRadius: 4px;
+position: absolute;
+right: 0px;
+bottom: 0px;
+padding: 14px
+`
+
+const StyledPriceText = styled.Text`
+color: ${props => props.theme.ratingText};
+fontWeight: bold;
+fontSize: 17px
+`
+
+const StyledTextArea = styled.View`
+justifyContent: space-around;
+marginLeft: 15px;
+marginBottom: 15px;
+marginTop: 10px
+`
+
+const StyledTitleText = styled.Text`
+marginTop: 8px;
+fontWeight: bold;
+color: ${props => props.theme.text}
+`
+
+const StyledLocationText = styled.Text`
+marginTop: 8px;
+color: ${props => props.theme.lowerText}
+`
 
 export default NearestItem;

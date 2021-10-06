@@ -1,8 +1,9 @@
 import { useNavigation } from '@react-navigation/core';
 import React, {useState} from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import styled, { useTheme } from 'styled-components/native';
 import { DetailsScreenNavigationProps, Location } from '../../../config/navigation/types';
 import LocationsStore from '../../../config/stores/locations'
 
@@ -10,6 +11,7 @@ const HomeSearchBar = () => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
     const { t } = useTranslation('translation', { keyPrefix: 'screens.home.searchBar'})
     const [cityInput, setCityInput] = useState('');
+    const theme = useTheme()
     const coutryList = LocationsStore.locations;
 
     const searchCity = (countryList: Array<Location>, cityInput: string) => {
@@ -22,55 +24,47 @@ const HomeSearchBar = () => {
     };
 
     return (
-        <View style={styles.container}>
-            <TextInput
+        <StyledView>
+            <StyledTextInput
                 value={cityInput}
-                style={styles.searchInput}
                 placeholder={t('placeholder')}
+                placeholderTextColor={theme.lowerText}
                 autoCapitalize={'words'}
                 onChangeText={setCityInput}
             />
-            <TouchableOpacity style={styles.searchIcon} onPress={() => searchCity(coutryList, cityInput)}>
+            <StyledTouchableOpacity onPress={() => searchCity(coutryList, cityInput)}>
                 <Icon
                     name={'search'}
                     size={26}
-                    color={'#FFFFFF'}
+                    color={theme.background}
                 />
-            </TouchableOpacity>
-        </View>);
+            </StyledTouchableOpacity>
+        </StyledView>);
 };
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginTop: 30,
-        marginHorizontal: 10,
-        marginBottom: 10
-    },
-    searchInput: {
-        flex: 1,
-        backgroundColor: '#e6e6fa',
-        borderRadius: 6,
-        marginRight: 20,
-        height: 50,
-        paddingHorizontal: 15
-    },
-    searchIcon: {
-        height: 50,
-        width: 50,
-        backgroundColor: '#3F96EA',
-        padding: 12,
-        borderRadius: 4,
-        elevation: 2,
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 2,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.5
-    }
-});
+const StyledView = styled.View`
+justifyContent: space-between;
+flexDirection: row;
+marginTop: 30px;
+marginHorizontal: 10px;
+marginBottom: 10px
+`
+
+const StyledTextInput = styled.TextInput`
+flex: 1px;
+backgroundColor: ${props => props.theme.searchBar};
+borderRadius: 6px;
+marginRight: 20px;
+height: 50px;
+paddingHorizontal: 15px;
+`
+
+const StyledTouchableOpacity = styled.TouchableOpacity`
+height: 50px;
+width: 50px;
+backgroundColor: ${props => props.theme.schemeColor};
+padding: 12px;
+borderRadius: 4px;
+`
 
 export default HomeSearchBar;

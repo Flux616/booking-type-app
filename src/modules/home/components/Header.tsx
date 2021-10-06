@@ -1,43 +1,62 @@
+import { observer } from 'mobx-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import styled, { useTheme } from 'styled-components/native';
+import CurrentTheme from '../../../config/stores/theme';
 
 const Header = () => {
     const { t } = useTranslation('translation', { keyPrefix: 'screens.home.header'})
+    const theme = useTheme()
 
     return (
-        <View style={styles.container}>
+        <StyledView>
+            <StyledTouchableOpacity onPress={() => CurrentTheme.toggleTheme()}>
+                <Icon
+                    name={theme.isDark ? 'sunny-outline' : 'moon-outline'}
+                    size={30}
+                    color={theme.toggleIcon}
+                />
+            </StyledTouchableOpacity>
             <View>
-                <Text style={styles.upperText}>{t('welcome')}</Text>
-                <Text style={styles.lowerText}>{t('intro')}</Text>
+                <UpperText>{t('welcome')}</UpperText>
+                <LowerText>{t('intro')}</LowerText>
             </View>
             <View>
-                <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
+                <StyledImage source={require('../../../../assets/images/avatar.jpg')}/>
             </View>
-        </View>
+        </StyledView>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginHorizontal: 10
-    },
-    upperText: {
-        color: '#3F96EA',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    lowerText: {
-        marginTop: 10,
-        color: '#3F96EA'
-    },
-    image: {
-        width: 50,
-        height: 50,
-        borderRadius: 50
-    }
-});
+const StyledView = styled.View`
+justifyContent: space-between;
+flexDirection: row;
+marginHorizontal: 10px
+`
 
-export default Header;
+const UpperText = styled.Text`
+color: ${props => props.theme.schemeColor};
+fontSize: 20px;
+fontWeight: bold
+`
+
+const LowerText = styled.Text`
+marginTop: 10px;
+color: ${props => props.theme.schemeColor}
+`
+
+const StyledImage = styled.Image`
+width: 50px;
+height: 50px;
+borderRadius: 50px
+`
+
+const StyledTouchableOpacity = styled.TouchableOpacity`
+justifyContent: center;
+alignItems: center;
+paddingLeft: 5px
+`
+
+export default observer(Header);
