@@ -15,6 +15,7 @@
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
     "@react-navigation/stack": "^6.0.9",
+    "@types/styled-components-react-native": "^5.1.1",
     "i18next": "^21.2.0",
     "mobx": "^6.3.3",
     "mobx-react": "^7.2.0",
@@ -26,7 +27,8 @@
     "react-native-safe-area-view": "^1.1.1",
     "react-native-screens": "^3.6.0",
     "react-native-svg": "^12.1.1",
-    "react-native-vector-icons": "^8.1.0"
+    "react-native-vector-icons": "^8.1.0",
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.5",
@@ -49,5 +51,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "resolutions": {
+    "styled-components": "^5"
   }
 }
