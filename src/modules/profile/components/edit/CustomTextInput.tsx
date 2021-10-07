@@ -1,18 +1,18 @@
-import React from 'react'
-import { StyleProp, StyleSheet, Text, TextInput, TextStyle, View } from 'react-native'
+import React from 'react';
+import { StyleProp, TextStyle, View } from 'react-native';
+import styled from 'styled-components/native';
 
 type Props = {
     value: string;
     label?: string;
     onChangeText: (value: string) => void;
-    style: StyleProp<TextStyle>
+    style?: StyleProp<TextStyle>
 }
 
-
-const CustomTextInput: React.FC<Props> = ({value, label, onChangeText, style}) => (
+const CustomTextInput: React.FC<Props> = ({value, label, onChangeText, style={}}) => (
     <View>
-        {label && <Text style={styles.label}>{label}</Text>}
-        <TextInput
+        {label && <Label>{label}</Label>}
+        <Input
             value={value}
             style={style}
             onChangeText={onChangeText}
@@ -20,12 +20,14 @@ const CustomTextInput: React.FC<Props> = ({value, label, onChangeText, style}) =
     </View>
 );
 
-export default CustomTextInput
+const Label = styled.Text`
+  color: ${props => props.theme.lowerText};
+  fontWeight: bold;
+  marginBottom: 15px;
+`;
 
-const styles = StyleSheet.create({
-    label: {
-        marginBottom: 15,
-        fontWeight: 'bold',
-        color: '#808080'
-    }
-})
+const Input = styled.TextInput`
+  color: ${props => props.theme.text}
+`;
+
+export default CustomTextInput;

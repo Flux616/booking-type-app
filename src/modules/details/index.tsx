@@ -1,23 +1,21 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import Info from './components/Info';
 import Description from './components/Description';
 import Preview from './components/Preview';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { DetailsScreenRouteProp } from '../../config/navigation/types';
+import styled from 'styled-components/native';
 
-type Props = {
-    route: DetailsScreenRouteProp
-}
+type Props = { route: DetailsScreenRouteProp }
 
 const Details: React.FC<Props> = ({ route }) => {
     const {rating, city, country, image, price} = route.params;
 
     return (
-        <View style={styles.wrapper}>
-            <SafeAreaView  style={styles.container}>
+        <Wrapper>
+            <SafeArea>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <Preview image={image}/>
                     <Info rating={rating} city={city} country={country}/>
@@ -25,21 +23,20 @@ const Details: React.FC<Props> = ({ route }) => {
                     <Gallery/>
                 </ScrollView>
                 <Footer price={price}/>
-            </SafeAreaView>
-        </View>
+            </SafeArea>
+        </Wrapper>
     );
 };
 
-export default Details;
+const SafeArea = styled.SafeAreaView`
+  flex: 1;
+  justifyContent: space-between;
+  marginHorizontal: 20px
+`;
 
-const styles = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-        backgroundColor: '#FFFFFF'
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'space-between',
-        marginHorizontal: 20
-    }
-});
+const Wrapper = styled.View`
+  backgroundColor: ${props => props.theme.background};
+  flex: 1
+`;
+
+export default Details;

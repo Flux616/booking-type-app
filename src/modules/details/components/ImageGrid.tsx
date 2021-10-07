@@ -1,24 +1,23 @@
 import React from 'react'
-import { Image, StyleSheet, View } from 'react-native'
+import styled from 'styled-components/native'
 import { GalleryImageProp } from '../../../config/navigation/types'
 
-const ImageGrid = ({path, key}: GalleryImageProp) => (
-    <View style={styles.imageContainer}>
-        <Image style={styles.image} source={path} key={key}/>
-    </View>
+const ImageGrid = ({path, id}: GalleryImageProp) => (
+    <ImageContainer>
+        <GalleryImage source={path} key={id}/>
+    </ImageContainer>
 )
 
-export default ImageGrid
+const ImageContainer = styled.View`
+width: 75px;
+height: 75px
+`
 
-const styles = StyleSheet.create({
-    imageContainer: {
-        width: 75,
-        height: 75
-    },
-    image: {
-        flex: 1,
-        height: undefined,
-        width: undefined,
-        borderRadius: 6
-    }
-})
+const GalleryImage = styled.Image`
+flex: 1;
+height: undefined;
+width: undefined;
+borderRadius: 6px
+`
+
+export default ImageGrid

@@ -1,158 +1,175 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import profile from '../../../../config/stores/profile'
+import profile from '../../../../config/stores/profile';
 import { observer } from 'mobx-react';
 import CustomTextInput from './CustomTextInput';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../../../config/i18n';
 import { EditScreenNavigationProps } from '../../../../config/navigation/types';
+import styled, { useTheme } from 'styled-components/native';
 
 const EditProfile = () => {
     const {name, description, email, username} = profile.user;
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.edit'})
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.edit'});
 
     return (
-        <View style={styles.wrapper}>
-            <View style={styles.container}>
-                <View style={styles.imageContainer}>
-                    <Image style={styles.image} source={require('../../../../../assets/images/avatar.jpg')} />
-                    <View style={styles.pencilIcon}>
+        <Wrapper>
+            <EditContainer>
+                <ImageContainer>
+                    <Avatar source={require('../../../../../assets/images/avatar.jpg')} />
+                    <PencilIcon>
                         <Icon
                             name='ios-pencil-outline'
                             size={20}
                             color={'#FFFFFF'}
                         />
-                    </View>
-                </View>
+                    </PencilIcon>
+                </ImageContainer>
                 <View>
-                    <CustomTextInput
-                        style={styles.nameInput}
+                    <NameInput
                         value={name}
                         onChangeText={(value) => profile.setName(value)}
                     />
-                    <CustomTextInput
+                    <DescriptionInput
                         value={description}
-                        style={styles.descriptionInput}
                         onChangeText={(value) => profile.setDescription(value)}
                     />
-                    <CustomTextInput
+                    <BottomLineInput
                         value={email}
                         label={t('email')}
-                        style={styles.bottomLineInput}
                         onChangeText={(value) => profile.setEmail(value)}
                     />
-                    <Text style={styles.label}>{t('username')}</Text>
-                    <View style={styles.inputWithIcon}>
-                        <Icon
+                    <Label>{t('username')}</Label>
+                    <InputWithIcon>
+                        <InputIcon
                             name='at-outline'
                             size={16}
                             color='#808080'
-                            style={styles.inputIcon}
                         />
-                        <CustomTextInput
+                        <InputText
                             value={username}
-                            style={styles.inputWithIconText}
                             onChangeText={(value) => profile.setUsername(value)}
                         />
-                    </View>
+                    </InputWithIcon>
                 </View>
-            </View>
-            <View style={styles.joinedContainer}>
-                <Text>{t('joined')}</Text>
-                <Text style={styles.joinedDate}>2 Sep 2021</Text>
-            </View>
-        </View>
+            </EditContainer>
+            <JoinedContainer>
+                <JoinedText>{t('joined')}</JoinedText>
+                <JoinedDate>2 Sep 2021</JoinedDate>
+            </JoinedContainer>
+        </Wrapper>
     );
 };
 
-export const getEditScreenNavigationOptions = ({navigation}: {navigation: EditScreenNavigationProps}) => ({
-    title: i18n.t('screens.edit.header'),
-    headerShown: true,
-    headerLeft: () => (
-        <Icon
-            name='chevron-back-outline'
-            size={26}
-            color='#808080'
-            onPress={navigation.goBack}
-        />
-    )}
-)
+export const getEditScreenNavigationOptions = ({navigation}: {navigation: EditScreenNavigationProps}) => {
+    const theme = useTheme();
+
+    return {
+        title: i18n.t('screens.edit.header'),
+        headerTitleStyle: {color: theme.text},
+        headerShown: true,
+        headerStyle: {backgroundColor: theme.background},
+        headerLeft: () => (
+            <Icon
+                name='chevron-back-outline'
+                size={26}
+                color={theme.lowerText}
+                onPress={navigation.goBack}
+            />
+        )};
+};
+
+const Wrapper = styled.View`
+  backgroundColor: ${props => props.theme.background};
+  flex: 1;
+  justifyContent: space-between;
+`;
+
+const EditContainer = styled.View`
+  marginHorizontal: 30px
+`;
+
+const ImageContainer = styled.View`
+  alignItems: center;
+  marginTop: 30px
+`;
+
+const Avatar = styled.Image`
+  borderRadius: 100px
+  height: 120px;
+  width: 120px;
+`;
+
+const PencilIcon = styled.View`
+  alignItems: center;
+  backgroundColor: ${props => props.theme.schemeColor};
+  borderRadius: 50px;
+  bottom: 30px;
+  height: 30px;
+  justifyContent: center;
+  left: 40px
+  position: relative;
+  width: 30px;
+`;
+
+const NameInput = styled(CustomTextInput)`
+  alignSelf: center;
+  fontSize: 20px;
+  fontWeight: bold;
+  marginBottom: 15px
+`;
+
+const DescriptionInput = styled(CustomTextInput)`
+  alignSelf: center;
+  color: ${props => props.theme.lowerText};
+  fontSize: 20px;
+  fontWeight: bold;
+  marginBottom: 40px
+`;
+
+const BottomLineInput = styled(CustomTextInput)`
+  borderBottomColor: ${props => props.theme.lowerText};
+  borderBottomWidth: 1px;
+  fontSize: 16px;
+  fontWeight: bold;
+  marginBottom: 30px;
+`;
+
+const Label = styled.Text`
+  color: ${props => props.theme.lowerText};
+  fontWeight: bold;
+  marginBottom: 15px;
+`;
+
+const InputWithIcon = styled.View`
+  borderBottomColor: ${props => props.theme.lowerText};
+  borderBottomWidth: 1px
+  flexDirection: row;
+`;
+
+const InputIcon = styled(Icon)`
+  alignSelf: flex-end
+`;
+
+const InputText = styled(CustomTextInput)`
+  fontSize: 16px
+  fontWeight: bold;
+`;
+
+const JoinedContainer = styled.View`
+  flexDirection: row;
+  margin: 30px
+`;
+
+const JoinedText = styled.Text`
+  color: ${props => props.theme.text}
+`;
+
+const JoinedDate = styled.Text`
+  color: ${props => props.theme.text};
+  fontWeight: bold;
+  marginLeft: 5px;
+`;
 
 export default observer(EditProfile);
-
-const styles = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-        justifyContent: 'space-between',
-        backgroundColor: '#FFFFFF'
-    },
-    container: {
-        marginHorizontal: 30
-    },
-    image: {
-        width: 120,
-        height: 120,
-        borderRadius: 100
-    },
-    imageContainer: {
-        alignItems: 'center',
-        marginTop: 30
-    },
-    bottomLineInput: {
-        marginBottom: 30,
-        borderBottomWidth: 1,
-        borderBottomColor: '#808080',
-        fontWeight: 'bold',
-        fontSize: 16
-    },
-    nameInput: {
-        fontWeight: 'bold',
-        fontSize: 20,
-        alignSelf: 'center',
-        marginBottom: 15
-    },
-    descriptionInput: {
-        fontWeight: 'bold',
-        fontSize: 20,
-        color: '#808080',
-        alignSelf: 'center',
-        marginBottom: 40
-    },
-    label: {
-        marginBottom: 15,
-        fontWeight: 'bold',
-        color: '#808080'
-    },
-    inputWithIcon: {
-        flexDirection: 'row',
-        borderBottomColor: '#808080',
-        borderBottomWidth: 1
-    },
-    inputWithIconText: {
-        fontWeight: 'bold',
-        fontSize: 16
-    },
-    inputIcon: {
-        alignSelf: 'flex-end'
-    },
-    joinedContainer: {
-        flexDirection: 'row',
-        margin: 30
-    },
-    joinedDate: {
-        marginLeft: 5,
-        fontWeight: 'bold'
-    },
-    pencilIcon: {
-        position: 'relative',
-        width: 30,
-        height: 30,
-        borderRadius: 50,
-        backgroundColor: '#3F96EA',
-        justifyContent: 'center',
-        alignItems: 'center',
-        bottom: 30,
-        left: 40
-    }
-});

@@ -1,37 +1,38 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
+import styled from 'styled-components/native';
 
 const ProfileFooter = () => {
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.profile.footer'})
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.profile.footer'});
 
     return (
         <View>
-            <Text style={styles.header}>{t('title')}</Text>
+            <Header>{t('title')}</Header>
             <TouchableOpacity>
-                <Text style={styles.switch}>{t('switch')}</Text>
+                <SwitchText>{t('switch')}</SwitchText>
             </TouchableOpacity>
             <TouchableOpacity>
-                <Text style={styles.logOut}>{t('logout')}</Text>
+                <LogoutText>{t('logout')}</LogoutText>
             </TouchableOpacity>
         </View>
     );
-}
+};
+
+const Header = styled.Text`
+  color: ${props => props.theme.text}
+`;
+
+const SwitchText = styled.Text`
+  color: ${props => props.theme.switchAccountText};
+  fontWeight: bold;
+  marginTop: 10px;
+`;
+
+const LogoutText = styled.Text`
+  color: ${props => props.theme.logoutText};
+  fontWeight: bold;
+  marginTop: 10px;
+`;
 
 export default ProfileFooter;
-
-const styles = StyleSheet.create({
-    header: {
-        color: '#808080'
-    },
-    switch: {
-        marginTop: 10,
-        fontWeight: 'bold',
-        color: '#4169e1'
-    },
-    logOut: {
-        marginTop: 10,
-        fontWeight: 'bold',
-        color: '#990000'
-    }
-});

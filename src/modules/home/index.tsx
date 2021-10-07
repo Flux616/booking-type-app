@@ -1,29 +1,27 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import styled from 'styled-components/native';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import Suggestions from './components/Suggestions';
 
 const Home = () => (
-    <SafeAreaView style={styles.safeArea} edges={['top']}>
-        <View style={styles.home}>
+    <SafeArea>
+        <Wrapper>
             <Header/>
             <SearchBar/>
             <Suggestions/>
-        </View>
-    </SafeAreaView>
+        </Wrapper>
+    </SafeArea>
 );
 
-const styles = StyleSheet.create({
-    home: {
-        marginHorizontal: 20,
-        marginTop: 15
-    },
-    safeArea: {
-        backgroundColor: '#FFFFFF',
-        flex: 1
-    }
-});
+const SafeArea = styled.SafeAreaView`
+backgroundColor: ${props => props.theme.background};
+flex: 1;
+`;
+
+const Wrapper = styled.View`
+marginHorizontal: 20px;
+marginTop: 15px;
+`;
 
 export default Home;

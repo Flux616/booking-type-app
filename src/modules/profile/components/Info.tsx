@@ -1,49 +1,52 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { StyleSheet, Text, View, Image, ImageSourcePropType } from 'react-native';
+import { View, ImageSourcePropType } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import styled from 'styled-components/native';
 import { EditScreenNavigationProps } from '../../../config/navigation/types';
 
 const ProfileInfo = ({name, description, image}: {name: string, description: string, image: ImageSourcePropType }) => {
     const navigation = useNavigation<EditScreenNavigationProps>();
 
     return (
-        <View style={styles.container}>
-            <Image style={styles.image} source={image} />
+        <Wrapper>
+            <Avatar source={image} />
             <View>
-                <Text style={styles.userName}>{name}</Text>
-                <Text style={styles.userDescription}>{description}</Text>
+                <Name>{name}</Name>
+                <Description>{description}</Description>
             </View>
             <Icon
                 name='edit'
                 size={24}
                 color={'#808080'}
                 onPress={() => navigation.navigate('EditProfile')}/>
-        </View>
+        </Wrapper>
     );
 };
 
-export default ProfileInfo;
+const Wrapper = styled.View`
+  alignItems: center;
+  flexDirection: row;
+  justifyContent: space-between
+`;
 
-const styles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-    },
-    image: {
-        width: 120,
-        height: 120,
-        borderRadius: 100
-    },
-    userName: {
-        fontWeight: 'bold',
-        fontSize: 18,
-        marginVertical: 5
-    },
-    userDescription: {
-        fontSize: 12,
-        color: '#808080',
-        marginVertical: 5
-    }
-});
+const Avatar = styled.Image`
+  borderRadius: 100px
+  height: 120px;
+  width: 120px;
+`;
+
+const Name = styled.Text`
+  color: ${props => props.theme.text};
+  fontSize: 18px;
+  fontWeight: bold;
+  marginVertical: 5px;
+`;
+
+const Description = styled.Text`
+  color: ${props => props.theme.lowerText};
+  fontSize: 12px;
+  marginVertical: 5px
+`;
+
+export default ProfileInfo;

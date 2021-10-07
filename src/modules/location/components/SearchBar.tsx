@@ -1,31 +1,28 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
-
+import styled from 'styled-components/native';
 
 const HomeSearchBar = () => (
-    <View style={styles.container}>
-        <TextInput
-            style={styles.searchInput}
+    <Wrapper>
+        <SearchInput
             placeholder={'Search here...'}
             autoCapitalize={'words'}
         />
-    </View>
+    </Wrapper>
 );
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginVertical: 20,
-        marginHorizontal: 15
-    },
-    searchInput: {
-        width: '100%',
-        backgroundColor: '#e6e6fa',
-        borderRadius: 6,
-        height: 50,
-        paddingHorizontal: 15
-    }
-});
+const Wrapper = styled.View`
+  flexDirection: row;
+  justifyContent: space-between;
+  marginHorizontal: 15px
+  marginVertical: 20px;
+`;
+
+const SearchInput = styled.TextInput`
+  backgroundColor: ${props => props.theme.schemeColor};
+  borderRadius: 6px;
+  height: 50px;
+  paddingHorizontal: 15px
+  width: 100%;
+`;
 
 export default HomeSearchBar;

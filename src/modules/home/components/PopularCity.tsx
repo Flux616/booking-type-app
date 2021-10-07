@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import {Image, View, Text, StyleSheet, TouchableOpacity, ImageSourcePropType} from 'react-native';
+import {ImageSourcePropType} from 'react-native';
+import styled from 'styled-components/native';
 import StarIcon from '../../../components/StarIcon';
 import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
@@ -16,59 +17,63 @@ const PopularCity: React.FC<Props> = ({ image, country, city, rating, price }) =
     const navigation = useNavigation<DetailsScreenNavigationProps>();
 
     return (
-        <TouchableOpacity style={styles.item} onPress={() => navigation.navigate('Details', {rating, city, country, image, price})}>
-            <Image style={styles.image} source={image}/>
-            <Text style={styles.titleText}>{country}</Text>
-            <Text style={styles.locationText}>{city}</Text>
-            <View style={styles.rating}>
+        <CityCard onPress={() => navigation.navigate('Details', {rating, city, country, image, price})}>
+            <CityImage source={image}/>
+            <CountryName>{country}</CountryName>
+            <CityName>{city}</CityName>
+            <RatingContainer>
                 <StarIcon width={10} height={10}/>
-                <Text style={styles.ratingText}>{rating}</Text>
-            </View>
-        </TouchableOpacity>
+                <Rating>{rating}</Rating>
+            </RatingContainer>
+        </CityCard>
     );
 };
 
-const styles = StyleSheet.create ({
-    item: {
-        padding: 10,
-        marginRight: 10,
-        height: 210,
-        width: 160,
-        backgroundColor: '#FFFFFF',
-        borderRadius: 4,
-        shadowColor: '#808080',
-        shadowOpacity: 0.1,
-        shadowRadius: 10
-    },
-    image: {
-        width: 140,
-        height: 140,
-        borderRadius: 4
-    },
-    titleText: {
-        marginTop: 8,
-        fontWeight: 'bold'
-    },
-    locationText: {
-        marginTop: 8,
-        color: '#808080'
-    },
-    rating:{
-        flexDirection: 'row',
-        alignItems: 'center',
-        borderRadius: 2,
-        backgroundColor: '#FFFFFF',
-        position: 'absolute',
-        right: 9,
-        top: 9,
-        padding: 4
-    },
-    ratingText: {
-        color: '#ffcd00',
-        fontWeight: 'bold',
-        fontSize: 12,
-        marginLeft: 2
-    }
-});
+const CityCard = styled.TouchableOpacity`
+  backgroundColor: ${props => props.theme.locationContainer};
+  borderRadius: 4px;
+  height: 210px;
+  marginRight: 10px;
+  padding: 10px;
+  shadowColor: ${props => props.theme.shadowColor};
+  shadowOpacity: 0.1;
+  shadowRadius: 10px
+  width: 160px;
+`;
+
+const CityImage = styled.Image`
+  borderRadius: 4px
+  height: 140px;
+  width: 140px;
+`;
+
+const CountryName = styled.Text`
+  color: ${props => props.theme.text};
+  fontWeight: bold;
+  marginTop: 8px;
+`;
+
+const CityName = styled.Text`
+  color: ${props => props.theme.lowerText};
+  marginTop: 8px;
+`;
+
+const RatingContainer = styled.View`
+  alignItems: center;
+  backgroundColor: ${props => props.theme.locationContainer};
+  borderRadius: 2px;
+  flexDirection: row;
+  padding: 4px
+  position: absolute;
+  right: 9px;
+  top: 9px;
+`;
+
+const Rating = styled.Text`
+  color: ${props => props.theme.ratingText};
+  fontSize: 12px;
+  fontWeight: bold;
+  marginLeft: 2px
+`;
 
 export default PopularCity;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { View, FlatList } from 'react-native';
 import StarIcon from '../../../components/StarIcon';
 import HalfStarIcon from '../../../components/HalfStarIcon';
 import EmptyStarIcon from '../../../components/EmptyStarIcon';
@@ -8,17 +8,11 @@ import DinnerIcon from '../../../components/DinnerIcon';
 import ACIcon from '../../../components/ACIcon';
 import BathIcon from '../../../components/BathIcon';
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components/native';
 
-type Props = {
-    rating: number,
-    city: string,
-    country: string
-}
+type Props = { rating: number, city: string, country: string }
 
-type FeatureProps = {
-    SVG: JSX.Element,
-    text: string
-}
+type FeatureProps = { SVG: JSX.Element, text: string }
 
 const Info: React.FC<Props> = ({rating, city, country}) => {
     const { t } = useTranslation('translation', {keyPrefix: 'screens.details.info'})
@@ -51,37 +45,37 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
         let counter = 0;
 
         for ( ; counter < Math.floor(rating); counter++) {
-            ratingTable.push(<StarIcon style={styles.ratingStar} height={18} width={18} key={counter}/>);
+            ratingTable.push(<StarSvg height={18} width={18} key={counter}/>);
         }
 
         if (rating - counter >= 0.5) {
-            ratingTable.push(<HalfStarIcon style={styles.ratingStar} height={18} width={18} key={counter}/>);
+            ratingTable.push(<HalfStarSvg height={18} width={18} key={counter}/>);
             counter++;
         }
 
         for ( ; counter < 5; counter++) {
-            ratingTable.push(<EmptyStarIcon style={styles.ratingStar} height={18} width={18} key={counter}/>);
+            ratingTable.push(<EmptyStarSvg height={18} width={18} key={counter}/>);
         }
 
         return ratingTable;
     };
 
     const RenderFeatures: React.FC<FeatureProps> = ({SVG, text}) => (
-        <View style={styles.featContainer}>
+        <FeatContainer>
             {SVG}
-            <Text style={styles.featText}>{text}</Text>
-        </View>
+            <FeatText>{text}</FeatText>
+        </FeatContainer>
     );
 
     return (
         <View>
-            <View style={styles.titleContainer}>
-                <Text style={styles.city}>{city}</Text>
-                <Text style={styles.country}>{country}</Text>
-                <View style={styles.rating}>
+            <TextArea>
+                <CityName>{city}</CityName>
+                <CountryName>{country}</CountryName>
+                <RatingContainer>
                     {createTable(rating)}
-                </View>
-            </View>
+                </RatingContainer>
+            </TextArea>
             <FlatList
                 showsHorizontalScrollIndicator={false}
                 horizontal
@@ -92,45 +86,58 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
     );
 };
 
-export default Info;
+const TextArea = styled.View`
+justifyContent: space-between;
+height: 65px;
+marginTop: 15px
+`
 
-const styles = StyleSheet.create({
-    titleContainer: {
-        justifyContent: 'space-between',
-        height: 65,
-        marginTop: 15
-    },
-    city: {
-        fontWeight: 'bold',
-        fontSize: 24
-    },
-    country: {
-        fontSize: 20,
-        color: '#BFBFBF'
-    },
-    rating: {
-        flexDirection: 'row',
-        position: 'absolute',
-        right: 0,
-        bottom: 20
-    },
-    ratingStar: {
-        marginLeft: 5
-    },
-    featText: {
-        color: '#BFBFBF',
-        fontSize: 12
-    },
-    featContainer: {
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        backgroundColor: '#F8F8F8',
-        width: 95,
-        height: 70,
-        marginTop: 15,
-        marginBottom: 20,
-        marginRight: 10,
-        padding: 5,
-        borderRadius: 10
-    }
-});
+const CityName = styled.Text`
+color: ${props => props.theme.text}
+fontWeight: bold;
+fontSize: 24px
+`
+
+const CountryName = styled.Text`
+fontSize: 20px;
+color: ${props => props.theme.descriptionText}
+`
+
+const RatingContainer = styled.View`
+flexDirection: row;
+position: absolute;
+right: 0px;
+bottom: 20px;
+`
+
+const FeatContainer = styled.View`
+justifyContent: space-around;
+alignItems: center;
+backgroundColor: ${props => props.theme.featContainer};
+width: 95px;
+height: 70px;
+marginTop: 15px;
+marginBottom: 20px;
+marginRight: 10px;
+padding: 5px;
+borderRadius: 10px
+`
+
+const FeatText = styled.Text`
+color: ${props => props.theme.lowerText};
+fontSize: 12px
+`
+
+const StarSvg = styled(StarIcon)`
+marginRight: 5px
+`
+
+const HalfStarSvg = styled(HalfStarIcon)`
+marginRight: 5px
+`
+
+const EmptyStarSvg = styled(EmptyStarIcon)`
+marginRight: 5px
+`
+
+export default Info;

@@ -1,43 +1,62 @@
+import { observer } from 'mobx-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import styled, { useTheme } from 'styled-components/native';
+import ThemeStore from '../../../config/stores/theme';
 
 const Header = () => {
-    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.header'})
+    const { t } = useTranslation('translation', { keyPrefix: 'screens.home.header'});
+    const theme = useTheme();
 
     return (
-        <View style={styles.container}>
+        <Wrapper>
+            <ThemeToggler onPress={() => ThemeStore.toggleTheme()}>
+                <Icon
+                    name={theme.key == 'light' ? 'sunny-outline' : 'moon-outline'}
+                    size={30}
+                    color={theme.toggleIcon}
+                />
+            </ThemeToggler>
             <View>
-                <Text style={styles.upperText}>{t('welcome')}</Text>
-                <Text style={styles.lowerText}>{t('intro')}</Text>
+                <WelcomeText>{t('welcome')}</WelcomeText>
+                <IntroText>{t('intro')}</IntroText>
             </View>
             <View>
-                <Image style={styles.image} source={require('../../../../assets/images/avatar.jpg')} />
+                <Avatar source={require('../../../../assets/images/avatar.jpg')}/>
             </View>
-        </View>
-    )
-}
+        </Wrapper>
+    );
+};
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginHorizontal: 10
-    },
-    upperText: {
-        color: '#3F96EA',
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    lowerText: {
-        marginTop: 10,
-        color: '#3F96EA'
-    },
-    image: {
-        width: 50,
-        height: 50,
-        borderRadius: 50
-    }
-});
+const Wrapper = styled.View`
+  flexDirection: row;
+  justifyContent: space-between;
+  marginHorizontal: 10px
+`;
 
-export default Header;
+const WelcomeText = styled.Text`
+  color: ${props => props.theme.schemeColor};
+  fontSize: 20px;
+  fontWeight: bold
+`;
+
+const IntroText = styled.Text`
+  color: ${props => props.theme.schemeColor};
+  marginTop: 10px;
+`;
+
+const Avatar = styled.Image`
+  borderRadius: 50px
+  height: 50px;
+  width: 50px;
+`;
+
+const ThemeToggler = styled.TouchableOpacity`
+  alignItems: center;
+  justifyContent: center;
+  paddingLeft: 5px
+`;
+
+export default observer(Header);

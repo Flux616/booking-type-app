@@ -1,15 +1,15 @@
-import { makeAutoObservable } from "mobx"
-import { locationsStore } from "../../../__mocks__/locationsStore"
-import { Location } from "../navigation/types"
+import { makeAutoObservable } from 'mobx';
+import { locationsStore } from '../../../__mocks__/locationsStore';
+import { Location } from '../navigation/types';
 
 class LocationsStore {
     locations: Array<Location> = locationsStore
 
     constructor() {
-        makeAutoObservable(this)
+        makeAutoObservable(this);
     }
 }
 
-const store = new LocationsStore()
+const store = new LocationsStore();
 
-export default store
+export default store;
