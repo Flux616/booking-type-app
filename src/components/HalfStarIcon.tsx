@@ -4,7 +4,7 @@ import Svg, { Path } from 'react-native-svg';
 
 type Props = { style?: StyleProp<ViewStyle>, height: number, width: number }
 
-const HalfStarIcon: React.FC<Props> = ({style, height, width}) => {
+const HalfStarIcon: React.FC<Props> = ({style={}, height, width}) => {
     return (
         <Svg
             style={style}
