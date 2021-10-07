@@ -5,7 +5,7 @@ import styled from 'styled-components/native';
 type Props = { price: number }
 
 const Footer: React.FC<Props> = ({price}) => {
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.footer'})
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.footer'});
 
     return (
         <Wrapper>
@@ -18,41 +18,41 @@ const Footer: React.FC<Props> = ({price}) => {
             </BookButton>
         </Wrapper>
     );
-}
+};
 
 const Wrapper = styled.View`
 flexDirection: row;
 height: 65px;
-paddingTop: 10px;
 paddingBottom: 10px
-`
+paddingTop: 10px;
+`;
 
 const TextArea = styled.View`
 flex: 1;
 justifyContent: space-between
-`
+`;
 
 const Title = styled.Text`
 color: ${props => props.theme.lowerText}
-`
+`;
 
 const Price = styled.Text`
-fontWeight: bold;
+color: ${props => props.theme.text};
 fontSize: 18px;
-color: ${props => props.theme.text}
-`
+fontWeight: bold;
+`;
 
 const BookButton = styled.TouchableOpacity`
-flex: 1;
-backgroundColor: ${props => props.theme.schemeColor};
-justifyContent: center;
 alignItems: center;
+backgroundColor: ${props => props.theme.schemeColor};
 borderRadius: 5px
-`
+flex: 1;
+justifyContent: center;
+`;
 
 const BookText = styled.Text`
-color: ${props => props.theme.text};
+color: ${props => props.theme.whiteText};
 fontWeight: 800
-`
+`;
 
 export default Footer;

@@ -11,11 +11,7 @@ class Theme {
     }
 
     toggleTheme() {
-        if (this.currentTheme.key === 'dark') {
-            this.currentTheme = light;
-        } else {
-            this.currentTheme = dark;
-        }
+        this.currentTheme = this.currentTheme.key === 'dark' ? light : dark;
     }
 }
 

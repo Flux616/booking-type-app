@@ -1,7 +1,8 @@
 import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
-type Props = { style?: object, height: number, width: number }
+type Props = { style?: StyleProp<ViewStyle>, height: number, width: number }
 
 const EmptyStarIcon: React.FC<Props> = ({style, height, width}) => {
     return (

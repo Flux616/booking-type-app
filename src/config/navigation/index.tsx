@@ -32,7 +32,7 @@ const AppNavigation = () => (
                 <Stack.Screen
                     name='EditProfile'
                     component={EditProfile}
-                    options={({navigation}) => getEditScreenNavigationOptions({navigation})}
+                    options={getEditScreenNavigationOptions}
                 />
             </Stack.Navigator>
         </NavigationContainer>
