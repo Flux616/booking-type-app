@@ -15,13 +15,13 @@ const Home = () => (
 );
 
 const SafeArea = styled.SafeAreaView`
-backgroundColor: ${props => props.theme.background};
-flex: 1;
+  backgroundColor: ${props => props.theme.background};
+  flex: 1;
 `;
 
 const Wrapper = styled.View`
-marginHorizontal: 20px;
-marginTop: 15px;
+  marginHorizontal: 20px;
+  marginTop: 15px;
 `;
 
 export default Home;

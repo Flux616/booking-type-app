@@ -1,36 +1,37 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ImageSourcePropType } from 'react-native';
 import styled from 'styled-components/native';
 import StarIcon from '../../../components/StarIcon';
 import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
 type Props = {
-    image: ImageSourcePropType;
-    rating: number;
-    price: number;
-    country: string;
-    city: string;
+    image: string,
+    rating: string,
+    price: string,
+    country: string,
+    city: string,
+    cityKey: string,
+    description: string
 }
 
-const NearestItem: React.FC<Props> = ({ image, rating, price, country, city }) => {
+const NearestItem: React.FC<Props> = ({ image, rating, price, country, city, cityKey, description }) => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.home.suggestions'});
+    const { t } = useTranslation('translation');
 
     return (
-        <CityCard onPress={() => navigation.navigate('Details', { rating, city, country, image, price })}>
-            <CityImage source={image} />
+        <CityCard onPress={() => navigation.navigate('Details', { rating, city, country, image, price, cityKey, description })}>
+            <CityImage source={{uri: image}} />
             <RatingContainer>
                 <StarSvg height={10} width={10} />
                 <Rating>{rating}</Rating>
             </RatingContainer>
             <PriceContainer>
-                <Price>{price}{t('price')}</Price>
+                <Price>{price}{t('screens.home.suggestions.price')}</Price>
             </PriceContainer>
             <TextArea>
-                <CountryName>{country}</CountryName>
-                <CityName>{city}</CityName>
+                <CountryName>{t('countries.' + country)}</CountryName>
+                <CityName>{t('cities.' + city)}</CityName>
             </TextArea>
         </CityCard>
     );

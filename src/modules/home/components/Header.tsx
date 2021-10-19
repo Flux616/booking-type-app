@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styled, { useTheme } from 'styled-components/native';
+import profile from '../../../config/stores/profile';
 import ThemeStore from '../../../config/stores/theme';
+import LocationsStore from '../../../config/stores/locations';
 
 const Header = () => {
     const { t } = useTranslation('translation', { keyPrefix: 'screens.home.header'});
@@ -19,12 +21,19 @@ const Header = () => {
                     color={theme.toggleIcon}
                 />
             </ThemeToggler>
+            <CityAdder onPress={() => LocationsStore.pushNewCity()}>
+                <Icon
+                    name='add-circle-outline'
+                    size={30}
+                    color={theme.toggleIcon}
+                />
+            </CityAdder>
             <View>
                 <WelcomeText>{t('welcome')}</WelcomeText>
                 <IntroText>{t('intro')}</IntroText>
             </View>
             <View>
-                <Avatar source={require('../../../../assets/images/avatar.jpg')}/>
+                <Avatar source={{uri: profile.user.image}}/>
             </View>
         </Wrapper>
     );
@@ -54,6 +63,12 @@ const Avatar = styled.Image`
 `;
 
 const ThemeToggler = styled.TouchableOpacity`
+  alignItems: center;
+  justifyContent: center;
+  paddingLeft: 5px
+`;
+
+const CityAdder = styled.TouchableOpacity`
   alignItems: center;
   justifyContent: center;
   paddingLeft: 5px
