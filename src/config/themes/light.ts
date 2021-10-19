@@ -8,6 +8,7 @@ const light: DefaultTheme = {
     searchBar: '#F5F5F5',
     featContainer: '#F8F8F8',
     featIcon: '#555',
+    doneIcon: '#00b300',
     shadowColor: '#808080',
     toggleIcon: '#808080',
     descriptionText: '#BFBFBF',

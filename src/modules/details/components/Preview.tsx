@@ -1,61 +1,66 @@
 import React from 'react';
-import { ImageSourcePropType } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { BlurView } from '@react-native-community/blur';
 import { useNavigation } from '@react-navigation/core';
 import styled from 'styled-components/native';
+import LocationsStore from '../../../config/stores/locations';
 
-type Props = { image: ImageSourcePropType }
+type Props = { image: string, cityKey: string }
 
-const Preview: React.FC<Props> = ({image}) => {
+const Preview: React.FC<Props> = ({image, cityKey}) => {
     const navigation = useNavigation();
+
+    const removeThisCity = (cityKey: string) => {
+        LocationsStore.deleteCity(cityKey);
+        navigation.goBack();
+    };
 
     return (
         <Wrapper>
-            <CityImage source={image}/>
+            <CityImage source={{uri: image}}/>
             <BackIcon blurType='light'>
                 <Icon name='chevron-back' size={28} color={'white'} onPress={navigation.goBack}/>
             </BackIcon>
-            <BookmarkIcon blurType='light'>
-                <Icon name='bookmark-outline' size={28} color={'white'}/>
-            </BookmarkIcon>
+            <TrashIcon blurType='light'>
+                <Icon name='trash-outline' size={28} color={'white'} onPress={() => removeThisCity(cityKey)}/>
+            </TrashIcon>
         </Wrapper>
     );
 };
 
 const Wrapper = styled.View`
-justifyContent: center;
-alignItems: center
-`
+  alignItems: center
+  justifyContent: center;
+`;
 
 const CityImage = styled.Image`
-width: 100%;
-height: 300px;
-borderRadius: 10px
-`
+  borderRadius: 10px
+  height: 300px;
+  width: 100%;
+`;
 
 const BackIcon = styled(BlurView)`
-left: 15px;
-width: 40px;
-height: 40px;
-position: absolute;
-top: 15px;
-opacity: 0.75;
-borderRadius: 5px;
-justifyContent: center;
-alignItems: center
-`
+  alignItems: center
+  borderRadius: 5px;
+  height: 40px;
+  justifyContent: center;
+  left: 15px;
+  opacity: 0.75;
+  position: absolute;
+  top: 15px;
+  width: 40px;
+`;
 
-const BookmarkIcon = styled(BlurView)`
-right: 15px;
-width: 40px;
-height: 40px;
-position: absolute;
-top: 15px;
-opacity: 0.75;
-borderRadius: 5px;
-justifyContent: center;
-alignItems: center
-`
+const TrashIcon = styled(BlurView)`
+  alignItems: center
+  borderRadius: 5px;
+  height: 40px;
+  justifyContent: center;
+  opacity: 0.75;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 40px;
+`;
 
 export default Preview;

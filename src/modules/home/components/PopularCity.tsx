@@ -1,26 +1,34 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import {ImageSourcePropType} from 'react-native';
+import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/native';
 import StarIcon from '../../../components/StarIcon';
 import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
 type Props = {
-    image: ImageSourcePropType,
+    image: string,
     country: string,
     city: string,
-    rating: number,
-    price: number
+    rating: string,
+    price: string,
+    cityKey: string,
+    description: string
 }
 
-const PopularCity: React.FC<Props> = ({ image, country, city, rating, price }) => {
+const PopularCity: React.FC<Props> = ({ image, country, city, rating, price, cityKey, description}) => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
+    const { t } = useTranslation('translation');
+
+    const test = () => {
+        console.log(description);
+        navigation.navigate('Details', {rating, city, country, image, price, cityKey, description});
+    };
 
     return (
-        <CityCard onPress={() => navigation.navigate('Details', {rating, city, country, image, price})}>
-            <CityImage source={image}/>
-            <CountryName>{country}</CountryName>
-            <CityName>{city}</CityName>
+        <CityCard onPress={test}>
+            <CityImage source={{uri: image}}/>
+            <CountryName>{t('countries.' + country)}</CountryName>
+            <CityName>{t('cities.' + city)}</CityName>
             <RatingContainer>
                 <StarIcon width={10} height={10}/>
                 <Rating>{rating}</Rating>

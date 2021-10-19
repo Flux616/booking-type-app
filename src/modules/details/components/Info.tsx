@@ -10,45 +10,46 @@ import BathIcon from '../../../components/BathIcon';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/native';
 
-type Props = { rating: number, city: string, country: string }
+type Props = { rating: string, city: string, country: string }
 
 type FeatureProps = { SVG: JSX.Element, text: string }
 
 const Info: React.FC<Props> = ({rating, city, country}) => {
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.info'})
+    const { t } = useTranslation('translation');
 
     const descriptionData = [
         {
             SVG: <BedIcon/>,
-            text: t('beds'),
+            text: t('screens.details.info.beds'),
             key: 1
         },
         {
             SVG: <DinnerIcon/>,
-            text: t('dinner'),
+            text: t('screens.details.info.dinner'),
             key: 2
         },
         {
             SVG: <ACIcon/>,
-            text: t('ac'),
+            text: t('screens.details.info.ac'),
             key: 3
         },
         {
             SVG: <BathIcon/>,
-            text: t('bath'),
+            text: t('screens.details.info.bath'),
             key: 4
         },
     ];
 
-    const createTable = (rating: number) => {
+    const createTable = (rating: string) => {
+        const ratingNum = parseFloat(rating);
         const ratingTable = [];
         let counter = 0;
 
-        for ( ; counter < Math.floor(rating); counter++) {
+        for ( ; counter < Math.floor(ratingNum); counter++) {
             ratingTable.push(<StarSvg height={18} width={18} key={counter}/>);
         }
 
-        if (rating - counter >= 0.5) {
+        if (ratingNum - counter >= 0.5) {
             ratingTable.push(<HalfStarSvg height={18} width={18} key={counter}/>);
             counter++;
         }
@@ -70,8 +71,8 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
     return (
         <View>
             <TextArea>
-                <CityName>{city}</CityName>
-                <CountryName>{country}</CountryName>
+                <CityName>{t('cities.' + city)}</CityName>
+                <CountryName>{t('countries.' + country)}</CountryName>
                 <RatingContainer>
                     {createTable(rating)}
                 </RatingContainer>
@@ -87,57 +88,57 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
 };
 
 const TextArea = styled.View`
-justifyContent: space-between;
-height: 65px;
-marginTop: 15px
-`
+  height: 65px;
+  justifyContent: space-between;
+  marginTop: 15px
+`;
 
 const CityName = styled.Text`
-color: ${props => props.theme.text}
-fontWeight: bold;
-fontSize: 24px
-`
+  color: ${props => props.theme.text}
+  fontWeight: bold;
+  fontSize: 24px
+`;
 
 const CountryName = styled.Text`
-fontSize: 20px;
-color: ${props => props.theme.descriptionText}
-`
+  color: ${props => props.theme.descriptionText}
+  fontSize: 20px;
+`;
 
 const RatingContainer = styled.View`
-flexDirection: row;
-position: absolute;
-right: 0px;
-bottom: 20px;
-`
+  bottom: 20px;
+  flexDirection: row;
+  position: absolute;
+  right: 0px;
+`;
 
 const FeatContainer = styled.View`
-justifyContent: space-around;
-alignItems: center;
-backgroundColor: ${props => props.theme.featContainer};
-width: 95px;
-height: 70px;
-marginTop: 15px;
-marginBottom: 20px;
-marginRight: 10px;
-padding: 5px;
-borderRadius: 10px
-`
+  alignItems: center;
+  backgroundColor: ${props => props.theme.featContainer};
+  borderRadius: 10px
+  height: 70px;
+  justifyContent: space-around;
+  marginBottom: 20px;
+  marginRight: 10px;
+  marginTop: 15px;
+  padding: 5px;
+  width: 95px;
+`;
 
 const FeatText = styled.Text`
-color: ${props => props.theme.lowerText};
-fontSize: 12px
-`
+  color: ${props => props.theme.lowerText};
+  fontSize: 12px
+`;
 
 const StarSvg = styled(StarIcon)`
-marginRight: 5px
-`
+  marginRight: 5px
+`;
 
 const HalfStarSvg = styled(HalfStarIcon)`
-marginRight: 5px
-`
+  marginRight: 5px
+`;
 
 const EmptyStarSvg = styled(EmptyStarIcon)`
-marginRight: 5px
-`
+  marginRight: 5px
+`;
 
 export default Info;

@@ -6,13 +6,14 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styled, { useTheme } from 'styled-components/native';
 import { DetailsScreenNavigationProps, Location } from '../../../config/navigation/types';
 import LocationsStore from '../../../config/stores/locations';
+import { addCity } from '../API/queries';
 
 const HomeSearchBar = () => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
     const { t } = useTranslation('translation', { keyPrefix: 'screens.home.searchBar'});
     const [cityInput, setCityInput] = useState('');
     const theme = useTheme();
-    const coutryList = LocationsStore.locations;
+    const countryList = LocationsStore.locations;
 
     const searchCity = (countryList: Array<Location>, cityInput: string) => {
         const filteredCity = countryList.filter(({city}: {city: string}) => city === cityInput)[0];
@@ -20,7 +21,6 @@ const HomeSearchBar = () => {
             return navigation.navigate('Details', filteredCity);
         }
         return Alert.alert(t('alert'));
-
     };
 
     return (
@@ -32,7 +32,7 @@ const HomeSearchBar = () => {
                 autoCapitalize={'words'}
                 onChangeText={setCityInput}
             />
-            <SearchButton onPress={() => searchCity(coutryList, cityInput)}>
+            <SearchButton onPress={() => searchCity(countryList, cityInput)}>
                 <Icon
                     name={'search'}
                     size={26}
@@ -43,28 +43,28 @@ const HomeSearchBar = () => {
 };
 
 const Wrapper = styled.View`
-flexDirection: row;
-justifyContent: space-between;
-marginBottom: 10px
-marginHorizontal: 10px;
-marginTop: 30px;
+  flexDirection: row;
+  justifyContent: space-between;
+  marginBottom: 10px
+  marginHorizontal: 10px;
+  marginTop: 30px;
 `;
 
 const SearchInput = styled.TextInput`
-backgroundColor: ${props => props.theme.searchBar};
-borderRadius: 6px;
-flex: 1px;
-height: 50px;
-marginRight: 20px;
-paddingHorizontal: 15px;
+  backgroundColor: ${props => props.theme.searchBar};
+  borderRadius: 6px;
+  flex: 1px;
+  height: 50px;
+  marginRight: 20px;
+  paddingHorizontal: 15px;
 `;
 
 const SearchButton = styled.TouchableOpacity`
-backgroundColor: ${props => props.theme.schemeColor};
-borderRadius: 4px;
-height: 50px;
-padding: 12px;
-width: 50px;
+  backgroundColor: ${props => props.theme.schemeColor};
+  borderRadius: 4px;
+  height: 50px;
+  padding: 12px;
+  width: 50px;
 `;
 
 export default HomeSearchBar;

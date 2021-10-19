@@ -11,15 +11,15 @@ import styled from 'styled-components/native';
 type Props = { route: DetailsScreenRouteProp }
 
 const Details: React.FC<Props> = ({ route }) => {
-    const {rating, city, country, image, price} = route.params;
+    const {rating, city, country, image, price, cityKey, description} = route.params;
 
     return (
         <Wrapper>
             <SafeArea>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <Preview image={image}/>
+                    <Preview image={image} cityKey={cityKey}/>
                     <Info rating={rating} city={city} country={country}/>
-                    <Description/>
+                    <Description description={description} cityKey={cityKey}/>
                     <Gallery/>
                 </ScrollView>
                 <Footer price={price}/>
