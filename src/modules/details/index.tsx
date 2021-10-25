@@ -31,12 +31,12 @@ const Details: React.FC<Props> = ({ route }) => {
 const SafeArea = styled.SafeAreaView`
   flex: 1;
   justifyContent: space-between;
-  marginHorizontal: 20px
+  marginHorizontal: 20px;
 `;
 
 const Wrapper = styled.View`
   backgroundColor: ${props => props.theme.background};
-  flex: 1
+  flex: 1;
 `;
 
 export default Details;

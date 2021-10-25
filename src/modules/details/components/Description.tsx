@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import styled, { useTheme } from 'styled-components/native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import LocationsStore from '../../../config/stores/locations';
+import CitiesStore from '../../../config/stores/cities';
 
 type Props = {description: string, cityKey: string}
 
@@ -14,7 +14,7 @@ const Description = ({description, cityKey} : Props) => {
     const theme = useTheme();
 
     const editDescription = (cityDescription: string, cityKey: string) => {
-        LocationsStore.editCityDescription(cityDescription, cityKey);
+        CitiesStore.editCityDescription(cityDescription, cityKey);
         setIsFocused(false);
     };
 
@@ -22,13 +22,11 @@ const Description = ({description, cityKey} : Props) => {
         <View>
             <Title>{t('description')}</Title>
             { !isFocused &&
-                <View>
-                    <Content onPress={() => setIsFocused(true)}>{cityDescription}</Content>
-                </View>
+                <Content onPress={() => setIsFocused(true)}>{cityDescription}</Content>
             }
             { isFocused &&
                 <View>
-                    <ContentInput multiline onChangeText={(value) => setCityDescription(value)}>{cityDescription}</ContentInput>
+                    <ContentInput multiline onChangeText={setCityDescription}>{cityDescription}</ContentInput>
                     <Checkmark
                         name='checkmark-circle-outline'
                         size={26}
@@ -42,14 +40,14 @@ const Description = ({description, cityKey} : Props) => {
 };
 
 const Title = styled.Text`
-  color: ${props => props.theme.text}
+  color: ${props => props.theme.text};
   fontSize: 18px;
   fontWeight: bold;
   marginBottom: 10px;
 `;
 
 const Content = styled.Text`
-  color: ${props => props.theme.descriptionText}
+  color: ${props => props.theme.descriptionText};
 `;
 
 const Checkmark = styled(Icon)`
@@ -60,7 +58,7 @@ const Checkmark = styled(Icon)`
 
 const ContentInput = styled.TextInput`
   color: ${props => props.theme.descriptionText};
-  padding-top: 0px
+  padding-top: 0px;
 `;
 
 export default Description;

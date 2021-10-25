@@ -25,7 +25,7 @@ const en = {
                 },
                 description: {
                     'description': 'Description',
-                    'contentText': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet consectetur tincidunt. Pellentesque eget egestas turpis.'
+                    'contentText': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquet consectetur tincidunt.'
                 },
                 gallery: {
                     'gallery': 'Gallery'
@@ -86,6 +86,6 @@ const en = {
             'prague': 'Prague'
         }
     }
-}
+};
 
 export default en;

@@ -9,12 +9,12 @@ const ImageGrid = ({path, id}: GalleryImageProp) => (
 );
 
 const ImageContainer = styled.View`
-  height: 75px
+  height: 75px;
   width: 75px;
 `;
 
 const GalleryImage = styled.Image`
-  borderRadius: 6px
+  borderRadius: 6px;
   flex: 1;
   height: undefined;
   width: undefined;

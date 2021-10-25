@@ -10,14 +10,14 @@ import { EditScreenNavigationProps } from '../../../../config/navigation/types';
 import styled, { useTheme } from 'styled-components/native';
 
 const EditProfile = () => {
-    const {name, description, email, username} = profile.user;
+    const {name, description, email, username, image} = profile.user;
     const { t } = useTranslation('translation', {keyPrefix: 'screens.edit'});
 
     return (
         <Wrapper>
             <EditContainer>
                 <ImageContainer>
-                    <Avatar source={require('../../../../../assets/images/avatar.jpg')} />
+                    <Avatar source={{uri: image}} />
                     <PencilIcon>
                         <Icon
                             name='ios-pencil-outline'
@@ -87,16 +87,16 @@ const Wrapper = styled.View`
 `;
 
 const EditContainer = styled.View`
-  marginHorizontal: 30px
+  marginHorizontal: 30px;
 `;
 
 const ImageContainer = styled.View`
   alignItems: center;
-  marginTop: 30px
+  marginTop: 30px;
 `;
 
 const Avatar = styled.Image`
-  borderRadius: 100px
+  borderRadius: 100px;
   height: 120px;
   width: 120px;
 `;
@@ -108,7 +108,7 @@ const PencilIcon = styled.View`
   bottom: 30px;
   height: 30px;
   justifyContent: center;
-  left: 40px
+  left: 40px;
   position: relative;
   width: 30px;
 `;
@@ -117,7 +117,7 @@ const NameInput = styled(CustomTextInput)`
   alignSelf: center;
   fontSize: 20px;
   fontWeight: bold;
-  marginBottom: 15px
+  marginBottom: 15px;
 `;
 
 const DescriptionInput = styled(CustomTextInput)`
@@ -125,7 +125,7 @@ const DescriptionInput = styled(CustomTextInput)`
   color: ${props => props.theme.lowerText};
   fontSize: 20px;
   fontWeight: bold;
-  marginBottom: 40px
+  marginBottom: 40px;
 `;
 
 const BottomLineInput = styled(CustomTextInput)`
@@ -144,26 +144,26 @@ const Label = styled.Text`
 
 const InputWithIcon = styled.View`
   borderBottomColor: ${props => props.theme.lowerText};
-  borderBottomWidth: 1px
+  borderBottomWidth: 1px;
   flexDirection: row;
 `;
 
 const InputIcon = styled(Icon)`
-  alignSelf: flex-end
+  alignSelf: flex-end;
 `;
 
 const InputText = styled(CustomTextInput)`
-  fontSize: 16px
+  fontSize: 16px;
   fontWeight: bold;
 `;
 
 const JoinedContainer = styled.View`
   flexDirection: row;
-  margin: 30px
+  margin: 30px;
 `;
 
 const JoinedText = styled.Text`
-  color: ${props => props.theme.text}
+  color: ${props => props.theme.text};
 `;
 
 const JoinedDate = styled.Text`

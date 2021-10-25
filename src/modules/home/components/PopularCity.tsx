@@ -9,9 +9,9 @@ type Props = {
     image: string,
     country: string,
     city: string,
-    rating: string,
-    price: string,
-    cityKey: string,
+    rating: number,
+    price: number,
+    cityKey: string | number[],
     description: string
 }
 
@@ -19,16 +19,15 @@ const PopularCity: React.FC<Props> = ({ image, country, city, rating, price, cit
     const navigation = useNavigation<DetailsScreenNavigationProps>();
     const { t } = useTranslation('translation');
 
-    const test = () => {
-        console.log(description);
+    const navigateToDetails = () => {
         navigation.navigate('Details', {rating, city, country, image, price, cityKey, description});
     };
 
     return (
-        <CityCard onPress={test}>
+        <CityCard onPress={navigateToDetails}>
             <CityImage source={{uri: image}}/>
-            <CountryName>{t('countries.' + country)}</CountryName>
-            <CityName>{t('cities.' + city)}</CityName>
+            <CountryName>{t(`countries.${country}`, 'New Country')}</CountryName>
+            <CityName>{t(`cities.${city}`, 'Awesome City')}</CityName>
             <RatingContainer>
                 <StarIcon width={10} height={10}/>
                 <Rating>{rating}</Rating>
@@ -45,12 +44,12 @@ const CityCard = styled.TouchableOpacity`
   padding: 10px;
   shadowColor: ${props => props.theme.shadowColor};
   shadowOpacity: 0.1;
-  shadowRadius: 10px
+  shadowRadius: 10px;
   width: 160px;
 `;
 
 const CityImage = styled.Image`
-  borderRadius: 4px
+  borderRadius: 4px;
   height: 140px;
   width: 140px;
 `;
@@ -71,7 +70,7 @@ const RatingContainer = styled.View`
   backgroundColor: ${props => props.theme.locationContainer};
   borderRadius: 2px;
   flexDirection: row;
-  padding: 4px
+  padding: 4px;
   position: absolute;
   right: 9px;
   top: 9px;
@@ -81,7 +80,7 @@ const Rating = styled.Text`
   color: ${props => props.theme.ratingText};
   fontSize: 12px;
   fontWeight: bold;
-  marginLeft: 2px
+  marginLeft: 2px;
 `;
 
 export default PopularCity;

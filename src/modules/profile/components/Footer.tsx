@@ -20,7 +20,7 @@ const ProfileFooter = () => {
 };
 
 const Header = styled.Text`
-  color: ${props => props.theme.text}
+  color: ${props => props.theme.text};
 `;
 
 const SwitchText = styled.Text`

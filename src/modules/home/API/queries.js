@@ -6,7 +6,7 @@ export const GET_CITIES = gql`
             country
             city
             image
-            key
+            cityKey
             rating
             price
             description
@@ -15,12 +15,12 @@ export const GET_CITIES = gql`
 `;
 
 export const ADD_CITY = gql`
-    mutation addCity($country: String, $city: String, $image: String, $key: String, $rating: String, $price: String, $description: String) {
-        addCity(country: $country, city: $city, image: $image, key: $key, rating: $rating, price: $price, description: $description) {
+    mutation addCity($country: String, $city: String, $image: String, $cityKey: String, $rating: Float, $price: Int, $description: String) {
+        addCity(country: $country, city: $city, image: $image, cityKey: $cityKey, rating: $rating, price: $price, description: $description) {
           country
           city
           image
-          key
+          cityKey
           rating
           price
           description

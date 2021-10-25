@@ -86,6 +86,6 @@ const ru = {
             'prague': 'Прага'
         }
     }
-}
+};
 
 export default ru;

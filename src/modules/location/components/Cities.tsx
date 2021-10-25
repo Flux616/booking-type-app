@@ -1,14 +1,13 @@
 import React from 'react';
 import { View } from 'react-native';
 import styled from 'styled-components/native';
-import { citiesArray } from '../../../../__mocks__/locationsCititesArray';
 
 const LocationCities = () => (
     <View>
         {citiesArray.map( selected => {
             if (selected.country === 'Germany') {
                 return selected.citiesArray.map( city => (
-                    <Wrapper key={city.id}>
+                    <Wrapper cityKey={city.id}>
                         <CityImage source={city.image}/>
                         <TextArea>
                             <CityName>{city.name}</CityName>
@@ -31,20 +30,20 @@ const Wrapper = styled.View`
 `;
 
 const CityImage = styled.Image`
-  borderRadius: 4px
+  borderRadius: 4px;
   height: 130px;
   width: 100%;
 `;
 
 const TextArea = styled.View`
-  justifyContent: space-around
-  marginLeft: 15px;
+  justifyContent: space-around;
   marginBottom: 15px;
+  marginLeft: 15px;
   marginTop: 10px
 `;
 
 const CityName = styled.Text`
-  fontWeight: bold
+  fontWeight: bold;
   marginTop: 8px;
 `;
 

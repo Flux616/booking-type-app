@@ -8,17 +8,17 @@ export type RootStackParamList = {
         image: string,
         country: string,
         city: string,
-        rating: string,
-        price: string,
-        cityKey: string,
+        rating: number,
+        price: number,
+        cityKey: string | number[],
         description: string
     },
     Location: {
         image: string,
         country: string,
         city: string,
-        rating: string,
-        price: string
+        rating: number,
+        price: number
     },
     EditProfile: undefined
 }
@@ -32,13 +32,13 @@ export type Profile = {
     status: string
 }
 
-export type Location = {
+export type City = {
     country: string,
     city: string,
     image: string,
-    key: string,
-    rating: string,
-    price: string,
+    cityKey: string | number[],
+    rating: number,
+    price: number,
     description: string
 }
 

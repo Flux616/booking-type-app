@@ -7,11 +7,11 @@ import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
 type Props = {
     image: string,
-    rating: string,
-    price: string,
+    rating: number,
+    price: number,
     country: string,
     city: string,
-    cityKey: string,
+    cityKey: string | number[],
     description: string
 }
 
@@ -19,8 +19,12 @@ const NearestItem: React.FC<Props> = ({ image, rating, price, country, city, cit
     const navigation = useNavigation<DetailsScreenNavigationProps>();
     const { t } = useTranslation('translation');
 
+    const navigateToDetails = () => {
+        navigation.navigate('Details', {rating, city, country, image, price, cityKey, description});
+    };
+
     return (
-        <CityCard onPress={() => navigation.navigate('Details', { rating, city, country, image, price, cityKey, description })}>
+        <CityCard onPress={navigateToDetails}>
             <CityImage source={{uri: image}} />
             <RatingContainer>
                 <StarSvg height={10} width={10} />
@@ -30,23 +34,23 @@ const NearestItem: React.FC<Props> = ({ image, rating, price, country, city, cit
                 <Price>{price}{t('screens.home.suggestions.price')}</Price>
             </PriceContainer>
             <TextArea>
-                <CountryName>{t('countries.' + country)}</CountryName>
-                <CityName>{t('cities.' + city)}</CityName>
+                <CountryName>{t(`countries.${country}`, 'New Country')}</CountryName>
+                <CityName>{t(`cities.${city}`, 'Awesome City')}</CityName>
             </TextArea>
         </CityCard>
     );
 };
 
 const CityCard = styled.TouchableOpacity`
-  flexDirection: row;
-  padding: 10px;
-  margin: 10px;
-  height: 120px;
-  borderRadius: 4px;
   backgroundColor: ${props => props.theme.locationContainer};
+  borderRadius: 4px;
+  flexDirection: row;
+  height: 120px;
+  margin: 10px;
+  padding: 10px;
   shadowColor: ${props => props.theme.shadowColor};
-  shadowOpacity: 0.1
-  shadowRadius: 10px
+  shadowOpacity: 0.1;
+  shadowRadius: 10px;
 `;
 
 const CityImage = styled.Image`
@@ -66,21 +70,21 @@ const RatingContainer = styled.View`
 
 const Rating = styled.Text`
   color: ${props => props.theme.ratingText};
-  fontSize: 16px
+  fontSize: 16px;
   fontWeight: bold;
 `;
 
 const PriceContainer = styled.View`
   borderRadius: 4px;
   bottom: 0px;
-  padding: 14px
+  padding: 14px;
   position: absolute;
   right: 0px;
 `;
 
 const Price = styled.Text`
   color: ${props => props.theme.ratingText};
-  fontSize: 17px
+  fontSize: 17px;
   fontWeight: bold;
 `;
 
@@ -103,7 +107,7 @@ const CityName = styled.Text`
 `;
 
 const StarSvg = styled(StarIcon)`
-  marginRight: 3px
+  marginRight: 3px;
   marginTop: 4px;
 `;
 

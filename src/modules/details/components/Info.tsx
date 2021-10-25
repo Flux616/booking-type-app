@@ -10,7 +10,7 @@ import BathIcon from '../../../components/BathIcon';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components/native';
 
-type Props = { rating: string, city: string, country: string }
+type Props = { rating: number, city: string, country: string }
 
 type FeatureProps = { SVG: JSX.Element, text: string }
 
@@ -40,8 +40,8 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
         },
     ];
 
-    const createTable = (rating: string) => {
-        const ratingNum = parseFloat(rating);
+    const createTable = (rating: number) => {
+        const ratingNum = rating;
         const ratingTable = [];
         let counter = 0;
 
@@ -71,8 +71,8 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
     return (
         <View>
             <TextArea>
-                <CityName>{t('cities.' + city)}</CityName>
-                <CountryName>{t('countries.' + country)}</CountryName>
+                <CityName>{t(`cities.${city}`, 'New County')}</CityName>
+                <CountryName>{t(`countries.${country}`, 'Awesome City')}</CountryName>
                 <RatingContainer>
                     {createTable(rating)}
                 </RatingContainer>
@@ -90,13 +90,13 @@ const Info: React.FC<Props> = ({rating, city, country}) => {
 const TextArea = styled.View`
   height: 65px;
   justifyContent: space-between;
-  marginTop: 15px
+  marginTop: 15px;
 `;
 
 const CityName = styled.Text`
   color: ${props => props.theme.text}
   fontWeight: bold;
-  fontSize: 24px
+  fontSize: 24px;
 `;
 
 const CountryName = styled.Text`
@@ -114,7 +114,7 @@ const RatingContainer = styled.View`
 const FeatContainer = styled.View`
   alignItems: center;
   backgroundColor: ${props => props.theme.featContainer};
-  borderRadius: 10px
+  borderRadius: 10px;
   height: 70px;
   justifyContent: space-around;
   marginBottom: 20px;
@@ -126,19 +126,19 @@ const FeatContainer = styled.View`
 
 const FeatText = styled.Text`
   color: ${props => props.theme.lowerText};
-  fontSize: 12px
+  fontSize: 12px;
 `;
 
 const StarSvg = styled(StarIcon)`
-  marginRight: 5px
+  marginRight: 5px;
 `;
 
 const HalfStarSvg = styled(HalfStarIcon)`
-  marginRight: 5px
+  marginRight: 5px;
 `;
 
 const EmptyStarSvg = styled(EmptyStarIcon)`
-  marginRight: 5px
+  marginRight: 5px;
 `;
 
 export default Info;

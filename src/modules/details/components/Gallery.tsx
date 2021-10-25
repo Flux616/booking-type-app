@@ -22,7 +22,7 @@ const Gallery = () => {
 };
 
 const Wrapper = styled.View`
-  marginTop: 20px
+  marginTop: 20px;
 `;
 
 const ImageList = styled.FlatList.attrs(() => ({

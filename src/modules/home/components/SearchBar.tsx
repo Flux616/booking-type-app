@@ -4,18 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styled, { useTheme } from 'styled-components/native';
-import { DetailsScreenNavigationProps, Location } from '../../../config/navigation/types';
-import LocationsStore from '../../../config/stores/locations';
-import { addCity } from '../API/queries';
+import { DetailsScreenNavigationProps, City } from '../../../config/navigation/types';
+import CitiesStore from '../../../config/stores/cities';
 
 const HomeSearchBar = () => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
     const { t } = useTranslation('translation', { keyPrefix: 'screens.home.searchBar'});
     const [cityInput, setCityInput] = useState('');
     const theme = useTheme();
-    const countryList = LocationsStore.locations;
+    const countryList = CitiesStore.cities;
 
-    const searchCity = (countryList: Array<Location>, cityInput: string) => {
+    const searchCity = (countryList: Array<City>, cityInput: string) => {
         const filteredCity = countryList.filter(({city}: {city: string}) => city === cityInput)[0];
         if (filteredCity) {
             return navigation.navigate('Details', filteredCity);
@@ -45,7 +44,7 @@ const HomeSearchBar = () => {
 const Wrapper = styled.View`
   flexDirection: row;
   justifyContent: space-between;
-  marginBottom: 10px
+  marginBottom: 10px;
   marginHorizontal: 10px;
   marginTop: 30px;
 `;

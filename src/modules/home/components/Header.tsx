@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import styled, { useTheme } from 'styled-components/native';
 import profile from '../../../config/stores/profile';
 import ThemeStore from '../../../config/stores/theme';
-import LocationsStore from '../../../config/stores/locations';
+import CitiesStore from '../../../config/stores/cities';
 
 const Header = () => {
     const { t } = useTranslation('translation', { keyPrefix: 'screens.home.header'});
@@ -21,7 +21,7 @@ const Header = () => {
                     color={theme.toggleIcon}
                 />
             </ThemeToggler>
-            <CityAdder onPress={() => LocationsStore.pushNewCity()}>
+            <CityAdder onPress={() => CitiesStore.addNewCity()}>
                 <Icon
                     name='add-circle-outline'
                     size={30}
@@ -42,13 +42,13 @@ const Header = () => {
 const Wrapper = styled.View`
   flexDirection: row;
   justifyContent: space-between;
-  marginHorizontal: 10px
+  marginHorizontal: 10px;
 `;
 
 const WelcomeText = styled.Text`
   color: ${props => props.theme.schemeColor};
   fontSize: 20px;
-  fontWeight: bold
+  fontWeight: bold;
 `;
 
 const IntroText = styled.Text`
@@ -57,7 +57,7 @@ const IntroText = styled.Text`
 `;
 
 const Avatar = styled.Image`
-  borderRadius: 50px
+  borderRadius: 50px;
   height: 50px;
   width: 50px;
 `;
@@ -65,13 +65,13 @@ const Avatar = styled.Image`
 const ThemeToggler = styled.TouchableOpacity`
   alignItems: center;
   justifyContent: center;
-  paddingLeft: 5px
+  paddingLeft: 5px;
 `;
 
 const CityAdder = styled.TouchableOpacity`
   alignItems: center;
   justifyContent: center;
-  paddingLeft: 5px
+  paddingLeft: 5px;
 `;
 
 export default observer(Header);
