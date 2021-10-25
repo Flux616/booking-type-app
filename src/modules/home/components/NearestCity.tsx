@@ -1,51 +1,56 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ImageSourcePropType } from 'react-native';
 import styled from 'styled-components/native';
 import StarIcon from '../../../components/StarIcon';
 import { DetailsScreenNavigationProps } from '../../../config/navigation/types';
 
 type Props = {
-    image: ImageSourcePropType;
-    rating: number;
-    price: number;
-    country: string;
-    city: string;
+    image: string,
+    rating: number,
+    price: number,
+    country: string,
+    city: string,
+    cityKey: string | number[],
+    description: string
 }
 
-const NearestItem: React.FC<Props> = ({ image, rating, price, country, city }) => {
+const NearestItem: React.FC<Props> = ({ image, rating, price, country, city, cityKey, description }) => {
     const navigation = useNavigation<DetailsScreenNavigationProps>();
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.home.suggestions'});
+    const { t } = useTranslation('translation');
+
+    const navigateToDetails = () => {
+        navigation.navigate('Details', {rating, city, country, image, price, cityKey, description});
+    };
 
     return (
-        <CityCard onPress={() => navigation.navigate('Details', { rating, city, country, image, price })}>
-            <CityImage source={image} />
+        <CityCard onPress={navigateToDetails}>
+            <CityImage source={{uri: image}} />
             <RatingContainer>
                 <StarSvg height={10} width={10} />
                 <Rating>{rating}</Rating>
             </RatingContainer>
             <PriceContainer>
-                <Price>{price}{t('price')}</Price>
+                <Price>{price}{t('screens.home.suggestions.price')}</Price>
             </PriceContainer>
             <TextArea>
-                <CountryName>{country}</CountryName>
-                <CityName>{city}</CityName>
+                <CountryName>{t(`countries.${country}`, 'New Country')}</CountryName>
+                <CityName>{t(`cities.${city}`, 'Awesome City')}</CityName>
             </TextArea>
         </CityCard>
     );
 };
 
 const CityCard = styled.TouchableOpacity`
-  flexDirection: row;
-  padding: 10px;
-  margin: 10px;
-  height: 120px;
-  borderRadius: 4px;
   backgroundColor: ${props => props.theme.locationContainer};
+  borderRadius: 4px;
+  flexDirection: row;
+  height: 120px;
+  margin: 10px;
+  padding: 10px;
   shadowColor: ${props => props.theme.shadowColor};
-  shadowOpacity: 0.1
-  shadowRadius: 10px
+  shadowOpacity: 0.1;
+  shadowRadius: 10px;
 `;
 
 const CityImage = styled.Image`
@@ -65,21 +70,21 @@ const RatingContainer = styled.View`
 
 const Rating = styled.Text`
   color: ${props => props.theme.ratingText};
-  fontSize: 16px
+  fontSize: 16px;
   fontWeight: bold;
 `;
 
 const PriceContainer = styled.View`
   borderRadius: 4px;
   bottom: 0px;
-  padding: 14px
+  padding: 14px;
   position: absolute;
   right: 0px;
 `;
 
 const Price = styled.Text`
   color: ${props => props.theme.ratingText};
-  fontSize: 17px
+  fontSize: 17px;
   fontWeight: bold;
 `;
 
@@ -102,7 +107,7 @@ const CityName = styled.Text`
 `;
 
 const StarSvg = styled(StarIcon)`
-  marginRight: 3px
+  marginRight: 3px;
   marginTop: 4px;
 `;
 

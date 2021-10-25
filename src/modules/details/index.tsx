@@ -11,15 +11,15 @@ import styled from 'styled-components/native';
 type Props = { route: DetailsScreenRouteProp }
 
 const Details: React.FC<Props> = ({ route }) => {
-    const {rating, city, country, image, price} = route.params;
+    const {rating, city, country, image, price, cityKey, description} = route.params;
 
     return (
         <Wrapper>
             <SafeArea>
                 <ScrollView showsVerticalScrollIndicator={false}>
-                    <Preview image={image}/>
+                    <Preview image={image} cityKey={cityKey}/>
                     <Info rating={rating} city={city} country={country}/>
-                    <Description/>
+                    <Description description={description} cityKey={cityKey}/>
                     <Gallery/>
                 </ScrollView>
                 <Footer price={price}/>
@@ -31,12 +31,12 @@ const Details: React.FC<Props> = ({ route }) => {
 const SafeArea = styled.SafeAreaView`
   flex: 1;
   justifyContent: space-between;
-  marginHorizontal: 20px
+  marginHorizontal: 20px;
 `;
 
 const Wrapper = styled.View`
   backgroundColor: ${props => props.theme.background};
-  flex: 1
+  flex: 1;
 `;
 
 export default Details;

@@ -6,7 +6,7 @@ import { GalleryImageProp } from '../../../config/navigation/types';
 import ImageGrid from './ImageGrid';
 
 const Gallery = () => {
-    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.gallery'})
+    const { t } = useTranslation('translation', {keyPrefix: 'screens.details.gallery'});
 
     return (
         <Wrapper>
@@ -19,11 +19,11 @@ const Gallery = () => {
             />
         </Wrapper>
     );
-}
+};
 
 const Wrapper = styled.View`
-marginTop: 20px
-`
+  marginTop: 20px;
+`;
 
 const ImageList = styled.FlatList.attrs(() => ({
     contentContainerStyle: {
@@ -31,12 +31,12 @@ const ImageList = styled.FlatList.attrs(() => ({
         justifyContent: 'space-between',
         marginTop: 10
     }
-}))``
+}))``;
 
 const Title = styled.Text`
-fontWeight: bold;
-fontSize: 18px;
-color: ${props => props.theme.text}
-`
+  color: ${props => props.theme.text};
+  fontSize: 18px;
+  fontWeight: bold;
+`;
 
 export default Gallery;

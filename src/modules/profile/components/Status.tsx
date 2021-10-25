@@ -57,7 +57,7 @@ const ButtonContainer = styled.TouchableOpacity`
 const ButtonRow = styled.FlatList`
   flexGrow: 0;
   marginTop: 15px;
-  overflow: visible
+  overflow: visible;
 `;
 
 const ButtonBody = styled.View<StyledButtonProps>`
@@ -70,7 +70,7 @@ const ButtonBody = styled.View<StyledButtonProps>`
 
 const ButtonText = styled.Text`
   color: ${props => props.theme.whiteText};
-  fontSize: 18px
+  fontSize: 18px;
 `;
 
 export default ProfileStatus;

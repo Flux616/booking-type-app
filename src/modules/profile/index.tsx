@@ -28,7 +28,7 @@ const Wrapper = styled.View`
 `;
 
 const ProfileContainer = styled.View`
-  flex: 1
+  flex: 1;
   justifyContent: space-around;
   marginHorizontal: 30px;
 `;

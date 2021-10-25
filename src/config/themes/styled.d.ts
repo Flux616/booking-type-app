@@ -11,6 +11,7 @@ declare module 'styled-components' {
         featIcon: string
         shadowColor: string,
         toggleIcon: string,
+        doneIcon: string,
         descriptionText: string,
         schemeColor: string,
         lowerText: string,

@@ -8,6 +8,7 @@ const dark: DefaultTheme = {
     searchBar: '#202124',
     featContainer: '#202124',
     featIcon: '#bbb',
+    doneIcon: '#00b300',
     shadowColor: '#202124',
     toggleIcon: '#808080',
     descriptionText: '#BFBFBF',

@@ -21,7 +21,7 @@ const ProfileDashboard = () => {
 };
 
 const Header = styled.Text`
-  color: ${props => props.theme.text}
+  color: ${props => props.theme.text};
 `;
 
 export default ProfileDashboard;

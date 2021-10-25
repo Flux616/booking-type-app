@@ -27,7 +27,7 @@ const Label = styled.Text`
 `;
 
 const Input = styled.TextInput`
-  color: ${props => props.theme.text}
+  color: ${props => props.theme.text};
 `;
 
 export default CustomTextInput;

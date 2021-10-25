@@ -1,19 +1,20 @@
 import { RouteProp } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { ImageSourcePropType } from 'react-native';
 
 export type RootStackParamList = {
     HomeTabs: undefined,
     Details: {
-        image: ImageSourcePropType,
+        image: string,
         country: string,
         city: string,
         rating: number,
-        price: number
+        price: number,
+        cityKey: string | number[],
+        description: string
     },
     Location: {
-        image: ImageSourcePropType,
+        image: string,
         country: string,
         city: string,
         rating: number,
@@ -23,7 +24,7 @@ export type RootStackParamList = {
 }
 
 export type Profile = {
-    image: ImageSourcePropType,
+    image: string,
     name: string,
     description: string,
     email: string,
@@ -31,16 +32,17 @@ export type Profile = {
     status: string
 }
 
-export type Location = {
+export type City = {
     country: string,
     city: string,
-    image: ImageSourcePropType,
-    key: string,
+    image: string,
+    cityKey: string | number[],
     rating: number,
-    price: number
+    price: number,
+    description: string
 }
 
-export type GalleryImageProp = { path: ImageSourcePropType, id: string }
+export type GalleryImageProp = { path: string, id: string }
 
 export type DetailsScreenRouteProp = RouteProp<RootStackParamList, 'Details'>
 

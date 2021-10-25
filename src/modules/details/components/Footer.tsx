@@ -21,38 +21,38 @@ const Footer: React.FC<Props> = ({price}) => {
 };
 
 const Wrapper = styled.View`
-flexDirection: row;
-height: 65px;
-paddingBottom: 10px
-paddingTop: 10px;
+  flexDirection: row;
+  height: 65px;
+  paddingBottom: 10px;
+  paddingTop: 10px;
 `;
 
 const TextArea = styled.View`
-flex: 1;
-justifyContent: space-between
+  flex: 1;
+  justifyContent: space-between;
 `;
 
 const Title = styled.Text`
-color: ${props => props.theme.lowerText}
+  color: ${props => props.theme.lowerText};
 `;
 
 const Price = styled.Text`
-color: ${props => props.theme.text};
-fontSize: 18px;
-fontWeight: bold;
+  color: ${props => props.theme.text};
+  fontSize: 18px;
+  fontWeight: bold;
 `;
 
 const BookButton = styled.TouchableOpacity`
-alignItems: center;
-backgroundColor: ${props => props.theme.schemeColor};
-borderRadius: 5px
-flex: 1;
-justifyContent: center;
+  alignItems: center;
+  backgroundColor: ${props => props.theme.schemeColor};
+  borderRadius: 5px;
+  flex: 1;
+  justifyContent: center;
 `;
 
 const BookText = styled.Text`
-color: ${props => props.theme.whiteText};
-fontWeight: 800
+  color: ${props => props.theme.whiteText};
+  fontWeight: 800;
 `;
 
 export default Footer;
